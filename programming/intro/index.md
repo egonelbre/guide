@@ -1,15 +1,15 @@
 ## Why
 
-{{ why.md }}
+{{why.md}}
 
 ## Premise
 
-{{ premise.md }}
+{{premise.md}}
 
 ## Value
 
-{{ value.md }}
+{{value.md}}
 
 ## Building
 
-{{ building.md }}
+{{building.md}}

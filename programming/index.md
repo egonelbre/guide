@@ -2,12 +2,12 @@
 
 # Introduction
 
-{{ ./intro/index.md }}
+{{intro/index.md}}
 
 # Issue Tracker
 
-{{ ./issue-tracker/index.md }}
+{{issue-tracker/index.md}}
 
 # Wiki
 
-{{ ./wiki/index.md }}
+{{wiki/index.md}}
