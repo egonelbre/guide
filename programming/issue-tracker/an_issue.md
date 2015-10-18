@@ -1,100 +1,4 @@
-=============
-Issue Tracker
-=============
-
-
-Building with value
-===================
-
-I've been thinking what is the best way of developing new things for a while.
-Finally I think I've found a process and hopefully it will help you:
-
-1. find and understand value,
-2. contain,
-3. sketch,
-4. clarify,
-5. solidify,
-6. go back to 1.
-
-That's it...
-
-Yes it's stupidly simple, but it actually works quite well once you understand it.
-The easiest way to get a feeling for it is to see it in action.
-
-This process is explained with Go, but it works also in other languages.
-
-Premise
-=======
-
-As an example case-study we'll take *issue tracker*. Probably you have seen
-one and maybe used one, so it's an easy enough example to understand.
-
-We start with a simple premise:
-
-A company of 40 people have problems seeing all the issues that the company
-is facing and that need to be solved. Traditional issue trackers don't have
-the clarity that they need.
-
-> Note: there are issue trackers that probably do what we are going to build.
-> It can make more business sense to buy an Issue Tracker instead of building
-> your own. This "Issue Tracker" is for learning purposes and we make
-> decisions that may not be the best business decisions, although
-> they will provide more learning experience.
-
-
-Value
-=====
-
-> ... starting in The Mist, you are seeking ways to create Value,
-> where value is defined as something of worth to some person or set
-> of people whom we wish to serve. - [Value Stream - ScrumPLoP](https://sites.google.com/a/scrumplop.org/published-patterns/value-stream)
-
-I'm going to use the word `value` a lot. Why? Because it's the most important
-part of the software you are building. If you are not creating value you are
-wasting resources: your own time, your money, other people's time...
-
-To "creating something of value" means that people can benefit from it, even
-when it's not providing all the value it could provide. The longer you are
-not providing value, the longer you don't get feedback of usefulness.
-
-`Value` can take many forms:
-
-* Functionality for an end-user
-* Functionality for a developer
-* Knowledge from research
-* Knowledge from a prototype
-
-It's obvious how functionality helps to create value. Knowledge makes it easier
-to deliver more value to the users.
-
-As a thought exercise:
-
-Does "login feature" provide value? Well it's a feature, so it must have some value.
-A great question is to ask, has anyone triumphantly said "I logged into the system
-today, I got so much done." Not really, so does that mean it doesn't have value?
-
-Logging in is more of an annoyance than something of value, but it does prevent
-loss of value. The only goal of it is to protect value. Logging in is not the
-only way of protecting value, you could make backups or make it only accessible
-from internal network etc.
-
-Logging in has no value, if you don't have any value to protect.
-If you have already protected your value, then it also doesn't have value.
-
-There are several important pieces here:
-1. Not all features have value.
-2. Value is not a constant.
-3. Value of things changes.
-
-
-Issue
-=====
-
-1. Finding and understanding value
-----------------------------------
-
-What provides value in an "Issue Tracker". Often you can determine the importance
-of things by seeing how much it is mentioned.
+What provides value in an "Issue Tracker". Often you can determine the importance of things by seeing how much it is mentioned.
 
 > "What things are we working on?"
 > "I need to finish this issue."
@@ -109,9 +13,7 @@ Why is "issue" valueable?
 * It shows what we are doing.
 * They help to prioritize things.
 
-
-2. Contain it
--------------
+### Contain it
 
 When something is important we want to capture it in code. We want to keep it
 together and not break it up into several pieces. By breaking things apart
@@ -136,8 +38,7 @@ We start with a package issue:
 
 We also add a main.go for sketching out our code.
 
-3. Sketch the code
-------------------
+### Sketch the code
 
 Here we try to figure out what are the essential parts of an issue. Here's
 what I've come up with:
@@ -235,8 +136,7 @@ rest of the system. So I usually leave the tests for later, unless I'm working
 with clearly defined behavior.
 
 
-4. Clarify the code
--------------------
+### Clarify the code
 
 Notice that we actually don't have runnable code yet, and it's fine, because
 we are trying to sketch out how all the pieces interact and make sure that the
@@ -281,8 +181,7 @@ type Tracker interface {
 Obviously adjusting the main.go as necessary.
 
 
-5. Solidify the code
---------------------
+### Solidify the code
 
 Now we have a good idea about the feature and how to put it into code,
 we shall go over and fill in all the missing details and ensure that we
@@ -338,8 +237,7 @@ necessary information right now and I will probably find out the details
 while implementing other things.
 
 
-6. Value done
---------------------
+### Is it done?
 
 Now we have captured something of value in code. It can't be used easily
 right now, but we have something that someone would like to use.

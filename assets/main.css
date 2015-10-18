@@ -1,0 +1,122 @@
+body {
+  padding: 48px;
+  font: 16px/1.5 Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  color: #333;
+  font-weight: 300;
+
+  max-width: 700px;
+  margin: 0 auto;
+
+  background: #fffff8;
+
+  text-align: justify;
+}
+
+h1 {
+	font-size: 40px; font-weight: 800; color: #444;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	margin-left: -1.5em;
+	margin-right: -1.5em;
+	background: #BEE1FF;
+	padding: 1.5em 1.5em 0.5em 1.5em;
+	border-bottom: 0.2em solid #6C89BF;
+}
+h2 {
+	font-size: 32px; font-weight: 800; color: #444;
+	margin-top: 1.5em;
+	border-bottom: 0.2em solid #444;
+}
+h3 {
+	font-size: 20px; font-weight: 600; color: #444;
+	margin-top: 1.5em;
+}
+h4 {
+	font-size: 16px; font-weight: 600; color: #444;
+	margin-top: 1.5em;
+}
+h5 {
+	font-size: 16px; font-weight: 600; color: #444;
+	margin-top: 1.5em;
+}
+
+h1        { counter-increment: h1-counter; counter-reset: h2-counter; }
+h2        { counter-increment: h2-counter; counter-reset: h3-counter; }
+h3        { counter-increment: h3-counter; counter-reset: h4-counter;}
+h1:before { content: counter(h1-counter) ". "; }
+h2:before { content: counter(h1-counter) "." counter(h2-counter) ". "; }
+h3:before { content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) ". "; }
+h4:before { content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) ". "; }
+
+h1.title:before { content: ""; counter-reset: h1-counter; }
+h1.title        { counter-increment: none; }
+
+h1:before, h2:before, h3:before, h4:before {
+	font-size: 70%;
+	margin-right: 0.3em;
+}
+
+pre, code {
+	font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
+}
+
+code {
+	background: #f0f0f0;
+	padding: 2px 4px;
+	border-radius: 3px;
+}
+pre code {
+	background: transparent;
+}
+
+pre {
+	background: #f0f0f0;
+	padding: 8px 16px;
+	border-radius: 1px;
+
+	line-height: 1.2;
+	font-size: 14px;
+}
+
+blockquote {
+	margin: 3em auto;
+	max-width: 600px;
+}
+
+blockquote.epigraph > * {
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+.epigraph {
+	font-style: italic;
+}
+
+.epigraph footer {
+	font-style: normal;
+	border-top: 1px solid #ccc;
+	padding-top: 8px;
+	margin-top: 8px;
+	text-align: right;
+
+	page-break-inside: avoid;
+}
+
+@media print {
+	body {
+		background: transparent;
+		max-width: auto;
+	}
+	h1 {
+		background: #BEE1FF;
+		page-break-before: always;
+	}
+
+	h1:first-child {
+		page-break-before: avoid;
+	}
+
+	p, blockquote, pre {
+		page-break-inside: avoid;
+	}
+}

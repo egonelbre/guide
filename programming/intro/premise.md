@@ -2,8 +2,19 @@
 > It's not for you Jen.
 Quote: -- IT Crowd
 
-I should clarify for whom this book is for. It is intended for people who already know how to write code, how to learn on their own and search answers on the internet on their own.
+Obviously, no book is perfect for everyone, so it helps to clarify what is
+expected from the reader.
 
-It will not go into technical details, unless they are relevant to the problem at hand. If I skip technical details, I will point to appropriate links that describe it in depth. If you feel that something should contain such link, let me know.
+First, you should be familiar with programming. It is not necessary that you
+have written a big program, however it could help you to understand the issues
+better.
 
-Although most of the examples are in `Go` the principles should work in other languages. However, some of the exact details how you ensure package boundaries is different.
+Second, you should be able to search and learn the necessary implementation
+details on your own. For example, when the book requires the use of HTML, the
+reader should go and learn about it. It will go into technical details only
+when it is necessary.
+
+Third, this book uses Go, but the same principles apply to any language. The
+building process is the constant between languages, although the implementation
+details can vary significantly. If you are not familiar with Go then please
+learn the basics before proceeding.

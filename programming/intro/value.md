@@ -1,73 +1,117 @@
 {.epigraph}
-> Try not to become a man of success,
-> but rather try to become a man of value.
-Quote: -- Albert Einstein
+> ... starting in The Mist, you are seeking ways to create Value,
+> where value is defined as something of worth to some person or set
+> of people whom we wish to serve.
+Quote: -- [Value Stream - ScrumPLoP](https://sites.google.com/a/scrumplop.org/published-patterns/value-stream)
 
-We will bring up this word a lot -- `value`. It is essential to understand
-what it means. It is the reason why we are writing programs in the first place. If you are not creating something of value, we are wasting resources.
+Why do we write programs in the first place?
 
-### What is valuable?
+Obviously we want to provide ***value*** to people, not waste.
+This is why ***value*** is so important, it helps us ground in search for solutions.
+It helps us understand why we are doing things in the first place.
+If you are not creating something of ***value*** then you are creating waste.
 
-First of all, when we say something is of `value`, we mean that it brings some benefit to someone. For example:
 
-* the internet is `valuable` because it can connect people to information with very little cost,
-* a keyboard is `valuable` because it allows to interact with the computer and
-* an text editor is `valuable` because it allows to modify and adjust text with ease.
+### Valuable
 
-### When is it valuable?
+To understand ***value*** we must first understand why do we call things ***valuable***.
 
-One of the important points here is that the `value` something provides is very dependent on the context where the thing exists. If there isn't any information on the internet, then its value is lessened. When there is no computer for the keyboard, then it's just a thing. Text editor isn't valuable when there is nothing to write.
+In the simplest terms when X is ***valuable*** to someone Y it means,
+that X has importance to Y, it can bring benefit to Y in some way.
 
-Of course, it all is common sense, but it brings on few subtle points.
+This is not rocket science:
 
-> Does "logging in to a system" have value?
+* the internet is valuable because it can connect people to information with very little cost,
+* a keyboard is valuable because it allows to interact with the computer and
+* an text editor is valuable because it allows to modify and adjust text with ease.
 
-First reaction would be to say, "Yes, of course it does?". But, let's separate it.
+We know and feel when something is valuable to us and we can emphatize
+when something is valuable to someone else. We should embrace this inner
+feeling and let it guide us.
 
-> Have you ever said "I got so much value out of logging into the system"?
 
-I doubt it. So we would have to conclude that "No, of course it doesn't, it's simply an annoyance"?
+### The Context
 
-As you may have guessed neither answer is correct. The goal of "logging in" is to protect value, rather than be of value. For example if the system that it protects contains no value, then "logging in" holds absolutely no value. When it's a bank system and allows to make transfers, it is as valuable as much money you have on your account. Of course, to the banks it's of huge value, because if the protection is not in place correctly, it decreases trust in that bank.
+However, understanding ***value*** is not this easy. We must always bear in mind
+that the ***value*** something possesses is deeply tied in the context where
+it exists.
 
-### Who benefits from the value?
+* If there isn't information on the internet, then it's not as valuable.
+* If there is no computer for the keyboard, then the keyboard is not useful.
+* If you have nothing to write, then a text editor is not valuable.
 
-There is also the aspect of who is benefiting from the `value`. Even if the internet contains a lot of information, but not in the speciality that you need -- then it is not valuable; even though it can be very valuable to someone else.
+This is all common sense, but these examinations help us examine more important
+questions. Let's take something more difficult.
 
-You could:
+*Does 'logging in to a system' have value?*
+First reaction would be to say, *"Yes, of course it does.?"*
+But, have you ever said, *"I got so much value from logging in to the system?"*
+I doubt it. Should we conclude that *"No, of course logins have no value, they are only an annoyance?"*
 
-* provide value for the user,
-* provide value for the designer or
-* provide value for yourself.
+As you may have already guessed, neither answer is correct.
+The goal of "logging in" is to protect ***value***, rather than to be of ***value***.
+If there is no login screen for a system that you don't use, then it is not of
+importance to you.
+When it's a online bank login, the login is as valuable to you, as how much money
+you have on your accounts.
+For the banks the login system is very important, although it may not be of any value.
 
-By providing value directly to the user, we make something useful that another can directly use. If we provide value for a designer on our team, we make iterating on value faster. And by providing value to ourselves we build things that are necessary for the thing to work, but the end-user doesn't necessarily care about.
+It's not as simple as *"Does login have value?"*, the ***value*** of something
+will be deeply tied to where it happens.
 
-Even though the value will be directly provided to other people, you should never lose sight of the end-user... because he will be the main user of the system.
 
-EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND
+### Evaluator
 
-### Alternative solutions
+You should also have noticed that the value will also depend on who is
+doing the evaluating. We have to keep in mind that there is always a evaluator
+when looking at value.
 
-When we talk about "logging in to a system" in some cases we could substitute with something else that has the same purpose. If I'm the only one accessing the program, do I really need to login? When a single company is using a tool internally, does it need "login", if it is not exposed on the internet?
+When creating value we should always look through the eyes of the person
+that we are creating the value for. And the person we provide value
+for can change. Let's say we are building a wooden-box.
 
-Here we realize that there is not a single way of providing the same value, there are multiple. Some ways of providing the value are nicer for the benefitor.
+In the simplest case we are providing value for the end-user.
+You make a wooden-box and the end-user uses it.
 
-EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND
+1. We could provide value to some other person in your team.
+You cut few boards and give them to another person to assemble.
+The end-user really doesn't care about those boards, they are not valuable to him.
+2. We could provide value to ourselves.
+I make a jig that allows me to cut boards faster and with less effort.
+Neither the person doing the assembly or end-user won't care about the jig.
+3. All of these things help to provide value to the end-user. It is something
+that we must keep in our minds, value helps to create ***value***.
 
-### Why exactly is something valuable?
+We shouldn't restrict our minds to creating "boxes", but rather see the
+bigger picture. How is the box valuable to the end-user, how will he use it.
+Does he hold very lightweight things there - this means we can make the box
+sides thinner and reduce waste. Does he use different things there, maybe we
+can add separators into the box.
 
-As we saw from the previous discussion, the way something provides value is essential to understand what can be used instead. For example, if we can avoid writing a "login system" and simply expose the software on a local network -- we have made the program more convenient to use and not wasted that much time on writing that "login system".
+Understanding what is created and why things are valuable to people is
+essential to making good decisions, in general.
 
-EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND
 
-### Changes are inevitable
+### Outside the box
 
-EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND
+We should have a bigger view and understand that we can get same value
+from multiple solutions. Engineering is about understanding those different
+solutions and deciding which is the most appropriate.
 
-### Summary
+When we look at the "logging in to a system" case.
+If the data can be public, then we won't need a login.
+Are we only using it on our own computer, no login necessary.
+Are we only using it from within a intranet, no login necessary.
 
-Value will be at the core at our decision making, it helps to give us clarity why we are doing something and not doing something else.
+Look for multiple solutions, you can avoid a lot of work this way.
 
-By ensuring that each step in our building process uses value we ensure that we get something of value at the end. Try to always understand `value` at the level of end-user.
 
-EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND EXPAND
+### Decisions
+
+Value will be at the core at our decision making, it helps to give us clarity
+why we are doing something and not doing something else.
+Always understand what the ***value*** is for the end-user,
+because there all the things built must come together.
+
+All of this talk about ***value*** may seem fluffy, but we will soon put all
+this understanding to the test.

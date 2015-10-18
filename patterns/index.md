@@ -14,6 +14,10 @@
 
 {{ structure_follows_value.md }}
 
+## Spiking
+
+{{ spiking.md }}
+
 ## Gradual Stiffening
 
 {{ gradual_stiffening.md }}
