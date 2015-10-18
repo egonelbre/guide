@@ -10,6 +10,7 @@ body {
   background: #fffff8;
 
   text-align: justify;
+  tab-size: 4;
 }
 
 h1 {
@@ -59,16 +60,13 @@ h1:before, h2:before, h3:before, h4:before {
 pre, code {
 	font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
 }
-
 code {
 	background: #f0f0f0;
-	padding: 2px 4px;
 	border-radius: 3px;
 }
 pre code {
 	background: transparent;
 }
-
 pre {
 	background: #f0f0f0;
 	padding: 8px 16px;
@@ -76,6 +74,23 @@ pre {
 
 	line-height: 1.2;
 	font-size: 14px;
+}
+.callout {
+	display: inline-block;
+
+	width: 1.2em;
+	height: 1.2em;
+	line-height: 1.2em;
+
+	font-size: x-small;
+	font-family: monospace;
+
+	background: #666;
+	color: #fff;
+	border-radius: 50%;
+
+	text-align: center;
+	vertical-align: middle;
 }
 
 blockquote {

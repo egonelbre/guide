@@ -1,87 +1,99 @@
-What provides value in an "Issue Tracker". Often you can determine the importance of things by seeing how much it is mentioned.
+Here is our first important question. *"What provides value in an Issue Tracker?"*
 
-> "What things are we working on?"
-> "I need to finish this issue."
-> "I don't have good visibility on the issues."
+We may notice the important pieces from the language used.
 
-It's obvious that we have significant value in an "issue".
+    "What are we working on?"
+    "I need to finish this issue."
+    "I don't have good visibility on the issues."
 
-Why is "issue" valueable?
+We may also get this information from a domain expert. In our case it is
+obvious, the most important thing is an ***issue***.
 
-* It shows what we still need to do.
-* It shows what we have done.
+Here we should think, why ***issue*** is important:
+
 * It shows what we are doing.
-* They help to prioritize things.
+* It shows what we have done.
+* It shows what we still need to do.
+
+***Issue*** is definitely a valuable part of Tracker hence we must capture
+it in code.
+
 
 ### Contain it
 
 <a class="sha" href="https://github.com/loov/tracker/tree/bd9af4dcda0207555204bad0addcd0ce4d0a61dc">bd9af4dcda</a>
 
-When something is important we want to capture it in code. We want to keep it
-together and not break it up into several pieces. By breaking things apart
-we are also breaking the story it tells and how it interacts.
+To ensure that we can capture ***issue*** and do not lose the knowledge
+about it's importance we should create a namespace for it. That way we make
+it significant and important. At the same time we create a locus of attention
+which allows to understand and examine the feature wholly and whether it
+is complete.
 
-To ensure that important things stay consistent we try to contain them.
+Of course, namespaces are not the only way to contain things - there are also
+packages, classes, functions, methods, constraints etc. What you use to contain
+will depend on how large, detailed or important the contained thing is.
 
-There are several ways to contain things: namespaces, modules, packages,
-classes, functions, methods etc. What you use to contain depends on how large
-the things are and what language you are using.
+It is better to start with a notch larger container than is needed, it is not
+difficult to make it smaller. However the reverse, moving from smaller container
+to larger, is usually more difficult.
 
-In Go we would start with a package. It provides the largest scope we would
-need, of course if we need, we can always merge it into another package.
-Breaking things apart is much more difficult than merging together.
+***Issue*** is a very important concept, hence we start with a package `issue`.
+Our starting folder structure will be:
 
-We start with a package issue:
-
+{callout="//"}
 ```
-/main.go
+/main.go <1>
 /issue/
 ```
 
-We also add a main.go for sketching out our code.
+It is clear that at somepoint we will need `main.go` <1>, so we can add it now -
+although, when we add it doesn't matter.
 
-### Sketch the code
+
+### Spike it
 
 <a class="sha" href="https://github.com/loov/tracker/tree/9f47cfaaeadbaa999dc36fd238684151bb9bc6e4">9f47cfaaea</a>
 
-Here we try to figure out what are the essential parts of an issue. Here's
-what I've come up with:
+We should try to figure out what our `issue` contains. Create `issue/info.go`
+with:
 
-```
-// file: issue/info.go
+{callout="//"}
+```go
 package issue
 
-type ID int
-
-type Status string
+type ID int                     <1>
+type Status string              <2>
 
 const (
-	Created Status = "Created"
+	Created Status = "Created"  <3>
 	Closed         = "Closed"
 )
 
-type Info struct {
+type Info struct {              <4>
 	ID      ID
-	Caption	string
+	Caption string
 	Desc    string
 	Status  Status
 }
 ```
 
-Remember we are still sketching the code and we should be free to change things.
+We must have an `issue.ID` <1> to uniquely identify an issue. Each issue usually
+has an `issue.Status` <2><3> associated with it. We need something to bring all
+the attributes together <4>. Keep in mind we are sketching the code and are not
+committed to this structure. We are not looking perfection, but rather a
+global view how things will work together.
 
 Notice that I don't use long names such as `IssueStatus`, `IssueInfo` because
-the container for them already contains name `issue`. The full names are
-`issue.ID`, `issue.Status`... etc.
+the namespace for them already contains name `issue`. We should always leverage
+our namespace for naming. The full name for them are `issue.Status` and `issue.Info`
+which help to clarify.
 
-Of course we also need to save and load the issues somehow. I really don't care
-how exactly, but it's important what we can do with the issues.
+We also need some way to store and load those issues. The way we store and load
+them can change, hence we should abstract this knowledge away. We create an
+interface `issue.Manager` for it. We put it into `issue/manager.go`:
 
-How to call "the thing that manages issues", not sure... an easy way out would
-be to call it "issue.Manager".
-
-```
-// file: issue/manager.go
+{callout="//"}
+```go
 package issue
 
 type Manager interface {
@@ -92,10 +104,10 @@ type Manager interface {
 }
 ```
 
-Finally we should try to sketch out how we use it:
+To get a overview how we will use it, we write some usage code into `main.go`:
 
-```
-// file: main.go
+{callout="//"}
+```go
 package main
 
 import (
@@ -131,47 +143,50 @@ func main() {
 }
 ```
 
-One important part here is that the order in which I create those doesn't matter,
-but it is important that I have both sketches of both example of usage and the thing I'm using.
+It doesn't matter in which order you create these pieces, sometimes it is easier
+to create the usage code first, other times it is easier to create the implementation
+first. The thing that does matter is that both exist to ensure that we have
+the implementation details right and that we can integerate it with rest of the
+code.
 
-The usage code could also be written immediately as a test, but I usually don't
-want to verify it in isolation, but rather how well it fits together with
-rest of the system. So I usually leave the tests for later, unless I'm working
-with clearly defined behavior.
+The usage code can also be sketched as a test, this depends on how the sketched
+code will be used, how it needs to integerate with the rest of the system and
+other factors.
 
+### Gradual stiffening
 
-### Clarify the code
+Notice that we actually don't have any runnable code yet, it's fine, because
+until now we were trying to grasp what we are implementing and that all the
+pieces work together as intended.
 
-Notice that we actually don't have runnable code yet, and it's fine, because
-we are trying to sketch out how all the pieces interact and make sure that the
-code is understandable.
+Now we will step-by-step start to flesh out the actual structure, until we
+have solid and good runnable code. We are in our beginning stages of our project
+so there really isn't much to worry about. We should skim over our code and
+notice anything that doesn't feel nice.
 
-The previous step was simply a "sketch", now we start to refine it and try to
-find the places that don't have clarity.
+The first thing we may notice is `issue.Created`. What would
+`info.Status == issue.Created` mean? This suggests that we haven't captured the
+intent as well as we should have. Let's refine our sketch, `info.Status == issue.Open`
+sounds much better, hence we change `issue/info.go`:
 
-Skimming over the code I find several places that bother me.
-
-What would `if info.Status == issue.Created {` mean? I'm not sure what the
-status "created" means, it doesn't capture the intent. I guess
-`if info.Status == issue.Open {` would have more clarity, so we refine our sketch:
-
-```
-// file: issue/info.go
+{callout="//"}
+```go
 const (
 	Open Status = "Open"
 	Done        = "Done"
 )
 ```
 
-In `main.go` the `manager` name will be very confusing, because I suspect
-there could be a lot of things that "manage" other things. Is there a better name for
-it?
+In `main.go` the `manager` doesn't feel solid, it feels like a fuzzy concept
+without specific meaning. There probably will be more things that need to "manage"
+things. Is there a better name for it?
 
-What does the `manager` do? "It manages and tracks issues." Here is a clue for
-a nicer name: "Tracker", so we refine it as well:
+What does the `manager` do? *"It manages and tracks issues."* Here is a clue
+for a nicer name `Tracker`. We shall refine `issue/manager.go` into `issue/tracker.go`
+and change:
 
-```
-// file: issue/tracker.go
+{callout="//"}
+```go
 package issue
 
 type Tracker interface {
@@ -182,10 +197,12 @@ type Tracker interface {
 }
 ```
 
-Obviously adjusting the main.go as necessary.
+We also do all the necessary adjustments to `main.go`. At the end of this we
+should have code that compiles however it's fine if it is not yet completely
+bug-free. We will do this in the next step, however gradual stiffening together
+with cleanup should be mixed it will always end with a final cleanup pass.
 
-
-### Solidify the code
+### Cleanup
 
 <a class="sha" href="https://github.com/loov/tracker/tree/56f7a0930c1715deeef9e1cf18924353d4968d44">56f7a0930c</a>
 
@@ -196,7 +213,7 @@ have comments and a few tests and are able to use it in some form.
 Here we add a stub implementation for the tracker and then write some tests
 for the tracker.
 
-Solidifying code -- means now that you have figured out the sketch, you can
+Cleanup code -- means now that you have figured out the sketch, you can
 go and trace over it with nice clean looking lines, using the ruler and
 delete all the messy bits.
 

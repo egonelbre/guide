@@ -14,7 +14,7 @@ The important parts of building is that it won't happen all at once.
 
 ### Gradual Stiffening
 
-### Repairing
+### Cleanup
 
 ### Building with Value
 
