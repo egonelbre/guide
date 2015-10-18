@@ -32,7 +32,7 @@ feeling and let it guide us.
 
 ### The Context
 
-However, understanding ***value*** is not this easy. We must always bear in mind
+However, understanding ***value*** is not that easy. We must always bear in mind
 that the ***value*** something possesses is deeply tied in the context where
 it exists.
 

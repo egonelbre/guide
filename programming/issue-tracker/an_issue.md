@@ -15,6 +15,8 @@ Why is "issue" valueable?
 
 ### Contain it
 
+<a class="sha" href="https://github.com/loov/tracker/tree/bd9af4dcda0207555204bad0addcd0ce4d0a61dc">bd9af4dcda</a>
+
 When something is important we want to capture it in code. We want to keep it
 together and not break it up into several pieces. By breaking things apart
 we are also breaking the story it tells and how it interacts.
@@ -39,6 +41,8 @@ We start with a package issue:
 We also add a main.go for sketching out our code.
 
 ### Sketch the code
+
+<a class="sha" href="https://github.com/loov/tracker/tree/9f47cfaaeadbaa999dc36fd238684151bb9bc6e4">9f47cfaaea</a>
 
 Here we try to figure out what are the essential parts of an issue. Here's
 what I've come up with:
@@ -182,6 +186,8 @@ Obviously adjusting the main.go as necessary.
 
 
 ### Solidify the code
+
+<a class="sha" href="https://github.com/loov/tracker/tree/56f7a0930c1715deeef9e1cf18924353d4968d44">56f7a0930c</a>
 
 Now we have a good idea about the feature and how to put it into code,
 we shall go over and fill in all the missing details and ensure that we

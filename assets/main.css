@@ -102,6 +102,42 @@ blockquote.epigraph > * {
 	page-break-inside: avoid;
 }
 
+.sidenote {
+	font-style: italic;
+	border: 1px solid #ccc;
+	padding: 0em 1em;
+	border-radius: 1px;
+	color: #666;
+}
+/*
+.sidenote:before {
+	content: "Note:";
+	display: block;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+*/
+
+a.sha {
+	display: block;
+	float: right;
+	clear: right;
+	background: #ccc;
+	margin-left: 1em;
+	margin-bottom: 0.5em;
+	padding: 0.1em 0.5em;
+	border-radius: 3px;
+	color: #333;
+	font-family: monospace;
+	text-decoration: none;
+}
+a.sha:before{
+	content: "SHA: ";
+}
+a.sha:hover {
+	background: #ddd;
+}
+
 @media print {
 	body {
 		background: transparent;
