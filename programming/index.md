@@ -28,6 +28,10 @@
 
 {{issue-tracker/_index.md}}
 
+# Spector
+
+{{spector/_index.md}}
+
 # Wiki
 
 {{wiki/_index.md}}
