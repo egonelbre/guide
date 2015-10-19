@@ -25,13 +25,6 @@ can be many decisons about value and importance that you may not agree with.
 It is fine to disagree with these points, they are there because we need some
 decision to go forward with the implementation.
 
-{.sidenote}
-> There probably exist issue trackers that already do what we
-> are going to build. It can make more business sense to buy
-> an *Issue Tracker* instead of building one. This *Issue Tracker* is
-> for learning purposes and we may make decisions that may not be the
-> best business decisions.
-
 ## An Issue
 
 {{an_issue.md}}

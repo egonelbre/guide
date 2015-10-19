@@ -18,3 +18,12 @@ Third, this book uses Go, but the same principles apply to any language. The
 building process is the constant between languages, although the implementation
 details can vary significantly. If you are not familiar with Go then please
 learn the basics before proceeding.
+
+Throughout this book we will be doing many decisions that may not make the
+best business sense. For example, you shouldn't start building a issue tracker
+unless you have a clear ROI in mind. We may make decisions that you disagree
+with, these are not the important part in this book. These decisions are made
+during development when we don't know full information on what problems will
+come ahead. There will be decisions that could have made our lives easier
+or used a better library and so on... but this is the reality of programming:
+you won't make the best decisions every time.
