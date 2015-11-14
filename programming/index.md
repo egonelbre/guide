@@ -28,6 +28,10 @@
 
 {{issue-tracker/_index.md}}
 
+# Timeclock
+
+{{timeclock/_index.md}}
+
 # Spector
 
 {{spector/_index.md}}

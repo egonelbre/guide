@@ -1,0 +1,82 @@
+<a class="sha" href="https://github.com/loov/timeclock/tree/3e1add335e723017366d5ff0e5c66dfab44a98a2">3e1add335e</a>
+
+In the previous chapter we created a sketch of data structures that we might need. Let us convert it into code.
+
+Our first qestion should be: "What are the most valuable pieces from: `Resource`, `Customer`, `Worker`, `Project`, `Task`, `Expense`, `Comment`, `Attachment`?"
+
+We should pick some of them that we can maintain in our heads at the same time. It should stay between 3-6. 1-2 items at a time can give you tunnel vision with regards to integrating different pieces. More than 6, it becomes impossible to keep all the pieces in your head together.
+
+The main goal of the program is to track projects. So, I would pick `Project`, `Task`, `Resource` and `Expense` as our first iteration.
+
+### Project
+
+We start with describing the project information:
+
+``` go
+type Project struct {
+	Title       string
+	Customer    string //TODO: ref
+	Pricing     Pricing
+	Description string
+	Status      Status
+}
+
+type Status string
+
+const (
+	Queued     Status = "Queued"
+	InProgress        = "In Progress"
+	Done              = "Done"
+	Delivered         = "Delivered"
+)
+
+//TODO: is there a better name for this?
+type Pricing struct {
+	Hours float64
+	Price float64
+}
+
+type Task struct {
+	Title       string
+	Description string
+	Status      Status
+}
+```
+
+You may notice we have replaced proper references to other identifiers and items with a simple string.
+This helps us bootstrap things faster.
+That way we don't have to think about many things.
+
+### Resource
+
+For the resource we try to write the minimal and guessing
+how some things should be represented:
+
+``` go
+type Resource struct {
+	Name string
+	Unit Unit
+	PPU  float64 // price per unit
+}
+
+type Expense struct {
+	Worker   string //TODO: ref
+	Date     time.Time
+	Resource Resource
+	Units    float64
+	Price    float64
+}
+
+type Unit string
+
+const (
+	Litre = "l"
+	Grams = "g"
+	Piece = ""
+)
+```
+
+I was also thinking whether to separate `Resource` into
+a separate package or not. There might be some resource
+management needed and more complicated logic. If we need,
+we can always separate it.
