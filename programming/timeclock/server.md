@@ -183,6 +183,6 @@ Then we add a way to view expenses:
 
 ![Project View 01](images/project-view-01.png)
 
-Before proceeding we can ask our customer whether this is
+Before proceeding we can ask users whether this is
 what they were looking for. This is so we can understand
 whether we are on the right track.

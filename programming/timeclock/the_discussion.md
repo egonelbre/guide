@@ -20,7 +20,7 @@ A: If there isn't any complicated business problems
 C: Wait I'll make a quick diagram, how it should work.
 ```
 
-//TODO: add image
+![Project sketch](images/project-sketch.png)
 
 ```
 C: Every user gets a login user and password.
