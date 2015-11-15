@@ -1033,6 +1033,185 @@ view how many hours workers worked.</p>
 resource use and worker work-time into a single thing isn't
 probably a good idea. It will be better if we break it up.</p>
 
+<h3 id="adjusting-models">Adjusting models</h3>
+
+<p><a class="sha" href="https://github.com/loov/timeclock/tree/e165e7904fcad53d98b2f7707f713763372255fa">e165e7904f</a></p>
+
+<p>One of the things that can be seen that the &quot;sub-project&quot; idea
+doesn't figure that much. Maybe we should remove <code>Task</code> for now
+and later re-add it.</p>
+
+<p>We also split the <code>Expense</code> into two separate items:</p>
+
+<pre><code class="language-go">type Activity struct {
+    Worker   string    //TODO: ref
+    Date     time.Time // when was the entry made
+    Name string
+    Start    time.Time
+    Finish   time.Time
+    Comment  string
+}
+
+func (a *Activity) Total() time.Duration {
+    return a.Finish.Sub(a.Start)
+}
+
+type Material struct {
+    Worker   string //TODO: ref
+    Date     time.Time
+    Resource Resource
+    Units    float64
+}
+
+func (m *Material) Total() float64 {
+    return m.Resource.PPU * m.Units
+}
+</code></pre>
+
+<p>One of the things we may notice here is that these things
+require some amount of meta-information about the entry.
+This means we should remove the common items:</p>
+
+<pre><code class="language-go">type Event struct {
+    Worker string
+    Date   time.Time
+}
+
+type Activity struct {
+    Event
+// ...
+
+type Material struct {
+    Event
+    Resource Resource
+// ...
+</code></pre>
+
+<p>We will adjust the server code accordingly.</p>
+
+<pre><code class="language-go">    example := &amp;project.Project{
+        Title:    &quot;Alpha&quot;,
+        Customer: &quot;ACME&quot;,
+        Pricing: project.Pricing{
+            Hours: 480,
+            Price: 1000,
+        },
+        Description: &quot;Implement views&quot;,
+        Status:      project.InProgress,
+    }
+
+    activites := []*project.Activity{
+        {
+            Event: project.Event{
+                Worker: &quot;John&quot;,
+                Date:   time.Now(),
+            },
+            Name:    &quot;Welding&quot;,
+            Start:   time.Now().Add(-2 * time.Hour),
+            Finish:  time.Now().Add(-1 * time.Hour),
+            Comment: &quot;A, B, C are done&quot;,
+        },
+        ...
+    }
+
+    materials := []*project.Material{
+        {
+            Event: project.Event{
+                Worker: &quot;John&quot;,
+                Date:   time.Now(),
+            },
+            Resource: project.Resource{ ... },
+            Units: 8,
+        },
+    }
+
+    err = t.Execute(w, map[string]interface{}{
+        &quot;Project&quot;:    example,
+        &quot;Activities&quot;: activites,
+        &quot;Materials&quot;:  materials,
+    })
+</code></pre>
+
+<p>One of the things we notice here is that there is a
+lot of different pieces moving around. It would be
+beneficial to organize all these different items into
+a single thing. So we will make a <code>project.Info</code>.</p>
+
+<pre><code class="language-go">type Activities []*Activity
+type Materials []*Material
+
+type Info struct {
+    Project    Project
+    Activities Activities
+    Materials  Materials
+}
+</code></pre>
+
+<p>From the sketches we also see that we need a grouping by
+day, so we will also add:</p>
+
+<pre><code class="language-go">type DayInfo struct {
+    Date       time.Time
+    Activities Activities
+    Materials  Materials
+}
+
+func (info *Info) GroupByDay() []DayInfo {
+    // ...
+``
+
+Of course we need to update the project view to:
+
+![Project View](programming/timeclock/images/project-info-02.png &quot;Project view&quot;)
+
+### Many tables
+
+At this point, I'm also thinking whether some sort of abstraction
+to allow more easily to describe the tables would be beneficial.
+Currently we have several instances of templates:
+
+```html
+
+&lt;div class=&quot;label&quot;&gt;Activities:&lt;/div&gt;
+&lt;table class=&quot;activities&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Worker&lt;/th&gt;
+            &lt;th&gt;Activity&lt;/th&gt;
+            &lt;th&gt;Start&lt;/th&gt;
+            &lt;th&gt;Finish&lt;/th&gt;
+            &lt;th&gt;Duration&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;{{.Worker}}&lt;/td&gt;
+        &lt;td&gt;{{.Name}}&lt;/td&gt;
+        &lt;td&gt;{{.Start.Format &quot;15:04&quot;}}&lt;/td&gt;
+        &lt;td&gt;{{.Finish.Format &quot;15:04&quot;}}&lt;/td&gt;
+        &lt;td&gt;{{.Duration}}&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+
+</code></pre>
+
+<p>Whereas ideally we could do something like:</p>
+
+<pre><code class="language-html">{{ table .Activities
+    &quot;Worker&quot;   .Worker
+    &quot;Name&quot;     .Name
+    &quot;Start&quot;    (.Start.Format &quot;15:04&quot;)
+    &quot;Finish&quot;   (.Finish.Format &quot;15:04&quot;)
+    &quot;Duration&quot; .Duration
+}}
+</code></pre>
+
+<p>I'm not sure how to implement it, but it is something to think about.
+For now we can implement the tables manually, before finding a way to
+implement it. It might be faster to do it manually, until we know
+what features will be necessary in that thing.</p>
+
 <h1 id="spector">Spector</h1>
 
 <h1 id="wiki">Wiki</h1>
