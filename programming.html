@@ -986,7 +986,10 @@ func index(w http.ResponseWriter, r *http.Request) {
 <pre><code class="language-html">&lt;div class=&quot;project&quot;&gt;
     &lt;div class=&quot;title&quot;&gt;{{.Title}}&lt;/div&gt;
     &lt;table class=&quot;info&quot; border=&quot;0&quot;&gt;
-        &lt;tr&gt;&lt;td&gt;&lt;b&gt;Customer&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Customer}}&lt;/td&gt;&lt;td class=&quot;description&quot; rowspan=&quot;4&quot;&gt;{{.Description}}&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;b&gt;Customer&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Customer}}&lt;/td&gt;
+            &lt;td class=&quot;description&quot; rowspan=&quot;4&quot;&gt;{{.Description}}&lt;/td&gt;
+        &lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt;&lt;b&gt;Status&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Status}}&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt;&lt;b&gt;Hours&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Pricing.Hours}}&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt;&lt;b&gt;Price&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Pricing.Price}}€&lt;/td&gt;&lt;/tr&gt;

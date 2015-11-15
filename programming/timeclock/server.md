@@ -165,7 +165,10 @@ We also adjust the `index.html` to use project information:
 <div class="project">
 	<div class="title">{{.Title}}</div>
 	<table class="info" border="0">
-		<tr><td><b>Customer</b></td><td>{{.Customer}}</td><td class="description" rowspan="4">{{.Description}}</td></tr>
+		<tr>
+			<td><b>Customer</b></td><td>{{.Customer}}</td>
+			<td class="description" rowspan="4">{{.Description}}</td>
+		</tr>
 		<tr><td><b>Status</b></td><td>{{.Status}}</td></tr>
 		<tr><td><b>Hours</b></td><td>{{.Pricing.Hours}}</td></tr>
 		<tr><td><b>Price</b></td><td>{{.Pricing.Price}}€</td></tr>
