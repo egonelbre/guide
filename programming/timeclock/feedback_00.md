@@ -1,20 +1,15 @@
 After showing the first prototype to users, they gave some
 feedback and they sketched out some other views.
 
-Worker View:
-![Worker View](images/feedback-00-worker-view.png)
+![Worker View](programming/timeclock/images/feedback-00-worker-view.png "Worker view")
 
-Worker Project View:
-![Worker Project View](images/feedback-00-worker-view.png)
+![Worker Project View](programming/timeclock/images/feedback-00-worker-view.png "Worker project view")
 
-Customer View:
-![Customer View](images/feedback-00-customer-view.png)
+![Customer View](programming/timeclock/images/feedback-00-customer-view.png "Customer view")
 
-Customer Project View:
-![Customer Project View](images/feedback-00-customer-project-view.png)
+![Customer Project View](programming/timeclock/images/feedback-00-customer-project-view.png "Customer project view")
 
-Customer Project Date View:
-![Customer Project Date View](images/feedback-00-customer-project-view.png)
+![Customer Project Date View](programming/timeclock/images/feedback-00-customer-project-view.png "Customer project date view")
 
 They also said that the "Project Date View" should contain a
 place for comments and discussion and that when the project

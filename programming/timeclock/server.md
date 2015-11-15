@@ -162,7 +162,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 We also adjust the `index.html` to use project information:
 
 ```html
-{{with .}}
 <div class="project">
 	<div class="title">{{.Title}}</div>
 	<table class="info" border="0">
@@ -172,16 +171,15 @@ We also adjust the `index.html` to use project information:
 		<tr><td><b>Price</b></td><td>{{.Pricing.Price}}€</td></tr>
 	</table>
 </div>
-{{end}}
 ```
 
 We also made some adjustments to the .css to make it look nicer.
 
-![Project View 00](images/project-view-00.png)
+![Project View 00](programming/timeclock/images/project-info-00.png  "Project header")
 
 Then we add a way to view expenses:
 
-![Project View 01](images/project-view-01.png)
+![Project View 01](programming/timeclock/images/project-info-01.png "More information")
 
 Before proceeding we can ask users whether this is
 what they were looking for. This is so we can understand

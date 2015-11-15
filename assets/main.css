@@ -153,6 +153,22 @@ a.sha:hover {
 	background: #ddd;
 }
 
+figure {
+	background: #fff;
+	border: 1px solid #eee;
+	border-radius: 2px;
+}
+
+figure img {
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+figure figcaption {
+	background: #eee;
+	padding: 0.25rem 0.5rem;
+}
+
 @media print {
 	body {
 		background: transparent;
