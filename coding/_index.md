@@ -1,7 +1,7 @@
 %%%
 
-	Title = "A Guide to Programming"
-	abbrev = "AGTProg"
+	Title = "A Guide to Coding"
+	abbrev = "AGTCode"
 	category = "std"
 	docName = ""
 	ipr= "trust200902"
@@ -21,28 +21,14 @@
 %%%
 
 {.title}
-# A Guide To Programming
+# A Guide To Coding
 {.title}
 ![](assets/hiking.png)
 
-# Introduction
+# Learning
 
-{{programming/intro/_index.md}}
+# Problem Solving
 
-# Issue Tracker
+# Solving Learning
 
-{{programming/issue-tracker/_index.md}}
-
-# Timeclock
-
-{{programming/timeclock/_index.md}}
-
-# Spector
-
-{{programming/spector/_index.md}}
-
-# Wiki
-
-{{programming/wiki/_index.md}}
-
-{backmatter}
+# Computational Model

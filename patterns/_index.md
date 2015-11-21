@@ -1,3 +1,30 @@
+%%%
+
+	Title = "A Guide to Patterns"
+	abbrev = "AGTPat"
+	category = "std"
+	docName = ""
+	ipr= "trust200902"
+	date = 2015-10-18T00:00:00Z
+	area = "Application"
+	workgroup = "Go"
+	keyword = ["Go", "Language", "Computer", "Programming"]
+
+	[[author]]
+	initials = "E."
+	surname  = "Elbre"
+	fullname = "Egon Elbre"
+
+	[author.address]
+	email = "egonelbre@gmail.com"
+
+%%%
+
+{.title}
+# A Guide To Patterns
+{.title}
+![](assets/hiking.png)
+
 ## Introduction
 
 {{patterns/introduction.md}}

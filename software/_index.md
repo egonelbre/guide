@@ -1,7 +1,7 @@
 %%%
 
-	Title = "A Guide to Programming"
-	abbrev = "AGTProg"
+	Title = "A Guide to Software"
+	abbrev = "AGTSoft"
 	category = "std"
 	docName = ""
 	ipr= "trust200902"
@@ -21,28 +21,28 @@
 %%%
 
 {.title}
-# A Guide To Programming
+# A Guide To Software
 {.title}
 ![](assets/hiking.png)
 
-# Introduction
+# Building
 
-{{programming/intro/_index.md}}
+# Modeling
 
-# Issue Tracker
+# Performance
 
-{{programming/issue-tracker/_index.md}}
+# Future
 
-# Timeclock
+# Quality
 
-{{programming/timeclock/_index.md}}
+# Tools
 
-# Spector
+# Users
 
-{{programming/spector/_index.md}}
+# Usability
 
-# Wiki
+# Documentation
 
-{{programming/wiki/_index.md}}
+# People
 
-{backmatter}
+# Beauty
