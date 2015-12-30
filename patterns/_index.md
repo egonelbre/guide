@@ -33,9 +33,9 @@
 
 {{patterns/value.md}}
 
-## Levels of Scale
+## Magic Number 4
 
-{{patterns/levels_of_scale.md}}
+{{patterns/magic_4.md}}
 
 ## Structure Follows Value
 
