@@ -18,3 +18,7 @@ be found at [github.com/loov/worksheet](http://github.com/loov/worksheet).
 ## Feedback #1
 
 {{programming/timeclock/feedback_00.md}}
+
+## Redesign #1
+
+{{programming/timeclock/redesign_00.md}}

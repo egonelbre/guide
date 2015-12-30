@@ -1,5 +1,5 @@
-After showing the first prototype to users, they gave some
-feedback and they sketched out some other views.
+After remotely showing the first prototype to a user, he gave some
+feedback and sketched out some other views.
 
 ![Worker View](programming/timeclock/images/feedback-00-worker-view.png "Worker view")
 
