@@ -15,7 +15,102 @@
 
 <h2 id="value">Value</h2>
 
-<h2 id="levels-of-scale">Levels of Scale</h2>
+<h2 id="magic-number-4">Magic Number 4</h2>
+
+<p>Whenever we are describing or explaining concepts there is a strict limit
+how much we can keep in our heads at once. However, if we use few things to
+explain things, then we increase the number of &quot;abstraction layers&quot;.</p>
+
+<p>Therefore</p>
+
+<p>When describing an concept use 4+-1 other ideas to explain it.</p>
+
+<h3 id="rationale">Rationale</h3>
+
+<p>People have a well known limit in their processing capabilities called magic number four.
+(<a href="https://en.wikipedia.org/wiki/Working_memory#Capacity">https://en.wikipedia.org/wiki/Working_memory#Capacity</a>) (<a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2864034/">http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2864034/</a>).
+Anytime we exceed this limit then the explanation of the concept doesn't fit into our working memory.</p>
+
+<p>Going the other way, using as few other ideas, doesn't work either. If we
+need in total 5 things to explain something, and we use 2 things to explain each
+thing. This in the best case would create two additional ideas or concepts.</p>
+
+<p>DIAGRAMS</p>
+
+<h3 id="subtleties">Subtleties</h3>
+
+<p>This 4+-1 doesn't mean that you cannot have more than 5 lines in your method.
+Or that you cannot have more than 5 ideas in your method. The main thing we are
+concerned about is how many concepts does person have hold in their head to
+understand.</p>
+
+<p>By limiting the number lines or ideas per function can do harm. One of such
+example is a game loop (link to Carmack).</p>
+
+<pre><code>while(!exited){
+    update mouse
+    update systems
+    update entities
+    draw entites
+    draw hud
+    blit to screen
+}
+</code></pre>
+
+<pre><code>update(){
+    update mouse
+    update systems
+    update entities
+}
+
+draw(){
+    draw entites
+    draw hud
+}
+
+while(!exited){
+    update()
+    draw()
+    blit to screen
+}
+</code></pre>
+
+<p>We have increased our LOC, without actually reducing the complexity. The first
+case is perfectly understandable, we need to keep in mind that we are in
+the <code>while</code> loop and any specific action we are doing.</p>
+
+<p>If grouping is necessary, we can use empty blocks:</p>
+
+<pre><code>while(!exited){
+    {
+        update mouse
+        update systems
+        update entities
+    }
+    {
+        draw entites
+        draw hud
+    }
+    blit to screen
+}
+</code></pre>
+
+<h3 id="extremes">Extremes</h3>
+
+<p>This doesn't mean there are cases where that this bounds shouldn't be broken.
+Sometimes the essential complexity of the idea requires multiple things. Sometimes it's not necessary to use more ideas.</p>
+
+<p>Distributed algorithms can easily violate these rules, because you need to account
+for different kinds of failures and failovers. We can take (quorum) algorithm.
+In those cases human verification becomes difficult or near impossible.
+We can use program verification to prove properties of the system.
+Alternatively we can substitute them with easier to understand algorithms,
+such as Raft, that may not have as good properties, but we are less likely to
+make a mistake in it's implementation.</p>
+
+<p>Now when you don't have 3 things to explain your idea, which can often be the
+case when implementing trivial things, there's not point in inventing new things
+to satisfy the constraint.</p>
 
 <h2 id="structure-follows-value">Structure Follows Value</h2>
 
