@@ -3,29 +3,32 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
-	"os"
-	"os/exec"
-	"path/filepath"
+
+	"github.com/loov/mark"
+	"github.com/loov/mark/html"
 )
 
 func compile(input, output string) {
-	fmt.Println("===== ", input)
-	cmd := exec.Command("mmark",
-		"-head", filepath.Join("assets", "head.html"),
-		//"-css", filepath.Join("assets", "main.css"),
-		input,
-	)
-	cmd.Stderr = os.Stderr
-
-	out, err := cmd.Output()
-	if err != nil {
-		log.Println(err)
+	sequence, errs := mark.ParseFile(input)
+	if len(errs) > 0 {
+		fmt.Printf("\n\n= %s\n", input)
+		for _, err := range errs {
+			fmt.Println(err)
+		}
 	}
 
-	err = ioutil.WriteFile(output, out, 0755)
+	result := html.Convert(sequence)
+
+	err := ioutil.WriteFile(output, []byte(`
+<html>
+<head>
+	<title>A Guide to ...</title>
+	<link rel="stylesheet" href="assets/main.css">
+</head>
+<body>`+result+`</body></html>`), 0755)
+
 	if err != nil {
-		log.Println(err)
+		fmt.Println(err)
 	}
 }
 

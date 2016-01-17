@@ -5,20 +5,20 @@ be found at [github.com/loov/worksheet](http://github.com/loov/worksheet).
 
 ## The discussion
 
-{{programming/timeclock/the_discussion.md}}
+{{the_discussion.md}}
 
 ## Project
 
-{{programming/timeclock/project.md}}
+{{project.md}}
 
 ## Server
 
-{{programming/timeclock/server.md}}
+{{server.md}}
 
 ## Feedback #1
 
-{{programming/timeclock/feedback_00.md}}
+{{feedback_00.md}}
 
 ## Redesign #1
 
-{{programming/timeclock/redesign_00.md}}
+{{redesign_00.md}}

@@ -27,4 +27,4 @@ decision to go forward with the implementation.
 
 ## An Issue
 
-{{programming/issue-tracker/an_issue.md}}
+{{an_issue.md}}

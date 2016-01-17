@@ -10,18 +10,18 @@ will look like and how he will use the system.
 When the worker starts his day, he will be presented with a screen
 (quite likely on a mobile device):
 
-![Start Working](programming/timeclock/images/redesign-00-start-working.png "Start Working")
+![Start Working](programming/timeclock/images/redesign-00-start-working.png)
 
 After selecting a project he chooses the activity he is performing:
 
-![Working](programming/timeclock/images/redesign-00-working.png "Working")
+![Working](programming/timeclock/images/redesign-00-working.png)
 
 There he can submit any additional information such as add an image of the
 progress or report some issue (such as some parts were missing or broken).
 After completing the task he can either go select another project or
 finish his day with a Day Report.
 
-![Day Report](programming/timeclock/images/redesign-00-day-report.png "Day Report")
+![Day Report](programming/timeclock/images/redesign-00-day-report.png)
 
 We try to put together the day-report from existing information as much as possible.
 We cannot simply actively confirm the work, because sometimes a worker might forget
@@ -33,7 +33,7 @@ All those work hours must be reviewed by an engineer, whether they are up to bar
 or whether they took longer than they should. Engineers review projects and
 every week, rather than every day:
 
-![Week Review](programming/timeclock/images/redesign-00-week-review.png "Week Review")
+![Week Review](programming/timeclock/images/redesign-00-week-review.png)
 
 SIDENOTE: The screen prototypes left out some parts when designing,
 because it was easy to imagine them being there, but the exact design
@@ -43,7 +43,7 @@ Since all the reviews, whether accepted or declined, need to be processed by
 the accounting, there is also a way to view all the pending/accepted/declined
 week reviews.
 
-![Weekly Reports](programming/timeclock/images/redesign-00-weekly-reports.png "Weekly Reports")
+![Weekly Reports](programming/timeclock/images/redesign-00-weekly-reports.png)
 
 This new approach is much simpler for the workers to work with and easier to implement,
 while mostly delivering the same amount or even more value.

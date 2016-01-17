@@ -1,13 +1,13 @@
-{{programming/intro/why.md}}
+{{why.md}}
 
 ## Premise
 
-{{programming/intro/premise.md}}
+{{premise.md}}
 
 ## Value
 
-{{programming/intro/value.md}}
+{{value.md}}
 
 ## Building
 
-{{programming/intro/building.md}}
+{{building.md}}

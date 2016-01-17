@@ -73,13 +73,13 @@ for can change. Let's say we are building a wooden-box.
 In the simplest case we are providing value for the end-user.
 You make a wooden-box and the end-user uses it.
 
-1. We could provide value to some other person in your team.
+* We could provide value to some other person in your team.
 You cut few boards and give them to another person to assemble.
 The end-user really doesn't care about those boards, they are not valuable to him.
-2. We could provide value to ourselves.
+* We could provide value to ourselves.
 I make a jig that allows me to cut boards faster and with less effort.
 Neither the person doing the assembly or end-user won't care about the jig.
-3. All of these things help to provide value to the end-user. It is something
+* All of these things help to provide value to the end-user. It is something
 that we must keep in our minds, value helps to create ***value***.
 
 We shouldn't restrict our minds to creating "boxes", but rather see the

@@ -1,579 +1,285 @@
-<!DOCTYPE html>
+
 <html>
 <head>
-  <title>A Guide to Programming</title>
-  <meta name="GENERATOR" content="Mmark Markdown Processor v1.3">
-  <meta charset="utf-8">
-<link rel="stylesheet" href="assets/main.css"></head>
-<body>
-
-<h1 id="a-guide-to-programming" class="title">A Guide To Programming</h1>
-
-<p><figure class="title"><img src="assets/hiking.png" alt=""></figure></p>
-
-<h1 id="introduction">Introduction</h1>
-
-<blockquote class="epigraph">
-<p>There is one timeless way of building.
+	<title>A Guide to ...</title>
+	<link rel="stylesheet" href="assets/main.css">
+</head>
+<body><section><h1>A Guide To Programming</h1><p><figure><img src="assets/hiking.png" alt="" title=""></figure></p></section><section><h1>Introduction</h1><blockquote><p>There is one timeless way of building.
 It is a thousand years old, and the same today as it has ever been.
 The great traditional buildings of the past, the villages and tents
 and temples in which man feels at home, have always been made by
-people who were very close to the center of this way.</p>
-<footer><span class="quote-who"> Christopher Alexander
-</span></footer></blockquote>
-
-<p>What is the timeless way of building programs?
+people who were very close to the center of this way.</p></blockquote><p>Quote: -- Christopher Alexander</p><p>What is the timeless way of building programs?
 What makes programs beautiful?
 How do you create programs from nothing?
-How do you ensure that the program architecture is beautiful?</p>
-
-<p>This book guides you through building several programs from start to deployment.
+How do you ensure that the program architecture is beautiful?</p><p>This book guides you through building several programs from start to deployment.
 It is meant to give insight how to incrementally develop architecture without
 big upfront investment. Hopefully, it will also provide some insight into the
-questions asked previously.</p>
-
-<p>During programming it is very easy to get lost in all the small implementation
+questions asked previously.</p><p>During programming it is very easy to get lost in all the small implementation
 details. Then again, when looking at the large picture, it is easy to miss small
 important details. These views must be balanced and treated equally, otherwise
-the code will suffer.</p>
-
-<p>This introduction will describe the general process and terminology that will be
-used throughout the book.</p>
-
-<h2 id="premise">Premise</h2>
-
-<blockquote class="epigraph">
-<p>It's not for you Jen.</p>
-<footer><span class="quote-who"> IT Crowd
-</span></footer></blockquote>
-
-<p>Obviously, no book is perfect for everyone, so it helps to clarify what is
-expected from the reader.</p>
-
-<p>First, you should be familiar with programming. It is not necessary that you
+the code will suffer.</p><p>This introduction will describe the general process and terminology that will be
+used throughout the book.</p><section><h2>Premise</h2><blockquote><p>It&#39;s not for you Jen.</p></blockquote><p>Quote: -- IT Crowd</p><p>Obviously, no book is perfect for everyone, so it helps to clarify what is
+expected from the reader.</p><p>First, you should be familiar with programming. It is not necessary that you
 have written a big program, however it could help you to understand the issues
-better.</p>
-
-<p>Second, you should be able to search and learn the necessary implementation
+better.</p><p>Second, you should be able to search and learn the necessary implementation
 details on your own. For example, when the book requires the use of HTML, the
 reader should go and learn about it. It will go into technical details only
-when it is necessary.</p>
-
-<p>Third, this book uses Go, but the same principles apply to any language. The
+when it is necessary.</p><p>Third, this book uses Go, but the same principles apply to any language. The
 building process is the constant between languages, although the implementation
 details can vary significantly. If you are not familiar with Go then please
-learn the basics before proceeding.</p>
-
-<p>Throughout this book we will be doing many decisions that may not make the
-best business sense. For example, you shouldn't start building a issue tracker
+learn the basics before proceeding.</p><p>Throughout this book we will be doing many decisions that may not make the
+best business sense. For example, you shouldn&#39;t start building a issue tracker
 unless you have a clear ROI in mind. We may make decisions that you disagree
 with, these are not the important part in this book. These decisions are made
-during development when we don't know full information on what problems will
+during development when we don&#39;t know full information on what problems will
 come ahead. There will be decisions that could have made our lives easier
 or used a better library and so on... but this is the reality of programming:
-you won't make the best decisions every time.</p>
-
-<h2 id="value">Value</h2>
-
-<blockquote class="epigraph">
-<p>... starting in The Mist, you are seeking ways to create Value,
+you won&#39;t make the best decisions every time.</p></section><section><h2>Value</h2><blockquote><p>... starting in The Mist, you are seeking ways to create Value,
 where value is defined as something of worth to some person or set
-of people whom we wish to serve.</p>
-<footer><span class="quote-who"> <a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream - ScrumPLoP</a>
-</span></footer></blockquote>
-
-<p>Why do we write programs in the first place?</p>
-
-<p>Obviously we want to provide <strong><em>value</em></strong> to people, not waste.
-This is why <strong><em>value</em></strong> is so important, it helps us ground in search for solutions.
+of people whom we wish to serve.</p></blockquote><p>Quote: -- <a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream - ScrumPLoP</a></p><p>Why do we write programs in the first place?</p><p>Obviously we want to provide <b>value</b> to people, not waste.
+This is why <b>value</b> is so important, it helps us ground in search for solutions.
 It helps us understand why we are doing things in the first place.
-If you are not creating something of <strong><em>value</em></strong> then you are creating waste.</p>
-
-<h3 id="valuable">Valuable</h3>
-
-<p>To understand <strong><em>value</em></strong> we must first understand why do we call things <strong><em>valuable</em></strong>.</p>
-
-<p>In the simplest terms when X is <strong><em>valuable</em></strong> to someone Y it means,
-that X has importance to Y, it can bring benefit to Y in some way.</p>
-
-<p>This is not rocket science:</p>
-
-<ul>
-<li>the internet is valuable because it can connect people to information with very little cost,</li>
-<li>a keyboard is valuable because it allows to interact with the computer and</li>
-<li>an text editor is valuable because it allows to modify and adjust text with ease.</li>
-</ul>
-
-<p>We know and feel when something is valuable to us and we can emphatize
+If you are not creating something of <b>value</b> then you are creating waste.</p><section><h3>Valuable</h3><p>To understand <b>value</b> we must first understand why do we call things <b>valuable</b>.</p><p>In the simplest terms when X is <b>valuable</b> to someone Y it means,
+that X has importance to Y, it can bring benefit to Y in some way.</p><p>This is not rocket science:</p><ul><li>the internet is valuable because it can connect people to information with very little cost,
+a keyboard is valuable because it allows to interact with the computer and
+an text editor is valuable because it allows to modify and adjust text with ease.</li></ul><p>We know and feel when something is valuable to us and we can emphatize
 when something is valuable to someone else. We should embrace this inner
-feeling and let it guide us.</p>
-
-<h3 id="the-context">The Context</h3>
-
-<p>However, understanding <strong><em>value</em></strong> is not that easy. We must always bear in mind
-that the <strong><em>value</em></strong> something possesses is deeply tied in the context where
-it exists.</p>
-
-<ul>
-<li>If there isn't information on the internet, then it's not as valuable.</li>
-<li>If there is no computer for the keyboard, then the keyboard is not useful.</li>
-<li>If you have nothing to write, then a text editor is not valuable.</li>
-</ul>
-
-<p>This is all common sense, but these examinations help us examine more important
-questions. Let's take something more difficult.</p>
-
-<p><em>Does 'logging in to a system' have value?</em>
-First reaction would be to say, <em>&quot;Yes, of course it does.?&quot;</em>
-But, have you ever said, <em>&quot;I got so much value from logging in to the system?&quot;</em>
-I doubt it. Should we conclude that <em>&quot;No, of course logins have no value, they are only an annoyance?&quot;</em></p>
-
-<p>As you may have already guessed, neither answer is correct.
-The goal of &quot;logging in&quot; is to protect <strong><em>value</em></strong>, rather than to be of <strong><em>value</em></strong>.
-If there is no login screen for a system that you don't use, then it is not of
+feeling and let it guide us.</p></section><section><h3>The Context</h3><p>However, understanding <b>value</b> is not that easy. We must always bear in mind
+that the <b>value</b> something possesses is deeply tied in the context where
+it exists.</p><ul><li>If there isn&#39;t information on the internet, then it&#39;s not as valuable.
+If there is no computer for the keyboard, then the keyboard is not useful.
+If you have nothing to write, then a text editor is not valuable.</li></ul><p>This is all common sense, but these examinations help us examine more important
+questions. Let&#39;s take something more difficult.</p><p><em>Does &#39;logging in to a system&#39; have value?</em>
+First reaction would be to say, <em>&#34;Yes, of course it does.?&#34;</em>
+But, have you ever said, <em>&#34;I got so much value from logging in to the system?&#34;</em>
+I doubt it. Should we conclude that <em>&#34;No, of course logins have no value, they are only an annoyance?&#34;</em></p><p>As you may have already guessed, neither answer is correct.
+The goal of &#34;logging in&#34; is to protect <b>value</b>, rather than to be of <b>value</b>.
+If there is no login screen for a system that you don&#39;t use, then it is not of
 importance to you.
-When it's a online bank login, the login is as valuable to you, as how much money
+When it&#39;s a online bank login, the login is as valuable to you, as how much money
 you have on your accounts.
-For the banks the login system is very important, although it may not be of any value.</p>
-
-<p>It's not as simple as <em>&quot;Does login have value?&quot;</em>, the <strong><em>value</em></strong> of something
-will be deeply tied to where it happens.</p>
-
-<h3 id="evaluator">Evaluator</h3>
-
-<p>You should also have noticed that the value will also depend on who is
+For the banks the login system is very important, although it may not be of any value.</p><p>It&#39;s not as simple as <em>&#34;Does login have value?&#34;</em>, the <b>value</b> of something
+will be deeply tied to where it happens.</p></section><section><h3>Evaluator</h3><p>You should also have noticed that the value will also depend on who is
 doing the evaluating. We have to keep in mind that there is always a evaluator
-when looking at value.</p>
-
-<p>When creating value we should always look through the eyes of the person
+when looking at value.</p><p>When creating value we should always look through the eyes of the person
 that we are creating the value for. And the person we provide value
-for can change. Let's say we are building a wooden-box.</p>
-
-<p>In the simplest case we are providing value for the end-user.
-You make a wooden-box and the end-user uses it.</p>
-
-<ol>
-<li>We could provide value to some other person in your team.
-You cut few boards and give them to another person to assemble.
-The end-user really doesn't care about those boards, they are not valuable to him.</li>
-<li>We could provide value to ourselves.
-I make a jig that allows me to cut boards faster and with less effort.
-Neither the person doing the assembly or end-user won't care about the jig.</li>
-<li>All of these things help to provide value to the end-user. It is something
-that we must keep in our minds, value helps to create <strong><em>value</em></strong>.</li>
-</ol>
-
-<p>We shouldn't restrict our minds to creating &quot;boxes&quot;, but rather see the
+for can change. Let&#39;s say we are building a wooden-box.</p><p>In the simplest case we are providing value for the end-user.
+You make a wooden-box and the end-user uses it.</p><ul><li>We could provide value to some other person in your team.</li></ul><p>You cut few boards and give them to another person to assemble.
+The end-user really doesn&#39;t care about those boards, they are not valuable to him.</p><ul><li>We could provide value to ourselves.</li></ul><p>I make a jig that allows me to cut boards faster and with less effort.
+Neither the person doing the assembly or end-user won&#39;t care about the jig.</p><ul><li>All of these things help to provide value to the end-user. It is something</li></ul><p>that we must keep in our minds, value helps to create <b>value</b>.</p><p>We shouldn&#39;t restrict our minds to creating &#34;boxes&#34;, but rather see the
 bigger picture. How is the box valuable to the end-user, how will he use it.
 Does he hold very lightweight things there - this means we can make the box
 sides thinner and reduce waste. Does he use different things there, maybe we
-can add separators into the box.</p>
-
-<p>Understanding what is created and why things are valuable to people is
-essential to making good decisions, in general.</p>
-
-<h3 id="outside-the-box">Outside the box</h3>
-
-<p>We should have a bigger view and understand that we can get same value
+can add separators into the box.</p><p>Understanding what is created and why things are valuable to people is
+essential to making good decisions, in general.</p></section><section><h3>Outside the box</h3><p>We should have a bigger view and understand that we can get same value
 from multiple solutions. Engineering is about understanding those different
-solutions and deciding which is the most appropriate.</p>
-
-<p>When we look at the &quot;logging in to a system&quot; case.
-If the data can be public, then we won't need a login.
+solutions and deciding which is the most appropriate.</p><p>When we look at the &#34;logging in to a system&#34; case.
+If the data can be public, then we won&#39;t need a login.
 Are we only using it on our own computer, no login necessary.
-Are we only using it from within a intranet, no login necessary.</p>
-
-<p>Look for multiple solutions, you can avoid a lot of work this way.</p>
-
-<h3 id="decisions">Decisions</h3>
-
-<p>Value will be at the core at our decision making, it helps to give us clarity
+Are we only using it from within a intranet, no login necessary.</p><p>Look for multiple solutions, you can avoid a lot of work this way.</p></section><section><h3>Decisions</h3><p>Value will be at the core at our decision making, it helps to give us clarity
 why we are doing something and not doing something else.
-Always understand what the <strong><em>value</em></strong> is for the end-user,
-because there all the things built must come together.</p>
-
-<p>All of this talk about <strong><em>value</em></strong> may seem fluffy, but we will soon put all
-this understanding to the test.</p>
-
-<h2 id="building">Building</h2>
-
-<blockquote class="epigraph">
-<p>Speaking as a builder, if you start something, you must have a vision of the
+Always understand what the <b>value</b> is for the end-user,
+because there all the things built must come together.</p><p>All of this talk about <b>value</b> may seem fluffy, but we will soon put all
+this understanding to the test.</p></section></section><section><h2>Building</h2><blockquote><p>Speaking as a builder, if you start something, you must have a vision of the
 thing which arises from your instinct about preserving and enhancing
-what is there... If you're working correctly, the feeling doesn't wander about.</p>
-<footer><span class="quote-who"> Christopher Alexander
-</span></footer></blockquote>
-
-<p>The most important part of programming is that you cannot do everything at once.
+what is there... If you&#39;re working correctly, the feeling doesn&#39;t wander about.
+Quote: -- Christopher Alexander</p></blockquote><p>The most important part of programming is that you cannot do everything at once.
 The human mind is fairly limited how much it can hold in its head at a time.
 To combat this limitation we need to build things piece-by-piece to ensure
-that everything will fit together nicely.</p>
-
-<p>Following patterns are invaluable to building something with ease and clearity.</p>
-
-<h3 id="structure-follows-value">Structure Follows Value</h3>
-
-<p>We dedicated a lot of time explaining what value is and why it is important.
+that everything will fit together nicely.</p><p>Following patterns are invaluable to building something with ease and clearity.</p><section><h3>Structure Follows Value</h3><p>We dedicated a lot of time explaining what value is and why it is important.
 To ensure that we actually build something of value, we need to understand
-the value it provides and how it provides it.</p>
-
-<p>By dissecting and deconstructing value we are able to find boundaries that
-align with the problem domain.</p>
-
-<h3 id="spiking">Spiking</h3>
-
-<p>To ensure that we get a good global view how things will interact we
+the value it provides and how it provides it.</p><p>By dissecting and deconstructing value we are able to find boundaries that
+align with the problem domain.</p></section><section><h3>Spiking</h3><p>To ensure that we get a good global view how things will interact we
 put up several spikes and imagine everything working together. This helps
 to iterate much faster on the larger view without being slowed down by
-techinical details.</p>
-
-<h3 id="gradual-stiffening">Gradual Stiffening</h3>
-
-<p>To accomodate all the issues that arises from integrating different pieces
+techinical details.</p></section><section><h3>Gradual Stiffening</h3><p>To accomodate all the issues that arises from integrating different pieces
 we gradually make the code more solid. This allows better detection on any
-problems that may arise.</p>
-
-<h3 id="cleanup">Cleanup</h3>
-
-<p>This always happens in tandem with gradual stiffening and should be done to
-finish that everything is correct and in order.</p>
-
-<h3 id="putting-them-together">Putting them together</h3>
-
-<p>It might not be easy to comprehend this without practical examples, but the
-easiest way to understand is to imagine this with drawing.</p>
-
-<p>You don't start drawing from the top-left corner and proceed to the right
+problems that may arise.</p></section><section><h3>Cleanup</h3><p>This always happens in tandem with gradual stiffening and should be done to
+finish that everything is correct and in order.</p></section><section><h3>Putting them together</h3><p>It might not be easy to comprehend this without practical examples, but the
+easiest way to understand is to imagine this with drawing.</p><p>You don&#39;t start drawing from the top-left corner and proceed to the right
 side, and then the next line. First you figure out, what you are drawing
 and what are the things you are going to draw (structure follows value).
 Then you do few rough sketches until you see that the drawing will work nicely (spiking).
 Then you start to refine the sketches, then you draw properly with a pen (gradual stiffening).
-Then you clean all the sketch lines and color it (cleanup).</p>
-
-<p>The principle for programming is the same.</p>
-
-<h1 id="issue-tracker">Issue Tracker</h1>
-
-<p>Our first case study will be an <em>issue tracker</em>. Probably you have seen one and
+Then you clean all the sketch lines and color it (cleanup).</p><p>The principle for programming is the same.</p></section></section></section><section><h1>Issue Tracker</h1><p>Our first case study will be an <em>issue tracker</em>. Probably you have seen one and
 use one, that way it will be easy to discuss. The code for this project can
-be found at <a href="http://github.com/loov/tracker">github.com/loov/tracker</a>.</p>
-
-<p>Since we already stated that <strong><em>value</em></strong> will be very dependent
-on the context. So, here is our facilitated situation:</p>
-
-<blockquote>
-<p>There is a company of 40 people and contains 8 teams.
+be found at <a href="http://github.com/loov/tracker">github.com/loov/tracker</a>.</p><p>Since we already stated that <b>value</b> will be very dependent
+on the context. So, here is our facilitated situation:</p><blockquote><p>There is a company of 40 people and contains 8 teams.
 Some problems inside teams take too much time to solve
 and there is no proper visibility on the issues that the
 team must solve. When a issue moves from person to person
 and team to team there is no direct knowledge how much
-has been done.</p>
-</blockquote>
-
-<p>Scrum suggests that a <a href="https://sites.google.com/a/scrumplop.org/published-patterns/product-organization-pattern-language/development-team" title="Development Team - Scrum PloP">Development Team</a> must work as one unit instead
+has been done.</p></blockquote><p>Scrum suggests that a [Development Team][] must work as one unit instead
 of single individuals to achieve the best performance. Many issue trackers
 take the other approach, an issue is assigned to a specific person. Our goal
-will be to create an issue tracker that handles only teams.</p>
-
-<p>Of course, you may not disagree with this goal, but nevertheless it serves
+will be to create an issue tracker that handles only teams.</p><p>[Development Team]: https://sites.google.com/a/scrumplop.org/published-patterns/product-organization-pattern-language/development-team &#34;Development Team - Scrum PloP&#34;</p><p>Of course, you may not disagree with this goal, but nevertheless it serves
 as a good starting point for implementing something new. Going forward, there
 can be many decisons about value and importance that you may not agree with.
 It is fine to disagree with these points, they are there because we need some
-decision to go forward with the implementation.</p>
-
-<h2 id="an-issue">An Issue</h2>
-
-<p>Here is our first important question. <em>&quot;What provides value in an Issue Tracker?&quot;</em></p>
-
-<p>We may notice the important pieces from the language used.</p>
-
-<pre><code>&quot;What are we working on?&quot;
-&quot;I need to finish this issue.&quot;
-&quot;I don't have good visibility on the issues.&quot;
-</code></pre>
-
-<p>We may also get this information from a domain expert. In our case it is
-obvious, the most important thing is an <strong><em>issue</em></strong>.</p>
-
-<p>Here we should think, why <strong><em>issue</em></strong> is important:</p>
-
-<ul>
-<li>It shows what we are doing.</li>
-<li>It shows what we have done.</li>
-<li>It shows what we still need to do.</li>
-</ul>
-
-<p><strong><em>Issue</em></strong> is definitely a valuable part of Tracker hence we must capture
-it in code.</p>
-
-<h3 id="contain-it">Contain it</h3>
-
-<p><a class="sha" href="https://github.com/loov/tracker/tree/bd9af4dcda0207555204bad0addcd0ce4d0a61dc">bd9af4dcda</a></p>
-
-<p>To ensure that we can capture <strong><em>issue</em></strong> and do not lose the knowledge
-about it's importance we should create a namespace for it. That way we make
+decision to go forward with the implementation.</p><section><h2>An Issue</h2><p>Here is our first important question. <em>&#34;What provides value in an Issue Tracker?&#34;</em></p><p>We may notice the important pieces from the language used.</p><pre><code>&#34;What are we working on?&#34;
+&#34;I need to finish this issue.&#34;
+&#34;I don&#39;t have good visibility on the issues.&#34;
+</code></pre><p>We may also get this information from a domain expert. In our case it is
+obvious, the most important thing is an <b>issue</b>.</p><p>Here we should think, why <b>issue</b> is important:</p><ul><li>It shows what we are doing.
+It shows what we have done.
+It shows what we still need to do.</li></ul><p><b>Issue</b> is definitely a valuable part of Tracker hence we must capture
+it in code.</p><section><h3>Contain it</h3><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/tracker/tree/bd9af4dcda0207555204bad0addcd0ce4d0a61dc&#34;&gt;bd9af4dcda&lt;/a&gt;</p><p>To ensure that we can capture <b>issue</b> and do not lose the knowledge
+about it&#39;s importance we should create a namespace for it. That way we make
 it significant and important. At the same time we create a locus of attention
 which allows to understand and examine the feature wholly and whether it
-is complete.</p>
-
-<p>Of course, namespaces are not the only way to contain things - there are also
+is complete.</p><p>Of course, namespaces are not the only way to contain things - there are also
 packages, classes, functions, methods, constraints etc. What you use to contain
-will depend on how large, detailed or important the contained thing is.</p>
-
-<p>It is better to start with a notch larger container than is needed, it is not
+will depend on how large, detailed or important the contained thing is.</p><p>It is better to start with a notch larger container than is needed, it is not
 difficult to make it smaller. However the reverse, moving from smaller container
-to larger, is usually more difficult.</p>
+to larger, is usually more difficult.</p><p><b>Issue</b> is a very important concept, hence we start with a package <code>issue</code>.
+Our starting folder structure will be:</p><pre><code>/main.go &lt;1&gt;
+/issue/</code></pre><p>It is clear that at somepoint we will need <code>main.go</code> &lt;1&gt;, so we can add it now -
+although, when we add it doesn&#39;t matter.</p></section><section><h3>Spike it</h3><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/tracker/tree/9f47cfaaeadbaa999dc36fd238684151bb9bc6e4&#34;&gt;9f47cfaaea&lt;/a&gt;</p><p>We should try to figure out what our <code>issue</code> contains. Create <code>issue/info.go</code>
+with:</p><pre><code class="language-go">package issue
 
-<p><strong><em>Issue</em></strong> is a very important concept, hence we start with a package <code>issue</code>.
-Our starting folder structure will be:</p>
-
-<pre><code>/main.go <span class="callout">1</span>
-/issue/
-</code></pre>
-
-<p>It is clear that at somepoint we will need <code>main.go</code> <span class="callout">1</span>, so we can add it now -
-although, when we add it doesn't matter.</p>
-
-<h3 id="spike-it">Spike it</h3>
-
-<p><a class="sha" href="https://github.com/loov/tracker/tree/9f47cfaaeadbaa999dc36fd238684151bb9bc6e4">9f47cfaaea</a></p>
-
-<p>We should try to figure out what our <code>issue</code> contains. Create <code>issue/info.go</code>
-with:</p>
-
-<pre><code class="language-go">package issue
-
-type ID int                     <span class="callout">1</span>
-type Status string              <span class="callout">2</span>
+type ID int                     &lt;1&gt;
+type Status string              &lt;2&gt;
 
 const (
-    Created Status = &quot;Created&quot;  <span class="callout">3</span>
-    Closed         = &quot;Closed&quot;
+	Created Status = &#34;Created&#34;  &lt;3&gt;
+	Closed         = &#34;Closed&#34;
 )
 
-type Info struct {              <span class="callout">4</span>
-    ID      ID
-    Caption string
-    Desc    string
-    Status  Status
-}
-</code></pre>
-
-<p>We must have an <code>issue.ID</code> <span class="callout">1</span> to uniquely identify an issue. Each issue usually
-has an <code>issue.Status</code> <span class="callout">2</span><span class="callout">3</span> associated with it. We need something to bring all
-the attributes together <span class="callout">4</span>. Keep in mind we are sketching the code and are not
+type Info struct {              &lt;4&gt;
+	ID      ID
+	Caption string
+	Desc    string
+	Status  Status
+}</code></pre><p>We must have an <code>issue.ID</code> &lt;1&gt; to uniquely identify an issue. Each issue usually
+has an <code>issue.Status</code> &lt;2&gt;&lt;3&gt; associated with it. We need something to bring all
+the attributes together &lt;4&gt;. Keep in mind we are sketching the code and are not
 committed to this structure. We are not looking perfection, but rather a
-global view how things will work together.</p>
-
-<p>Notice that I don't use long names such as <code>IssueStatus</code>, <code>IssueInfo</code> because
+global view how things will work together.</p><p>Notice that I don&#39;t use long names such as <code>IssueStatus</code>, <code>IssueInfo</code> because
 the namespace for them already contains name <code>issue</code>. We should always leverage
 our namespace for naming. The full name for them are <code>issue.Status</code> and <code>issue.Info</code>
-which help to clarify.</p>
-
-<p>We also need some way to store and load those issues. The way we store and load
+which help to clarify.</p><p>We also need some way to store and load those issues. The way we store and load
 them can change, hence we should abstract this knowledge away. We create an
-interface <code>issue.Manager</code> for it. We put it into <code>issue/manager.go</code>:</p>
-
-<pre><code class="language-go">package issue
+interface <code>issue.Manager</code> for it. We put it into <code>issue/manager.go</code>:</p><pre><code class="language-go">package issue
 
 type Manager interface {
-    Create(info Info) (ID, error)
-    Load(id ID) (Info, error)
-    Close(id ID) (error)
-    List() (issues []Info, error)
-}
-</code></pre>
-
-<p>To get a overview how we will use it, we write some usage code into <code>main.go</code>:</p>
-
-<pre><code class="language-go">package main
+	Create(info Info) (ID, error)
+	Load(id ID) (Info, error)
+	Close(id ID) (error)
+	List() (issues []Info, error)
+}</code></pre><p>To get a overview how we will use it, we write some usage code into <code>main.go</code>:</p><pre><code class="language-go">package main
 
 import (
-    &quot;fmt&quot;
+	&#34;fmt&#34;
 
-    &quot;github.com/loov/tracker/issue&quot;
+	&#34;github.com/loov/tracker/issue&#34;
 )
 
 func check(err error) {
-    if err != nil {
-        panic(err)
-    }
+	if err != nil {
+		panic(err)
+	}
 }
 
 func main() {
-    var manager issue.Manager
+	var manager issue.Manager
 
-    id, err := manager.Create(issue.Info{
-        Caption: &quot;Hello&quot;,
-        Desc: &quot;World&quot;,
-        Status: issue.Created,
-    })
-    check(err)
+	id, err := manager.Create(issue.Info{
+		Caption: &#34;Hello&#34;,
+		Desc: &#34;World&#34;,
+		Status: issue.Created,
+	})
+	check(err)
 
-    info, err := manager.Load(id)
-    check(err)
+	info, err := manager.Load(id)
+	check(err)
 
-    fmt.Println(info)
+	fmt.Println(info)
 
-    infos, err := manager.List()
-    check(err)
-    fmt.Println(infos)
-}
-</code></pre>
-
-<p>It doesn't matter in which order you create these pieces, sometimes it is easier
+	infos, err := manager.List()
+	check(err)
+	fmt.Println(infos)
+}</code></pre><p>It doesn&#39;t matter in which order you create these pieces, sometimes it is easier
 to create the usage code first, other times it is easier to create the implementation
 first. The thing that does matter is that both exist to ensure that we have
 the implementation details right and that we can integerate it with rest of the
-code.</p>
-
-<p>The usage code can also be sketched as a test, this depends on how the sketched
+code.</p><p>The usage code can also be sketched as a test, this depends on how the sketched
 code will be used, how it needs to integerate with the rest of the system and
-other factors.</p>
-
-<h3 id="gradual-stiffening-1">Gradual stiffening</h3>
-
-<p>Notice that we actually don't have any runnable code yet, it's fine, because
+other factors.</p></section><section><h3>Gradual stiffening</h3><p>Notice that we actually don&#39;t have any runnable code yet, it&#39;s fine, because
 until now we were trying to grasp what we are implementing and that all the
-pieces work together as intended.</p>
-
-<p>Now we will step-by-step start to flesh out the actual structure, until we
+pieces work together as intended.</p><p>Now we will step-by-step start to flesh out the actual structure, until we
 have solid and good runnable code. We are in our beginning stages of our project
-so there really isn't much to worry about. We should skim over our code and
-notice anything that doesn't feel nice.</p>
-
-<p>The first thing we may notice is <code>issue.Created</code>. What would
-<code>info.Status == issue.Created</code> mean? This suggests that we haven't captured the
-intent as well as we should have. Let's refine our sketch, <code>info.Status == issue.Open</code>
-sounds much better, hence we change <code>issue/info.go</code>:</p>
-
-<pre><code class="language-go">const (
-    Open Status = &quot;Open&quot;
-    Done        = &quot;Done&quot;
-)
-</code></pre>
-
-<p>In <code>main.go</code> the <code>manager</code> doesn't feel solid, it feels like a fuzzy concept
-without specific meaning. There probably will be more things that need to &quot;manage&quot;
-things. Is there a better name for it?</p>
-
-<p>What does the <code>manager</code> do? <em>&quot;It manages and tracks issues.&quot;</em> Here is a clue
+so there really isn&#39;t much to worry about. We should skim over our code and
+notice anything that doesn&#39;t feel nice.</p><p>The first thing we may notice is <code>issue.Created</code>. What would
+<code>info.Status == issue.Created</code> mean? This suggests that we haven&#39;t captured the
+intent as well as we should have. Let&#39;s refine our sketch, <code>info.Status == issue.Open</code>
+sounds much better, hence we change <code>issue/info.go</code>:</p><pre><code class="language-go">const (
+	Open Status = &#34;Open&#34;
+	Done        = &#34;Done&#34;
+)</code></pre><p>In <code>main.go</code> the <code>manager</code> doesn&#39;t feel solid, it feels like a fuzzy concept
+without specific meaning. There probably will be more things that need to &#34;manage&#34;
+things. Is there a better name for it?</p><p>What does the <code>manager</code> do? <em>&#34;It manages and tracks issues.&#34;</em> Here is a clue
 for a nicer name <code>Tracker</code>. We shall refine <code>issue/manager.go</code> into <code>issue/tracker.go</code>
-and change:</p>
-
-<pre><code class="language-go">package issue
+and change:</p><pre><code class="language-go">package issue
 
 type Tracker interface {
-    Create(info Info) (ID, error)
-    Load(id ID) (Info, error)
-    Close(id ID) (error)
-    List() (issues []Info, error)
-}
-</code></pre>
-
-<p>We also do all the necessary adjustments to <code>main.go</code>. At the end of this we
-should have code that compiles however it's fine if it is not yet completely
+	Create(info Info) (ID, error)
+	Load(id ID) (Info, error)
+	Close(id ID) (error)
+	List() (issues []Info, error)
+}</code></pre><p>We also do all the necessary adjustments to <code>main.go</code>. At the end of this we
+should have code that compiles however it&#39;s fine if it is not yet completely
 bug-free. We will do this in the next step, however gradual stiffening together
-with cleanup should be mixed it will always end with a final cleanup pass.</p>
-
-<h3 id="cleanup-1">Cleanup</h3>
-
-<p><a class="sha" href="https://github.com/loov/tracker/tree/56f7a0930c1715deeef9e1cf18924353d4968d44">56f7a0930c</a></p>
-
-<p>Now we have a good idea about the feature and how to put it into code,
+with cleanup should be mixed it will always end with a final cleanup pass.</p></section><section><h3>Cleanup</h3><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/tracker/tree/56f7a0930c1715deeef9e1cf18924353d4968d44&#34;&gt;56f7a0930c&lt;/a&gt;</p><p>Now we have a good idea about the feature and how to put it into code,
 we shall go over and fill in all the missing details and ensure that we
-have comments and a few tests and are able to use it in some form.</p>
-
-<p>Here we add a stub implementation for the tracker and then write some tests
-for the tracker.</p>
-
-<p>Cleanup code -- means now that you have figured out the sketch, you can
+have comments and a few tests and are able to use it in some form.</p><p>Here we add a stub implementation for the tracker and then write some tests
+for the tracker.</p><p>Cleanup code -- means now that you have figured out the sketch, you can
 go and trace over it with nice clean looking lines, using the ruler and
-delete all the messy bits.</p>
-
-<p>The other thing what we want to do here is to make easier to understand
+delete all the messy bits.</p><p>The other thing what we want to do here is to make easier to understand
 and ensure whether the code really behaves as it should. In most cases you would
 want unit or behavior tests, but they are not the only way. You could also
 write property tests. Or write output that could be verified by hand,
-if the correct behavior is difficult to describe in code.</p>
-
-<p>Few interesting bits while solidifying code. When you come across questions,
+if the correct behavior is difficult to describe in code.</p><p>Few interesting bits while solidifying code. When you come across questions,
 mark them as such. For example while writing the tracker test case, I made a
-mistake while writing:</p>
-
-<pre><code>    //file: issue/tracker_test.go
-    tracker.Close(id)
-    // ...
-    expect := Info{
-        ID:      id,
-        Caption: &quot;Caption&quot;,
-        Desc:    &quot;Desc&quot;,
-        Status:  Closed,     // &lt;--- error, should be Done
-    }
-</code></pre>
-
-<p>I mixed up two things: the method is called &quot;Close&quot; and the resulting
-status is &quot;Done&quot;. Because I made a mistake while writing this, it suggests to
-me that the code is not clear enough... but I'm not sure how to improve it.
-It probably isn't that important, so I'll mark it as a TODO and move on
-to other things:</p>
-
-<pre><code>// file: issue/info.go
+mistake while writing:</p><pre><code>	//file: issue/tracker_test.go
+	tracker.Close(id)
+	// ...
+	expect := Info{
+		ID:      id,
+		Caption: &#34;Caption&#34;,
+		Desc:    &#34;Desc&#34;,
+		Status:  Closed,     // &lt;--- error, should be Done
+	}</code></pre><p>I mixed up two things: the method is called &#34;Close&#34; and the resulting
+status is &#34;Done&#34;. Because I made a mistake while writing this, it suggests to
+me that the code is not clear enough... but I&#39;m not sure how to improve it.
+It probably isn&#39;t that important, so I&#39;ll mark it as a TODO and move on
+to other things:</p><pre><code>// file: issue/info.go
 const (
-    //TODO: should tracker.Create renamed to &quot;Open&quot;, because status is Open
-    Open = Status(&quot;Open&quot;) // Open means that the issue needs to be worked on
-    //TODO: should &quot;Done&quot; be renamed to &quot;Closed&quot;, because tracker has method Close
-    Done = Status(&quot;Done&quot;) // Done means that the issue is completed and delivered
-)
-</code></pre>
-
-<p>I could try to figure out this immediately, but I really don't think I have
+	//TODO: should tracker.Create renamed to &#34;Open&#34;, because status is Open
+	Open = Status(&#34;Open&#34;) // Open means that the issue needs to be worked on
+	//TODO: should &#34;Done&#34; be renamed to &#34;Closed&#34;, because tracker has method Close
+	Done = Status(&#34;Done&#34;) // Done means that the issue is completed and delivered
+)</code></pre><p>I could try to figure out this immediately, but I really don&#39;t think I have
 necessary information right now and I will probably find out the details
-while implementing other things.</p>
-
-<h3 id="is-it-done">Is it done?</h3>
-
-<p>Now we have captured something of value in code. It can't be used easily
-right now, but we have something that someone would like to use.</p>
-
-<p>It might look that it was a really involved process that created only these
-few lines of code. In reality, it's pretty fluid and moves quite quickly. The
+while implementing other things.</p></section><section><h3>Is it done?</h3><p>Now we have captured something of value in code. It can&#39;t be used easily
+right now, but we have something that someone would like to use.</p><p>It might look that it was a really involved process that created only these
+few lines of code. In reality, it&#39;s pretty fluid and moves quite quickly. The
 only reason it looks involved is because I tried to write down everything I
-was thinking while writing the code.</p>
-
-<h1 id="timeclock">Timeclock</h1>
-
-<p>I was asked how difficult it would be to implement a something to show project progress for a welding company. I thought it would be a great case-study.</p>
-
-<p>In the <em>issue tracker</em> we took things very slow to show the ideas behind building something. Here we will try to go at full speed. How much you can do at the same time will depend on your skill level and previous knowledge of the domain. The code for this project can
-be found at <a href="http://github.com/loov/worksheet">github.com/loov/worksheet</a>.</p>
-
-<h2 id="the-discussion">The discussion</h2>
-
-<p>Here's the translated chat about the project:</p>
-
-<p>C - Customer; A: Analyst.</p>
-
-<pre><code>C: Hi, how difficult would it to make a webpage where
+was thinking while writing the code.</p></section></section></section><section><h1>Timeclock</h1><p>I was asked how difficult it would be to implement a something to show project progress for a welding company. I thought it would be a great case-study.</p><p>In the <em>issue tracker</em> we took things very slow to show the ideas behind building something. Here we will try to go at full speed. How much you can do at the same time will depend on your skill level and previous knowledge of the domain. The code for this project can
+be found at <a href="http://github.com/loov/worksheet">github.com/loov/worksheet</a>.</p><section><h2>The discussion</h2><p>Here&#39;s the translated chat about the project:</p><p>C - Customer; A: Analyst.</p><pre><code>C: Hi, how difficult would it to make a webpage where
    workers can login and add worked hours to different
    projects plus any materials that were used and have
    an option to add pictures.
 A: It depends how much different things are added.
-   It shouldn't be too difficult, probably there
+   It shouldn&#39;t be too difficult, probably there
    already exist things that do that.
 C: Yes, there is, it costs about ~150€ per month for
-   single user, also they don't solve our problems very
+   single user, also they don&#39;t solve our problems very
    well. I asked the pricing for some 20 users, it was
    ~6000€.
-A: If there isn't any complicated business problems
+A: If there isn&#39;t any complicated business problems
    and there is no need for old browser support, then it
    should be fairly simple.
-C: Wait I'll make a quick diagram, how it should work.
-</code></pre>
-
-<p><figure><img src="programming/timeclock/images/project-sketch.png" alt="Project sketch"></figure></p>
-
-<pre><code>C: Every user gets a login user and password.
+C: Wait I&#39;ll make a quick diagram, how it should work.</code></pre><p><figure><img src="programming/timeclock/images/project-sketch.png" alt="Project sketch" title="Project sketch"><figcaption>Project sketch</figcaption></figure></p><pre><code>C: Every user gets a login user and password.
    Only supervisor can change things.
 A: Do you need any summary/statistics pages?
 C: Yes, that would be useful.
@@ -581,7 +287,7 @@ C: Yes, that would be useful.
 A: Who will create the projects?
 C: The supervisor.
 A: What information needs to be associated with each project?
-C: If it's a project with fixed pricing then it calculates
+C: If it&#39;s a project with fixed pricing then it calculates
    how much has been spent and whether balance is positive
    or negative.
 
@@ -597,7 +303,7 @@ C: For different orders it can be different. You should be
 A: Can the whole thing be in English or does it need to
    be localized?
 C: Translation is a small problem.
-A: It's not about the translating part, rather whether
+A: It&#39;s not about the translating part, rather whether
    there should be built-in support for multiple languages.
 
 A: How should changing pricing look like?
@@ -605,7 +311,7 @@ A: How should changing pricing look like?
    and can be overridden depending on the project?
    Will they change during project?
 C: The pricing will be fixed when the project is created
-   and won't be changed later.
+   and won&#39;t be changed later.
 
 A: Do you need something for sub-projects or sub-tasks?
 C: Yes, that might come in handy.
@@ -626,9 +332,9 @@ A: So will he write:
 C: Yup, the latter one.
 
 A: Can the bolt price change during the project and how
-   should it be handled, let's say there is:
+   should it be handled, let&#39;s say there is:
 
-   1. In a project it's marked that 2 bolts were used.
+   1. In a project it&#39;s marked that 2 bolts were used.
    2. Then price of that bolt changes.
 
    Should the price be at the time 1. or 2.
@@ -641,683 +347,442 @@ A: How does the worker mark down his status?
    standpoint or is it only for internal tracking?
 C: For workers we only track the hours, accounting
    manages the payments separately. Important are
-   materials and cost per hour.
-</code></pre>
-
-<p>This whole discussion took about 1hour. This seems like
+   materials and cost per hour.</code></pre><p>This whole discussion took about 1hour. This seems like
 a lot of jumping around instead of a rigid discussion, but
 it conveys sufficient information about the project to
-make a prototype.</p>
-
-<h3 id="artifacts">Artifacts</h3>
-
-<p>While discussing I was simultanously desiging different
-artifacts that need to be tracked:</p>
-
-<pre><code>ResourceType (Worker, Material)
+make a prototype.</p><section><h3>Artifacts</h3><p>While discussing I was simultanously desiging different
+artifacts that need to be tracked:</p><pre><code>ResourceType (Worker, Material)
 
 []Resource {
-    Name
-    ResourceType
-    Unit
-    UnitPrice
+	Name
+	ResourceType
+	Unit
+	UnitPrice
 }
 
 Unit (Hour, Piece, Grams, Litre)
 
 Customer {
-    Name
-    Phone
+	Name
+	Phone
 }
 
 Worker {
-    Name
-    Supervisor
+	Name
+	Supervisor
 }
 
 Project {
-    Customer
-    Title
-    Pricing {
-        Hours
-        Price
-    }
-    Status
-    Description
+	Customer
+	Title
+	Pricing {
+		Hours
+		Price
+	}
+	Status
+	Description
 }
 
 Task {
-    Project
-    Title
-    Description
+	Project
+	Title
+	Description
 }
 
 Expense {
-    Project
-    Task
-    Worker
-    Date
-    Resource
-    Amount
-    Unit
-    UnitPrice
+	Project
+	Task
+	Worker
+	Date
+	Resource
+	Amount
+	Unit
+	UnitPrice
 }
 
 Comment {
-    Task
-    Worker
-    Date
-    Comment
+	Task
+	Worker
+	Date
+	Comment
 }
 
 Attachment {
-    Task
-    Worker
-    Date
-    Comment
-}
-</code></pre>
-
-<p>This isn't some magic syntax, it's pseudo-code of artifacts.
-Here I decided to track work-hours and materials as &quot;Expense&quot;
-instead of separate entities, it will add some uniformity to the discussion.</p>
-
-<h3 id="prototype">Prototype</h3>
-
-<p>I'm sure that we don't have full understanding of the business logic,
+	Task
+	Worker
+	Date
+	Comment
+}</code></pre><p>This isn&#39;t some magic syntax, it&#39;s pseudo-code of artifacts.
+Here I decided to track work-hours and materials as &#34;Expense&#34;
+instead of separate entities, it will add some uniformity to the discussion.</p></section><section><h3>Prototype</h3><p>I&#39;m sure that we don&#39;t have full understanding of the business logic,
 but we do understand how things are related. It will be sufficient to create
-a prototype.</p>
-
-<p>Note, that it is a concious desicion to stop analysis at this point.
+a prototype.</p><p>Note, that it is a concious desicion to stop analysis at this point.
 This is the minimal viable product that provides value to the customer.
-I'm not sure whether customer would be to imagine all the intricacies
+I&#39;m not sure whether customer would be to imagine all the intricacies
 even if I asked them. I might get wrong or guesses instead of good answers.
-We need something solid, something that the customer can try out.</p>
-
-<p>There are several ways we could build the prototype: paper mock-ups, wireframes,
+We need something solid, something that the customer can try out.</p><p>There are several ways we could build the prototype: paper mock-ups, wireframes,
 some prototyping software, HTML page, actual code.
 Use whatever you feel most comfortable fastest with.
 In this case the webpage seems pretty trivial so there is no need for paper
-mock-ups or wireframes. We can go directly to HTML or code.</p>
-
-<h2 id="project">Project</h2>
-
-<p><a class="sha" href="https://github.com/loov/timeclock/tree/3e1add335e723017366d5ff0e5c66dfab44a98a2">3e1add335e</a></p>
-
-<p>In the previous chapter we created a sketch of data structures that we might need. Let us convert it into code.</p>
-
-<p>Our first qestion should be: &quot;What are the most valuable pieces from: <code>Resource</code>, <code>Customer</code>, <code>Worker</code>, <code>Project</code>, <code>Task</code>, <code>Expense</code>, <code>Comment</code>, <code>Attachment</code>?&quot;</p>
-
-<p>We should pick some of them that we can maintain in our heads at the same time. It should stay between 3-6. 1-2 items at a time can give you tunnel vision with regards to integrating different pieces. More than 6, it becomes impossible to keep all the pieces in your head together.</p>
-
-<p>The main goal of the program is to track projects. So, I would pick <code>Project</code>, <code>Task</code>, <code>Resource</code> and <code>Expense</code> as our first iteration.</p>
-
-<h3 id="project-1">Project</h3>
-
-<p>We start with describing the project information:</p>
-
-<pre><code class="language-go">type Project struct {
-    Title       string
-    Customer    string //TODO: ref
-    Pricing     Pricing
-    Description string
-    Status      Status
+mock-ups or wireframes. We can go directly to HTML or code.</p></section></section><section><h2>Project</h2><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/timeclock/tree/3e1add335e723017366d5ff0e5c66dfab44a98a2&#34;&gt;3e1add335e&lt;/a&gt;</p><p>In the previous chapter we created a sketch of data structures that we might need. Let us convert it into code.</p><p>Our first qestion should be: &#34;What are the most valuable pieces from: <code>Resource</code>, <code>Customer</code>, <code>Worker</code>, <code>Project</code>, <code>Task</code>, <code>Expense</code>, <code>Comment</code>, <code>Attachment</code>?&#34;</p><p>We should pick some of them that we can maintain in our heads at the same time. It should stay between 3-6. 1-2 items at a time can give you tunnel vision with regards to integrating different pieces. More than 6, it becomes impossible to keep all the pieces in your head together.</p><p>The main goal of the program is to track projects. So, I would pick <code>Project</code>, <code>Task</code>, <code>Resource</code> and <code>Expense</code> as our first iteration.</p><section><h3>Project</h3><p>We start with describing the project information:</p><pre><code class="language-go">type Project struct {
+	Title       string
+	Customer    string //TODO: ref
+	Pricing     Pricing
+	Description string
+	Status      Status
 }
 
 type Status string
 
 const (
-    Queued     Status = &quot;Queued&quot;
-    InProgress        = &quot;In Progress&quot;
-    Done              = &quot;Done&quot;
-    Delivered         = &quot;Delivered&quot;
+	Queued     Status = &#34;Queued&#34;
+	InProgress        = &#34;In Progress&#34;
+	Done              = &#34;Done&#34;
+	Delivered         = &#34;Delivered&#34;
 )
 
 //TODO: is there a better name for this?
 type Pricing struct {
-    Hours float64
-    Price float64
+	Hours float64
+	Price float64
 }
 
 type Task struct {
-    Title       string
-    Description string
-    Status      Status
-}
-</code></pre>
-
-<p>You may notice we have replaced proper references to other identifiers and items with a simple string.
+	Title       string
+	Description string
+	Status      Status
+}</code></pre><p>You may notice we have replaced proper references to other identifiers and items with a simple string.
 This helps us bootstrap things faster.
-That way we don't have to think about many things.</p>
-
-<h3 id="resource">Resource</h3>
-
-<p>For the resource we try to write the minimal and guessing
-how some things should be represented:</p>
-
-<pre><code class="language-go">type Resource struct {
-    Name string
-    Unit Unit
-    PPU  float64 // price per unit
+That way we don&#39;t have to think about many things.</p></section><section><h3>Resource</h3><p>For the resource we try to write the minimal and guessing
+how some things should be represented:</p><pre><code class="language-go">type Resource struct {
+	Name string
+	Unit Unit
+	PPU  float64 // price per unit
 }
 
 type Expense struct {
-    Worker   string //TODO: ref
-    Date     time.Time
-    Resource Resource
-    Units    float64
-    Price    float64
+	Worker   string //TODO: ref
+	Date     time.Time
+	Resource Resource
+	Units    float64
+	Price    float64
 }
 
 type Unit string
 
 const (
-    Litre = &quot;l&quot;
-    Grams = &quot;g&quot;
-    Piece = &quot;&quot;
-)
-</code></pre>
-
-<p>I was also thinking whether to separate <code>Resource</code> into
+	Litre = &#34;l&#34;
+	Grams = &#34;g&#34;
+	Piece = &#34;&#34;
+)</code></pre><p>I was also thinking whether to separate <code>Resource</code> into
 a separate package or not. There might be some resource
 management needed and more complicated logic. If we need,
-we can always separate it.</p>
-
-<h2 id="server">Server</h2>
-
-<p><a class="sha" href="https://github.com/loov/timeclock/tree/c420b57de35a12d2ce78c63cf24c030927bccb5b">c420b57de3</a></p>
-
-<p>Now that we have represented the <code>Project</code> we should
-try to expose it. This means having a server and frontend.</p>
-
-<p>For the server we shall go with the standard http library
-and for the frontend with plain-old-HTML. We shouldn't use
+we can always separate it.</p></section></section><section><h2>Server</h2><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/timeclock/tree/c420b57de35a12d2ce78c63cf24c030927bccb5b&#34;&gt;c420b57de3&lt;/a&gt;</p><p>Now that we have represented the <code>Project</code> we should
+try to expose it. This means having a server and frontend.</p><p>For the server we shall go with the standard http library
+and for the frontend with plain-old-HTML. We shouldn&#39;t use
 JavaScript in this project because the users are likely
 to have older browsers and this will make the implementation
-more likely to work on any platform.</p>
-
-<h3 id="setup">Setup</h3>
-
-<p>I'm going with my usual server setup in <code>main.go</code>:</p>
-
-<pre><code class="language-go">package main
+more likely to work on any platform.</p><section><h3>Setup</h3><p>I&#39;m going with my usual server setup in <code>main.go</code>:</p><pre><code class="language-go">package main
 
 import (
-    &quot;flag&quot;
-    &quot;net/http&quot;
-    &quot;os&quot;
+	&#34;flag&#34;
+	&#34;net/http&#34;
+	&#34;os&#34;
 )
 
 var (
-    addr = flag.String(&quot;listen&quot;, &quot;:8000&quot;, &quot;http server `address`&quot;) <span class="callout">1</span>
+	addr = flag.String(&#34;listen&#34;, &#34;:8000&#34;, &#34;http server `address`&#34;) &lt;1&gt;
 )
 
 func main() {
-    flag.Parse()
+	flag.Parse()
 
-    host, port := os.Getenv(&quot;HOST&quot;), os.Getenv(&quot;PORT&quot;) <span class="callout">2</span>
-    if host != &quot;&quot; || port != &quot;&quot; {
-        *addr = host + &quot;:&quot; + port
-    }
+	host, port := os.Getenv(&#34;HOST&#34;), os.Getenv(&#34;PORT&#34;) &lt;2&gt;
+	if host != &#34;&#34; || port != &#34;&#34; {
+		*addr = host + &#34;:&#34; + port
+	}
 
-    assets := http.FileServer(http.Dir(&quot;assets&quot;))
-    http.Handle(&quot;/assets/&quot;, http.StripPrefix(&quot;/assets/&quot;, assets)) <span class="callout">3</span>
+	assets := http.FileServer(http.Dir(&#34;assets&#34;))
+	http.Handle(&#34;/assets/&#34;, http.StripPrefix(&#34;/assets/&#34;, assets)) &lt;3&gt;
 
-    http.HandleFunc(&quot;/&quot;, index) <span class="callout">4</span>
+	http.HandleFunc(&#34;/&#34;, index) &lt;4&gt;
 
-    log.Println(&quot;Starting server on&quot;, *addr)
-    http.ListenAndServe(*addr, nil)
+	log.Println(&#34;Starting server on&#34;, *addr)
+	http.ListenAndServe(*addr, nil)
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-    http.ServeFile(w, r, &quot;index.html&quot;)
-}
-</code></pre>
-
-<p>We add <code>addr</code><span class="callout">1</span> to allow configuring the listen address.
-We override<span class="callout">2</span> the configuration from environment variables -
+	http.ServeFile(w, r, &#34;index.html&#34;)
+}</code></pre><p>We add <code>addr</code>&lt;1&gt; to allow configuring the listen address.
+We override&lt;2&gt; the configuration from environment variables -
 this way I can use <a href="https://github.com/codegangsta/gin">gin</a>
 to automatically recompile the server.
-We serve <code>assets</code> <span class="callout">3</span> for any static files, such as css.
-We show a simple <code>index.html</code><span class="callout">4</span> page to see whether our server actually
-works as intended.</p>
-
-<p><code>index.html</code> contains nothing special:</p>
-
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+We serve <code>assets</code> &lt;3&gt; for any static files, such as css.
+We show a simple <code>index.html</code>&lt;4&gt; page to see whether our server actually
+works as intended.</p><p><code>index.html</code> contains nothing special:</p><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-    &lt;title&gt;Timeclock&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/main.css&quot;&gt;
+	&lt;meta charset=&#34;utf-8&#34;&gt;
+	&lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
+	&lt;title&gt;Timeclock&lt;/title&gt;
+	&lt;link rel=&#34;stylesheet&#34; href=&#34;/assets/css/main.css&#34;&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;h1&gt;Timeclock&lt;/h1&gt;
+	&lt;h1&gt;Timeclock&lt;/h1&gt;
 &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>Similarly <code>/assets/css/main.css</code> contains minimal reset:</p>
-
-<pre><code class="language-css">* {
-    box-sizing: border-box;
+&lt;/html&gt;</code></pre><p>Similarly <code>/assets/css/main.css</code> contains minimal reset:</p><pre><code class="language-css">* {
+	box-sizing: border-box;
 }
 
 body, html {
-    margin: 0;
-    padding: 0;
-    color: #333;
+	margin: 0;
+	padding: 0;
+	color: #333;
 
-    letter-spacing: 0.02em;
+	letter-spacing: 0.02em;
 
-    -ms-word-wrap: break-all;
-    word-wrap: break-word;
-    -webkit-font-smoothing: antialiased;
-}
-</code></pre>
-
-<p>The basic html/css setup might vary. You could use some standard css setup
+	-ms-word-wrap: break-all;
+	word-wrap: break-word;
+	-webkit-font-smoothing: antialiased;
+}</code></pre><p>The basic html/css setup might vary. You could use some standard css setup
 such as <a href="http://getskeleton.com/">skeleton.css</a> or
-<a href="http://getbootstrap.com/">bootstrap</a>, to speed up your workflow.</p>
-
-<p>We test our server with <code>gin .</code> and see whether <code>localhost:3000</code> shows something.</p>
-
-<h3 id="viewing-project-info">Viewing project info</h3>
-
-<p><a class="sha" href="https://github.com/loov/timeclock/tree/4ef17bc635874534b6474f73384bcabb403bf9b2">4ef17bc635</a></p>
-
-<p>After we ensure that the server is working, we make the page
+<a href="http://getbootstrap.com/">bootstrap</a>, to speed up your workflow.</p><p>We test our server with <code>gin .</code> and see whether <code>localhost:3000</code> shows something.</p></section><section><h3>Viewing project info</h3><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/timeclock/tree/4ef17bc635874534b6474f73384bcabb403bf9b2&#34;&gt;4ef17bc635&lt;/a&gt;</p><p>After we ensure that the server is working, we make the page
 show some mock project information. We convert server to use
-<code>html/template</code>.</p>
-
-<p>We also add a function to handle any internal errors... note it should use minimally anything that we build. Otherwise, if we use a broken thing to display broken thing we might cause very severe errors.</p>
-
-<pre><code class="language-go">func internalError(w http.ResponseWriter, r *http.Request, err error) {
-    message := template.HTMLEscapeString(err.Error())
-    page := fmt.Sprintf(`
+<code>html/template</code>.</p><p>We also add a function to handle any internal errors... note it should use minimally anything that we build. Otherwise, if we use a broken thing to display broken thing we might cause very severe errors.</p><pre><code class="language-go">func internalError(w http.ResponseWriter, r *http.Request, err error) {
+	message := template.HTMLEscapeString(err.Error())
+	page := fmt.Sprintf(`
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-    &lt;title&gt;Timeclock&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/main.css&quot;&gt;
+	&lt;meta charset=&#34;utf-8&#34;&gt;
+	&lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
+	&lt;title&gt;Timeclock&lt;/title&gt;
+	&lt;link rel=&#34;stylesheet&#34; href=&#34;/assets/css/main.css&#34;&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;div class=&quot;error&quot;&gt;%s&lt;/div&gt;
+	&lt;div class=&#34;error&#34;&gt;%s&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 `, message)
-    w.WriteHeader(http.StatusInternalServerError)
-    w.Write([]byte(page))
+	w.WriteHeader(http.StatusInternalServerError)
+	w.Write([]byte(page))
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-    t, err := template.ParseFiles(&quot;index.html&quot;)
-    if err != nil {
-        log.Printf(&quot;error parsing template: %v&quot;, err)
-        internalError(w, r, err)
-        return
-    }
+	t, err := template.ParseFiles(&#34;index.html&#34;)
+	if err != nil {
+		log.Printf(&#34;error parsing template: %v&#34;, err)
+		internalError(w, r, err)
+		return
+	}
 
-    example := &amp;project.Project{
-        Title:    &quot;Alpha&quot;,
-        Customer: &quot;ACME&quot;,
-        Pricing: project.Pricing{
-            Hours: 480,
-            Price: 1000,
-        },
-        Description: &quot;Implement views&quot;,
-        Status:      project.InProgress,
-    }
+	example := &amp;project.Project{
+		Title:    &#34;Alpha&#34;,
+		Customer: &#34;ACME&#34;,
+		Pricing: project.Pricing{
+			Hours: 480,
+			Price: 1000,
+		},
+		Description: &#34;Implement views&#34;,
+		Status:      project.InProgress,
+	}
 
-    err = t.Execute(w, example)
-    if err != nil {
-        log.Printf(&quot;error parsing template: %v&quot;, err)
-        internalError(w, r, err)
-        return
-    }
-}
-</code></pre>
-
-<p>We also adjust the <code>index.html</code> to use project information:</p>
-
-<pre><code class="language-html">&lt;div class=&quot;project&quot;&gt;
-    &lt;div class=&quot;title&quot;&gt;{{.Title}}&lt;/div&gt;
-    &lt;table class=&quot;info&quot; border=&quot;0&quot;&gt;
-        &lt;tr&gt;
-            &lt;td&gt;&lt;b&gt;Customer&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Customer}}&lt;/td&gt;
-            &lt;td class=&quot;description&quot; rowspan=&quot;4&quot;&gt;{{.Description}}&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;&lt;b&gt;Status&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Status}}&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;&lt;b&gt;Hours&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Pricing.Hours}}&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;&lt;b&gt;Price&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Pricing.Price}}€&lt;/td&gt;&lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>We also made some adjustments to the .css to make it look nicer.</p>
-
-<p><figure><img src="programming/timeclock/images/project-info-00.png" alt="Project View 00" title="Project header"><figcaption>Project header</figcaption></figure></p>
-
-<p>Then we add a way to view expenses:</p>
-
-<p><figure><img src="programming/timeclock/images/project-info-01.png" alt="Project View 01" title="More information"><figcaption>More information</figcaption></figure></p>
-
-<p>Before proceeding we can ask users whether this is
+	err = t.Execute(w, example)
+	if err != nil {
+		log.Printf(&#34;error parsing template: %v&#34;, err)
+		internalError(w, r, err)
+		return
+	}
+}</code></pre><p>We also adjust the <code>index.html</code> to use project information:</p><pre><code class="language-html">&lt;div class=&#34;project&#34;&gt;
+	&lt;div class=&#34;title&#34;&gt;{{.Title}}&lt;/div&gt;
+	&lt;table class=&#34;info&#34; border=&#34;0&#34;&gt;
+		&lt;tr&gt;
+			&lt;td&gt;&lt;b&gt;Customer&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Customer}}&lt;/td&gt;
+			&lt;td class=&#34;description&#34; rowspan=&#34;4&#34;&gt;{{.Description}}&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;&lt;td&gt;&lt;b&gt;Status&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Status}}&lt;/td&gt;&lt;/tr&gt;
+		&lt;tr&gt;&lt;td&gt;&lt;b&gt;Hours&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Pricing.Hours}}&lt;/td&gt;&lt;/tr&gt;
+		&lt;tr&gt;&lt;td&gt;&lt;b&gt;Price&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{.Pricing.Price}}€&lt;/td&gt;&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/div&gt;</code></pre><p>We also made some adjustments to the .css to make it look nicer.</p><p><figure><img src="programming/timeclock/images/project-info-00.png" alt="Project View 00" title="Project View 00"><figcaption>Project View 00</figcaption></figure></p><p>Then we add a way to view expenses:</p><p><figure><img src="programming/timeclock/images/project-info-01.png" alt="Project View 01" title="Project View 01"><figcaption>Project View 01</figcaption></figure></p><p>Before proceeding we can ask users whether this is
 what they were looking for. This is so we can understand
-whether we are on the right track.</p>
-
-<h2 id="feedback-1">Feedback #1</h2>
-
-<p>After remotely showing the first prototype to a user, he gave some
-feedback and sketched out some other views.</p>
-
-<p><figure><img src="programming/timeclock/images/feedback-00-worker-view.png" alt="Worker View" title="Worker view"><figcaption>Worker view</figcaption></figure></p>
-
-<p><figure><img src="programming/timeclock/images/feedback-00-worker-view.png" alt="Worker Project View" title="Worker project view"><figcaption>Worker project view</figcaption></figure></p>
-
-<p><figure><img src="programming/timeclock/images/feedback-00-customer-view.png" alt="Customer View" title="Customer view"><figcaption>Customer view</figcaption></figure></p>
-
-<p><figure><img src="programming/timeclock/images/feedback-00-customer-project-view.png" alt="Customer Project View" title="Customer project view"><figcaption>Customer project view</figcaption></figure></p>
-
-<p><figure><img src="programming/timeclock/images/feedback-00-customer-project-view.png" alt="Customer Project Date View" title="Customer project date view"><figcaption>Customer project date view</figcaption></figure></p>
-
-<p>They also said that the &quot;Project Date View&quot; should contain a
+whether we are on the right track.</p></section></section><section><h2>Feedback #1</h2><p>After remotely showing the first prototype to a user, he gave some
+feedback and sketched out some other views.</p><p><figure><img src="programming/timeclock/images/feedback-00-worker-view.png" alt="Worker View" title="Worker View"><figcaption>Worker View</figcaption></figure></p><p><figure><img src="programming/timeclock/images/feedback-00-worker-view.png" alt="Worker Project View" title="Worker Project View"><figcaption>Worker Project View</figcaption></figure></p><p><figure><img src="programming/timeclock/images/feedback-00-customer-view.png" alt="Customer View" title="Customer View"><figcaption>Customer View</figcaption></figure></p><p><figure><img src="programming/timeclock/images/feedback-00-customer-project-view.png" alt="Customer Project View" title="Customer Project View"><figcaption>Customer Project View</figcaption></figure></p><p><figure><img src="programming/timeclock/images/feedback-00-customer-project-view.png" alt="Customer Project Date View" title="Customer Project Date View"><figcaption>Customer Project Date View</figcaption></figure></p><p>They also said that the &#34;Project Date View&#34; should contain a
 place for comments and discussion and that when the project
-has fixed pricing, then the <code>Customer</code> shouldn't be able to
-view how many hours workers worked.</p>
-
-<p>From these views we can deduce several things. First merging
-resource use and worker work-time into a single thing isn't
-probably a good idea. It will be better if we break it up.</p>
-
-<h3 id="adjusting-models">Adjusting models</h3>
-
-<p><a class="sha" href="https://github.com/loov/timeclock/tree/e165e7904fcad53d98b2f7707f713763372255fa">e165e7904f</a></p>
-
-<p>One of the things that can be seen that the &quot;sub-project&quot; idea
-doesn't figure that much. Maybe we should remove <code>Task</code> for now
-and later re-add it.</p>
-
-<p>We also split the <code>Expense</code> into two separate items:</p>
-
-<pre><code class="language-go">type Activity struct {
-    Worker   string    //TODO: ref
-    Date     time.Time // when was the entry made
-    Name string
-    Start    time.Time
-    Finish   time.Time
-    Comment  string
+has fixed pricing, then the <code>Customer</code> shouldn&#39;t be able to
+view how many hours workers worked.</p><p>From these views we can deduce several things. First merging
+resource use and worker work-time into a single thing isn&#39;t
+probably a good idea. It will be better if we break it up.</p><section><h3>Adjusting models</h3><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/timeclock/tree/e165e7904fcad53d98b2f7707f713763372255fa&#34;&gt;e165e7904f&lt;/a&gt;</p><p>One of the things that can be seen that the &#34;sub-project&#34; idea
+doesn&#39;t figure that much. Maybe we should remove <code>Task</code> for now
+and later re-add it.</p><p>We also split the <code>Expense</code> into two separate items:</p><pre><code class="language-go">type Activity struct {
+	Worker   string    //TODO: ref
+	Date     time.Time // when was the entry made
+	Name string
+	Start    time.Time
+	Finish   time.Time
+	Comment  string
 }
 
 func (a *Activity) Total() time.Duration {
-    return a.Finish.Sub(a.Start)
+	return a.Finish.Sub(a.Start)
 }
 
 type Material struct {
-    Worker   string //TODO: ref
-    Date     time.Time
-    Resource Resource
-    Units    float64
+	Worker   string //TODO: ref
+	Date     time.Time
+	Resource Resource
+	Units    float64
 }
 
 func (m *Material) Total() float64 {
-    return m.Resource.PPU * m.Units
-}
-</code></pre>
-
-<p>One of the things we may notice here is that these things
+	return m.Resource.PPU * m.Units
+}</code></pre><p>One of the things we may notice here is that these things
 require some amount of meta-information about the entry.
-This means we should remove the common items:</p>
-
-<pre><code class="language-go">type Event struct {
-    Worker string
-    Date   time.Time
+This means we should remove the common items:</p><pre><code class="language-go">type Event struct {
+	Worker string
+	Date   time.Time
 }
 
 type Activity struct {
-    Event
+	Event
 // ...
 
 type Material struct {
-    Event
-    Resource Resource
-// ...
-</code></pre>
+	Event
+	Resource Resource
+// ...</code></pre><p>We will adjust the server code accordingly.</p><pre><code class="language-go">	example := &amp;project.Project{
+		Title:    &#34;Alpha&#34;,
+		Customer: &#34;ACME&#34;,
+		Pricing: project.Pricing{
+			Hours: 480,
+			Price: 1000,
+		},
+		Description: &#34;Implement views&#34;,
+		Status:      project.InProgress,
+	}
 
-<p>We will adjust the server code accordingly.</p>
+	activites := []*project.Activity{
+		{
+			Event: project.Event{
+				Worker: &#34;John&#34;,
+				Date:   time.Now(),
+			},
+			Name:    &#34;Welding&#34;,
+			Start:   time.Now().Add(-2 * time.Hour),
+			Finish:  time.Now().Add(-1 * time.Hour),
+			Comment: &#34;A, B, C are done&#34;,
+		},
+		...
+	}
 
-<pre><code class="language-go">    example := &amp;project.Project{
-        Title:    &quot;Alpha&quot;,
-        Customer: &quot;ACME&quot;,
-        Pricing: project.Pricing{
-            Hours: 480,
-            Price: 1000,
-        },
-        Description: &quot;Implement views&quot;,
-        Status:      project.InProgress,
-    }
+	materials := []*project.Material{
+		{
+			Event: project.Event{
+				Worker: &#34;John&#34;,
+				Date:   time.Now(),
+			},
+			Resource: project.Resource{ ... },
+			Units: 8,
+		},
+	}
 
-    activites := []*project.Activity{
-        {
-            Event: project.Event{
-                Worker: &quot;John&quot;,
-                Date:   time.Now(),
-            },
-            Name:    &quot;Welding&quot;,
-            Start:   time.Now().Add(-2 * time.Hour),
-            Finish:  time.Now().Add(-1 * time.Hour),
-            Comment: &quot;A, B, C are done&quot;,
-        },
-        ...
-    }
-
-    materials := []*project.Material{
-        {
-            Event: project.Event{
-                Worker: &quot;John&quot;,
-                Date:   time.Now(),
-            },
-            Resource: project.Resource{ ... },
-            Units: 8,
-        },
-    }
-
-    err = t.Execute(w, map[string]interface{}{
-        &quot;Project&quot;:    example,
-        &quot;Activities&quot;: activites,
-        &quot;Materials&quot;:  materials,
-    })
-</code></pre>
-
-<p>One of the things we notice here is that there is a
+	err = t.Execute(w, map[string]interface{}{
+		&#34;Project&#34;:    example,
+		&#34;Activities&#34;: activites,
+		&#34;Materials&#34;:  materials,
+	})</code></pre><p>One of the things we notice here is that there is a
 lot of different pieces moving around. It would be
 beneficial to organize all these different items into
-a single thing. So we will make a <code>project.Info</code>.</p>
-
-<pre><code class="language-go">type Activities []*Activity
+a single thing. So we will make a <code>project.Info</code>.</p><pre><code class="language-go">type Activities []*Activity
 type Materials []*Material
 
 type Info struct {
-    Project    Project
-    Activities Activities
-    Materials  Materials
-}
-</code></pre>
-
-<p>From the sketches we also see that we need a grouping by
-day, so we will also add:</p>
-
-<pre><code class="language-go">type DayInfo struct {
-    Date       time.Time
-    Activities Activities
-    Materials  Materials
+	Project    Project
+	Activities Activities
+	Materials  Materials
+}</code></pre><p>From the sketches we also see that we need a grouping by
+day, so we will also add:</p><pre><code class="language-go">type DayInfo struct {
+	Date       time.Time
+	Activities Activities
+	Materials  Materials
 }
 
 func (info *Info) GroupByDay() []DayInfo {
-    // ...
+	// ...
 ``
 
 Of course we need to update the project view to:
 
-![Project View](programming/timeclock/images/project-info-02.png &quot;Project view&quot;)
+![Project View](programming/timeclock/images/project-info-02.png)
 
 ### Many tables
 
-At this point, I'm also thinking whether some sort of abstraction
+At this point, I&#39;m also thinking whether some sort of abstraction
 to allow more easily to describe the tables would be beneficial.
 Currently we have several instances of templates:
-
-```html
-
-&lt;div class=&quot;label&quot;&gt;Activities:&lt;/div&gt;
-&lt;table class=&quot;activities&quot;&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;Worker&lt;/th&gt;
-            &lt;th&gt;Activity&lt;/th&gt;
-            &lt;th&gt;Start&lt;/th&gt;
-            &lt;th&gt;Finish&lt;/th&gt;
-            &lt;th&gt;Duration&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-
-    &lt;tr&gt;
-        &lt;td&gt;{{.Worker}}&lt;/td&gt;
-        &lt;td&gt;{{.Name}}&lt;/td&gt;
-        &lt;td&gt;{{.Start.Format &quot;15:04&quot;}}&lt;/td&gt;
-        &lt;td&gt;{{.Finish.Format &quot;15:04&quot;}}&lt;/td&gt;
-        &lt;td&gt;{{.Duration}}&lt;/td&gt;
-    &lt;/tr&gt;
-
-&lt;/table&gt;
-
-</code></pre>
-
-<p>Whereas ideally we could do something like:</p>
-
-<pre><code class="language-html">{{ table .Activities
-    &quot;Worker&quot;   .Worker
-    &quot;Name&quot;     .Name
-    &quot;Start&quot;    (.Start.Format &quot;15:04&quot;)
-    &quot;Finish&quot;   (.Finish.Format &quot;15:04&quot;)
-    &quot;Duration&quot; .Duration
-}}
-</code></pre>
-
-<p>I'm not sure how to implement it, but it is something to think about.
+</code></pre><p>&lt;div class=&#34;label&#34;&gt;Activities:&lt;/div&gt;
+&lt;table class=&#34;activities&#34;&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Worker&lt;/th&gt;
+			&lt;th&gt;Activity&lt;/th&gt;
+			&lt;th&gt;Start&lt;/th&gt;
+			&lt;th&gt;Finish&lt;/th&gt;
+			&lt;th&gt;Duration&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;</p><p>	&lt;tr&gt;
+		&lt;td&gt;{{.Worker}}&lt;/td&gt;
+		&lt;td&gt;{{.Name}}&lt;/td&gt;
+		&lt;td&gt;{{.Start.Format &#34;15:04&#34;}}&lt;/td&gt;
+		&lt;td&gt;{{.Finish.Format &#34;15:04&#34;}}&lt;/td&gt;
+		&lt;td&gt;{{.Duration}}&lt;/td&gt;
+	&lt;/tr&gt;</p><p>&lt;/table&gt;</p><pre><code>
+Whereas ideally we could do something like:
+</code></pre><p>	&#34;Worker&#34;   .Worker
+	&#34;Name&#34;     .Name
+	&#34;Start&#34;    (.Start.Format &#34;15:04&#34;)
+	&#34;Finish&#34;   (.Finish.Format &#34;15:04&#34;)
+	&#34;Duration&#34; .Duration
+}}</p><pre><code>
+I&#39;m not sure how to implement it, but it is something to think about.
 For now we can implement the tables manually, before finding a way to
 implement it. It might be faster to do it manually, until we know
-what features will be necessary in that thing.</p>
-
-<h2 id="redesign-1">Redesign #1</h2>
-
-<p><a class="sha" href="https://github.com/loov/timeclock/tree/014c64ec669407036018948a9ef6e0ebd765a751">014c64ec66</a></p>
-
-<p>After putting this project on hold, due to other responsibilities.
+what features will be necessary in that thing.</code></pre></section></section><section><h2>Redesign #1</h2><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/timeclock/tree/014c64ec669407036018948a9ef6e0ebd765a751&#34;&gt;014c64ec66&lt;/a&gt;</p><p>After putting this project on hold, due to other responsibilities.
 After few weeks I was finally able to meet with a user behind the same desk.
-The end result of that discussion was a significant drop in complexity.</p>
-
-<p>The main thing we got out of the discussion was how the workflow of the worker
-will look like and how he will use the system.</p>
-
-<p>When the worker starts his day, he will be presented with a screen
-(quite likely on a mobile device):</p>
-
-<p><figure><img src="programming/timeclock/images/redesign-00-start-working.png" alt="Start Working" title="Start Working"><figcaption>Start Working</figcaption></figure></p>
-
-<p>After selecting a project he chooses the activity he is performing:</p>
-
-<p><figure><img src="programming/timeclock/images/redesign-00-working.png" alt="Working" title="Working"><figcaption>Working</figcaption></figure></p>
-
-<p>There he can submit any additional information such as add an image of the
+The end result of that discussion was a significant drop in complexity.</p><p>The main thing we got out of the discussion was how the workflow of the worker
+will look like and how he will use the system.</p><p>When the worker starts his day, he will be presented with a screen
+(quite likely on a mobile device):</p><p><figure><img src="programming/timeclock/images/redesign-00-start-working.png" alt="Start Working" title="Start Working"><figcaption>Start Working</figcaption></figure></p><p>After selecting a project he chooses the activity he is performing:</p><p><figure><img src="programming/timeclock/images/redesign-00-working.png" alt="Working" title="Working"><figcaption>Working</figcaption></figure></p><p>There he can submit any additional information such as add an image of the
 progress or report some issue (such as some parts were missing or broken).
 After completing the task he can either go select another project or
-finish his day with a Day Report.</p>
-
-<p><figure><img src="programming/timeclock/images/redesign-00-day-report.png" alt="Day Report" title="Day Report"><figcaption>Day Report</figcaption></figure></p>
-
-<p>We try to put together the day-report from existing information as much as possible.
+finish his day with a Day Report.</p><p><figure><img src="programming/timeclock/images/redesign-00-day-report.png" alt="Day Report" title="Day Report"><figcaption>Day Report</figcaption></figure></p><p>We try to put together the day-report from existing information as much as possible.
 We cannot simply actively confirm the work, because sometimes a worker might forget
 to start his timeclock or alternatively he may be somewhere, where there is no
 internet access. There might also be some adjustments necessary to the hours,
-either way, this additional reporting step is necessary.</p>
-
-<p>All those work hours must be reviewed by an engineer, whether they are up to bar,
+either way, this additional reporting step is necessary.</p><p>All those work hours must be reviewed by an engineer, whether they are up to bar,
 or whether they took longer than they should. Engineers review projects and
-every week, rather than every day:</p>
-
-<p><figure><img src="programming/timeclock/images/redesign-00-week-review.png" alt="Week Review" title="Week Review"><figcaption>Week Review</figcaption></figure></p>
-
-<p>SIDENOTE: The screen prototypes left out some parts when designing,
+every week, rather than every day:</p><p><figure><img src="programming/timeclock/images/redesign-00-week-review.png" alt="Week Review" title="Week Review"><figcaption>Week Review</figcaption></figure></p><p>SIDENOTE: The screen prototypes left out some parts when designing,
 because it was easy to imagine them being there, but the exact design
-and mock-up wasn't important at that point.</p>
-
-<p>Since all the reviews, whether accepted or declined, need to be processed by
+and mock-up wasn&#39;t important at that point.</p><p>Since all the reviews, whether accepted or declined, need to be processed by
 the accounting, there is also a way to view all the pending/accepted/declined
-week reviews.</p>
-
-<p><figure><img src="programming/timeclock/images/redesign-00-weekly-reports.png" alt="Weekly Reports" title="Weekly Reports"><figcaption>Weekly Reports</figcaption></figure></p>
-
-<p>This new approach is much simpler for the workers to work with and easier to implement,
-while mostly delivering the same amount or even more value.</p>
-
-<p>The main thing that was removed, was &quot;materials&quot; tracking. It would be inconvenient
-to continously track the materials missing and used, it's easier to do that with talking.</p>
-
-<p>One thing that I additionally created was a &quot;notes.txt&quot; file, to track things
+week reviews.</p><p><figure><img src="programming/timeclock/images/redesign-00-weekly-reports.png" alt="Weekly Reports" title="Weekly Reports"><figcaption>Weekly Reports</figcaption></figure></p><p>This new approach is much simpler for the workers to work with and easier to implement,
+while mostly delivering the same amount or even more value.</p><p>The main thing that was removed, was &#34;materials&#34; tracking. It would be inconvenient
+to continously track the materials missing and used, it&#39;s easier to do that with talking.</p><p>One thing that I additionally created was a &#34;notes.txt&#34; file, to track things
 that need to be implemented, however not vital at this point. For example, it
-contains that there needs to be few statistics pages to get an overview of projects.</p>
-
-<h3 id="restart">Restart</h3>
-
-<p>Now we are going to throw away our initial design because it was too complicated.
-You might be thinking:</p>
-
-<blockquote>
-<p>Wait, what? This is a book about how to write more efficiently and and get
+contains that there needs to be few statistics pages to get an overview of projects.</p><section><h3>Restart</h3><p>Now we are going to throw away our initial design because it was too complicated.
+You might be thinking:</p><blockquote><p>Wait, what? This is a book about how to write more efficiently and and get
 things better and now after writing dedicating a chapter on designing
-something we are just going to throw away all of that work?</p>
-</blockquote>
-
-<p>Let's step back and look at how much we actually have written code:</p>
-
-<pre><code>extension  files binary blank code
+something we are just going to throw away all of that work?</p></blockquote><p>Let&#39;s step back and look at how much we actually have written code:</p><pre><code>extension  files binary blank code
 ----------------------------------
 go             3      0    41  231
 html           1      0     2   91
-css            1      0    21   89
-</code></pre>
-
-<p>This is very little code. It can easily be rewritten in a day.
+css            1      0    21   89</code></pre><p>This is very little code. It can easily be rewritten in a day.
 Of course, rewriting code is much easier, which means it will go much quicker
-than first time.</p>
-
-<p>This book could have started with the &quot;perfect approach&quot;,
+than first time.</p><p>This book could have started with the &#34;perfect approach&#34;,
 but this is what will happen in real-life: you misunderstand people, you find
 better ways of doing things and you learn more about the <em>value</em> while
-writing the project.</p>
-
-<p>Also, it is not wasted effort, the initial design helped to learn about
+writing the project.</p><p>Also, it is not wasted effort, the initial design helped to learn about
 the project. The analysis part was important, not the code part.
-Without this, we may have never been able to improve the user experience.</p>
-
-<p>This is also one of the main reasons for holding off stiffening
+Without this, we may have never been able to improve the user experience.</p><p>This is also one of the main reasons for holding off stiffening
 (eg. writing tests) for later, until we are convinced that we have
-a nice architecture in place for the system to work as a whole.</p>
-
-<p>This doesn't mean every time you find a better way to implement things,
-you should rewrite everything.</p>
-
-<p>In this case it didn't make sense to use the previous design.</p>
-
-<h3 id="architecture">Architecture</h3>
-
-<h1 id="spector">Spector</h1>
-
-<h1 id="wiki">Wiki</h1>
-
-</body>
-</html>
+a nice architecture in place for the system to work as a whole.</p><p>This doesn&#39;t mean every time you find a better way to implement things,
+you should rewrite everything.</p><p>In this case it didn&#39;t make sense to use the previous design.</p></section><section><h3>Architecture</h3></section></section></section><section><h1>Spector</h1></section><section><h1>Wiki</h1></section></body></html>

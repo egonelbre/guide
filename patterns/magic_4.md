@@ -4,7 +4,7 @@ explain things, then we increase the number of "abstraction layers".
 
 Therefore
 
-When describing an concept use 4+-1 other ideas to explain it.
+When describing an concept use 4±1 other ideas to explain it.
 
 ### Rationale
 

@@ -1,15 +1,15 @@
 After remotely showing the first prototype to a user, he gave some
 feedback and sketched out some other views.
 
-![Worker View](programming/timeclock/images/feedback-00-worker-view.png "Worker view")
+![Worker View](programming/timeclock/images/feedback-00-worker-view.png)
 
-![Worker Project View](programming/timeclock/images/feedback-00-worker-view.png "Worker project view")
+![Worker Project View](programming/timeclock/images/feedback-00-worker-view.png)
 
-![Customer View](programming/timeclock/images/feedback-00-customer-view.png "Customer view")
+![Customer View](programming/timeclock/images/feedback-00-customer-view.png)
 
-![Customer Project View](programming/timeclock/images/feedback-00-customer-project-view.png "Customer project view")
+![Customer Project View](programming/timeclock/images/feedback-00-customer-project-view.png)
 
-![Customer Project Date View](programming/timeclock/images/feedback-00-customer-project-view.png "Customer project date view")
+![Customer Project Date View](programming/timeclock/images/feedback-00-customer-project-view.png)
 
 They also said that the "Project Date View" should contain a
 place for comments and discussion and that when the project
@@ -155,7 +155,7 @@ func (info *Info) GroupByDay() []DayInfo {
 
 Of course we need to update the project view to:
 
-![Project View](programming/timeclock/images/project-info-02.png "Project view")
+![Project View](programming/timeclock/images/project-info-02.png)
 
 ### Many tables
 

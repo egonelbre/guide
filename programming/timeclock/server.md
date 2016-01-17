@@ -178,11 +178,11 @@ We also adjust the `index.html` to use project information:
 
 We also made some adjustments to the .css to make it look nicer.
 
-![Project View 00](programming/timeclock/images/project-info-00.png  "Project header")
+![Project View 00](programming/timeclock/images/project-info-00.png)
 
 Then we add a way to view expenses:
 
-![Project View 01](programming/timeclock/images/project-info-01.png "More information")
+![Project View 01](programming/timeclock/images/project-info-01.png)
 
 Before proceeding we can ask users whether this is
 what they were looking for. This is so we can understand
