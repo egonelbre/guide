@@ -41,6 +41,7 @@ h5 {
 	margin-top: 1.5em;
 }
 
+body      { counter-reset: h1-counter; }
 h1        { counter-increment: h1-counter; counter-reset: h2-counter; }
 h2        { counter-increment: h2-counter; counter-reset: h3-counter; }
 h3        { counter-increment: h3-counter; counter-reset: h4-counter;}
@@ -49,8 +50,8 @@ h2:before { content: counter(h1-counter) "." counter(h2-counter) ". "; }
 h3:before { content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) ". "; }
 h4:before { content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) ". "; }
 
-h1.title:before { content: ""; counter-reset: h1-counter; }
-h1.title        { counter-increment: none; }
+body > section:first-of-type  h1:before { content: ""; counter-reset: h1-counter; }
+body > section:first-of-type  h1        { counter-increment: none; }
 
 h1:before, h2:before, h3:before, h4:before {
 	font-size: 70%;
