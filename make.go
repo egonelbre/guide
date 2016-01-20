@@ -9,7 +9,7 @@ import (
 )
 
 func compile(input, output string) {
-	sequence, errs := mark.ParseFile(input)
+	sequence, errs := mark.ParseFile(mark.Dir("."), input)
 	if len(errs) > 0 {
 		fmt.Printf("\n\n= %s\n", input)
 		for _, err := range errs {

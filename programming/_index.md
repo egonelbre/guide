@@ -1,6 +1,6 @@
 # A Guide To Programming
 
-![](assets/hiking.png)
+![](../assets/hiking.png)
 
 # Introduction
 

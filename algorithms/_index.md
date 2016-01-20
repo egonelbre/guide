@@ -1,3 +1,3 @@
 # A Guide To Algorithms
 
-![](assets/hiking.png)
+![](../assets/hiking.png)

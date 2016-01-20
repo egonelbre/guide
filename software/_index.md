@@ -1,6 +1,6 @@
 # A Guide To Software
 
-![](assets/hiking.png)
+![](../assets/hiking.png)
 
 # Building
 

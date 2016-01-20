@@ -1,6 +1,6 @@
 # A Guide To Coding
 
-![](assets/hiking.png)
+![](../assets/hiking.png)
 
 # Learning
 
