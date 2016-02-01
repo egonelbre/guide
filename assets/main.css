@@ -118,21 +118,32 @@ blockquote.epigraph > * {
 	page-break-inside: avoid;
 }
 
-.sidenote {
+.sidenote, .example {
+	margin-right: -50%;
+	width: 40%;
+	float: right;
+	clear: right;
+
 	font-style: italic;
+	font-size: 0.8em;
 	border: 1px solid #ccc;
 	padding: 0em 1em;
 	border-radius: 1px;
 	color: #666;
 }
-/*
-.sidenote:before {
-	content: "Note:";
-	display: block;
-	margin-bottom: 0;
-	padding-bottom: 0;
+
+.premise {
+	font-weight: bold;
 }
-*/
+
+.therefore {
+	font-weight: bold;
+}
+
+.separator {
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+}
 
 a.sha {
 	display: block;

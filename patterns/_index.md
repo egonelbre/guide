@@ -2,21 +2,29 @@
 
 ![](../assets/hiking.png)
 
-## Introduction
+# Introduction
 
 {{introduction.md}}
 
-## Value
+# The Overview
 
-{{value.md}}
+
+## Strong Value
+
+{{strong_value.md}}
+
 
 ## Magic Number 4
 
 {{magic_4.md}}
 
+
 ## Structure Follows Value
 
 {{structure_follows_value.md}}
+
+
+# Building
 
 ## Spiking
 
