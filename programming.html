@@ -8,7 +8,7 @@
 It is a thousand years old, and the same today as it has ever been.
 The great traditional buildings of the past, the villages and tents
 and temples in which man feels at home, have always been made by
-people who were very close to the center of this way.</p></blockquote><p>Quote: -- Christopher Alexander</p><p>What is the timeless way of building programs?
+people who were very close to the center of this way.</p><div class="quote"><p>Christopher Alexander</p></div></blockquote><p>What is the timeless way of building programs?
 What makes programs beautiful?
 How do you create programs from nothing?
 How do you ensure that the program architecture is beautiful?</p><p>This book guides you through building several programs from start to deployment.
@@ -18,7 +18,7 @@ questions asked previously.</p><p>During programming it is very easy to get lost
 details. Then again, when looking at the large picture, it is easy to miss small
 important details. These views must be balanced and treated equally, otherwise
 the code will suffer.</p><p>This introduction will describe the general process and terminology that will be
-used throughout the book.</p><section><h2>Premise</h2><blockquote><p>It&#39;s not for you Jen.</p></blockquote><p>Quote: -- IT Crowd</p><p>Obviously, no book is perfect for everyone, so it helps to clarify what is
+used throughout the book.</p><section><h2>Premise</h2><blockquote><p>It&#39;s not for you Jen.</p><div class="quote"><p>IT Crowd</p></div></blockquote><p>Obviously, no book is perfect for everyone, so it helps to clarify what is
 expected from the reader.</p><p>First, you should be familiar with programming. It is not necessary that you
 have written a big program, however it could help you to understand the issues
 better.</p><p>Second, you should be able to search and learn the necessary implementation
@@ -36,7 +36,7 @@ come ahead. There will be decisions that could have made our lives easier
 or used a better library and so on... but this is the reality of programming:
 you won&#39;t make the best decisions every time.</p></section><section><h2>Value</h2><blockquote><p>... starting in The Mist, you are seeking ways to create Value,
 where value is defined as something of worth to some person or set
-of people whom we wish to serve.</p></blockquote><p>Quote: -- <a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream - ScrumPLoP</a></p><p>Why do we write programs in the first place?</p><p>Obviously we want to provide <b>value</b> to people, not waste.
+of people whom we wish to serve.</p><div class="quote"><p><a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream - ScrumPLoP</a></p></div></blockquote><p>Why do we write programs in the first place?</p><p>Obviously we want to provide <b>value</b> to people, not waste.
 This is why <b>value</b> is so important, it helps us ground in search for solutions.
 It helps us understand why we are doing things in the first place.
 If you are not creating something of <b>value</b> then you are creating waste.</p><section><h3>Valuable</h3><p>To understand <b>value</b> we must first understand why do we call things <b>valuable</b>.</p><p>In the simplest terms when X is <b>valuable</b> to someone Y it means,
@@ -82,8 +82,7 @@ Always understand what the <b>value</b> is for the end-user,
 because there all the things built must come together.</p><p>All of this talk about <b>value</b> may seem fluffy, but we will soon put all
 this understanding to the test.</p></section></section><section><h2>Building</h2><blockquote><p>Speaking as a builder, if you start something, you must have a vision of the
 thing which arises from your instinct about preserving and enhancing
-what is there... If you&#39;re working correctly, the feeling doesn&#39;t wander about.
-Quote: -- Christopher Alexander</p></blockquote><p>The most important part of programming is that you cannot do everything at once.
+what is there... If you&#39;re working correctly, the feeling doesn&#39;t wander about.</p><div class="quote"><p>Christopher Alexander</p></div></blockquote><p>The most important part of programming is that you cannot do everything at once.
 The human mind is fairly limited how much it can hold in its head at a time.
 To combat this limitation we need to build things piece-by-piece to ensure
 that everything will fit together nicely.</p><p>Following patterns are invaluable to building something with ease and clearity.</p><section><h3>Structure Follows Value</h3><p>We dedicated a lot of time explaining what value is and why it is important.
@@ -708,19 +707,10 @@ day, so we will also add:</p><pre><code class="language-go">type DayInfo struct 
 }
 
 func (info *Info) GroupByDay() []DayInfo {
-	// ...
-``
-
-Of course we need to update the project view to:
-
-![Project View](images/project-info-02.png)
-
-### Many tables
-
-At this point, I&#39;m also thinking whether some sort of abstraction
+	// ...</code></pre><p>Of course we need to update the project view to:</p><p><figure><img src="programming/timeclock/images/project-info-02.png" alt="Project View" title="Project View"><figcaption>Project View</figcaption></figure></p></section><section><h3>Many tables</h3><p>At this point, I&#39;m also thinking whether some sort of abstraction
 to allow more easily to describe the tables would be beneficial.
-Currently we have several instances of templates:
-</code></pre><p>&lt;div class=&#34;label&#34;&gt;Activities:&lt;/div&gt;
+Currently we have several instances of templates:</p><pre><code class="language-html">{{if .Activities}}
+&lt;div class=&#34;label&#34;&gt;Activities:&lt;/div&gt;
 &lt;table class=&#34;activities&#34;&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
@@ -730,24 +720,27 @@ Currently we have several instances of templates:
 			&lt;th&gt;Finish&lt;/th&gt;
 			&lt;th&gt;Duration&lt;/th&gt;
 		&lt;/tr&gt;
-	&lt;/thead&gt;</p><p>	&lt;tr&gt;
+	&lt;/thead&gt;
+{{range .Activities}}
+	&lt;tr&gt;
 		&lt;td&gt;{{.Worker}}&lt;/td&gt;
 		&lt;td&gt;{{.Name}}&lt;/td&gt;
 		&lt;td&gt;{{.Start.Format &#34;15:04&#34;}}&lt;/td&gt;
 		&lt;td&gt;{{.Finish.Format &#34;15:04&#34;}}&lt;/td&gt;
 		&lt;td&gt;{{.Duration}}&lt;/td&gt;
-	&lt;/tr&gt;</p><p>&lt;/table&gt;</p><pre><code>
-Whereas ideally we could do something like:
-</code></pre><p>	&#34;Worker&#34;   .Worker
+	&lt;/tr&gt;
+{{end}}
+&lt;/table&gt;
+{{end}}</code></pre><p>Whereas ideally we could do something like:</p><pre><code class="language-html">{{ table .Activities
+	&#34;Worker&#34;   .Worker
 	&#34;Name&#34;     .Name
 	&#34;Start&#34;    (.Start.Format &#34;15:04&#34;)
 	&#34;Finish&#34;   (.Finish.Format &#34;15:04&#34;)
 	&#34;Duration&#34; .Duration
-}}</p><pre><code>
-I&#39;m not sure how to implement it, but it is something to think about.
+}}</code></pre><p>I&#39;m not sure how to implement it, but it is something to think about.
 For now we can implement the tables manually, before finding a way to
 implement it. It might be faster to do it manually, until we know
-what features will be necessary in that thing.</code></pre></section></section><section><h2>Redesign #1</h2><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/timeclock/tree/014c64ec669407036018948a9ef6e0ebd765a751&#34;&gt;014c64ec66&lt;/a&gt;</p><p>After putting this project on hold, due to other responsibilities.
+what features will be necessary in that thing.</p></section></section><section><h2>Redesign #1</h2><p>&lt;a class=&#34;sha&#34; href=&#34;https://github.com/loov/timeclock/tree/014c64ec669407036018948a9ef6e0ebd765a751&#34;&gt;014c64ec66&lt;/a&gt;</p><p>After putting this project on hold, due to other responsibilities.
 After few weeks I was finally able to meet with a user behind the same desk.
 The end result of that discussion was a significant drop in complexity.</p><p>The main thing we got out of the discussion was how the workflow of the worker
 will look like and how he will use the system.</p><p>When the worker starts his day, he will be presented with a screen

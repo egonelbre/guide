@@ -118,6 +118,17 @@ blockquote.epigraph > * {
 	page-break-inside: avoid;
 }
 
+.quote {
+	text-align: right;
+	font-style: italic;
+	font-weight: 800;
+	color: #333;
+}
+.quote a {
+	color: #333;
+	text-decoration: none;
+}
+
 .sidenote, .example {
 	margin-right: -50%;
 	width: 40%;

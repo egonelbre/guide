@@ -4,7 +4,9 @@
 > The great traditional buildings of the past, the villages and tents
 > and temples in which man feels at home, have always been made by
 > people who were very close to the center of this way.
-Quote: -- Christopher Alexander
+>
+> {.quote}
+> Christopher Alexander
 
 What is the timeless way of building programs?
 What makes programs beautiful?

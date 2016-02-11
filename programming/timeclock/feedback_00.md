@@ -151,7 +151,7 @@ type DayInfo struct {
 
 func (info *Info) GroupByDay() []DayInfo {
 	// ...
-``
+```
 
 Of course we need to update the project view to:
 

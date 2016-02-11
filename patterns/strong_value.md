@@ -2,7 +2,9 @@
 > ... starting in The Mist, you are seeking ways to create Value,
 > where value is defined as something of worth to some person or set
 > of people whom we wish to serve.
-Quote: -- [Value Stream - ScrumPLoP](https://sites.google.com/a/scrumplop.org/published-patterns/value-stream)
+>
+> {.quote}
+> [Value Stream - ScrumPLoP](https://sites.google.com/a/scrumplop.org/published-patterns/value-stream)
 
 {.premise}
 There are always a lot of things that could be done, but we can do very little.

@@ -2,7 +2,9 @@
 > Speaking as a builder, if you start something, you must have a vision of the
 > thing which arises from your instinct about preserving and enhancing
 > what is there... If you're working correctly, the feeling doesn't wander about.
-> Quote: -- Christopher Alexander
+>
+> {.quote}
+> Christopher Alexander
 
 The most important part of programming is that you cannot do everything at once.
 The human mind is fairly limited how much it can hold in its head at a time.

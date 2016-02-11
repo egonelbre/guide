@@ -1,6 +1,8 @@
 {.epigraph}
 > It's not for you Jen.
-Quote: -- IT Crowd
+>
+> {.quote}
+> IT Crowd
 
 Obviously, no book is perfect for everyone, so it helps to clarify what is
 expected from the reader.
