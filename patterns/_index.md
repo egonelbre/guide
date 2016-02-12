@@ -36,6 +36,10 @@
 
 ## Import Namespaces
 
+{{import_namespaces.md}}
+
 ## DAG of Namespaces
+
+{{dag_of_namespaces.md}}
 
 ## Organizational Folder

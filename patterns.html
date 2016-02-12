@@ -44,17 +44,26 @@ centers and how centers complement each others, so does Value. <a href="http://w
 <a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream</a> - ScrumPLOP
 <a href="http://www.natureoforder.com/summarybk1.htm">The Nature of Order: The Phenomenon of Life</a> by Christopher Alexander
 <a href="http://www.regismedina.com/articles/christopher-alexander-theory-of-incremental-design">Christopher Alexander - a theory of incremental design</a> by Regis Medina
-DDD by Eric Evans</li></ul></section><section><h2>Magic Number 4</h2><p>Whenever we are describing or explaining concepts there is a strict limit
+DDD by Eric Evans</li></ul></section><section><h2>Magic Number 4</h2><blockquote><p>The scientists of today think deeply instead of clearly.
+One must be sane to think clearly, but one can think deeply and be quite insane.</p><div class="quote"><p>Nikola Tesla</p></div></blockquote><div class="premise"><p>Whenever we are describing or explaining concepts there is a strict limit
 how much we can keep in our heads at once. However, if we use few things to
-explain things, then we increase the number of &#34;abstraction layers&#34;.</p><p>Therefore</p><p>When describing an concept use 4±1 other ideas to explain it.</p><section><h3>Rationale</h3><p>People have a well known limit in their processing capabilities called magic number four.
+explain things, then we increase the number of &#34;abstraction layers&#34;.</p></div><div class="therefore"><p>When describing an concept use 4±1 other ideas to explain it.</p></div><div class="separator">Rationale</div><p>People have a well known limit in their processing capabilities called magic number four.
 (https://en.wikipedia.org/wiki/Working_memory#Capacity) (http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2864034/).
 Anytime we exceed this limit then the explanation of the concept doesn&#39;t fit into our working memory.</p><p>Going the other way, using as few other ideas, doesn&#39;t work either. If we
 need in total 5 things to explain something, and we use 2 things to explain each
-thing. This in the best case would create two additional ideas or concepts.</p><p>DIAGRAMS</p></section><section><h3>Subtleties</h3><p>This 4+-1 doesn&#39;t mean that you cannot have more than 5 lines in your method.
+thing. This in the best case would create two additional ideas or concepts.</p><p>DIAGRAMS</p><div class="separator">Evaluation</div><p>Counting <code>ideas</code> properly is difficult, but it is good principle to think about.
+Here the proof is in the pudding. If you cannot keep the ideas in your head,
+this means that you have exceeded the limit.</p><p>To test this, use Naked-CRC (link to Legacy Software) cards
+(or equivalent for your paradigm) to describe the behavior of the system to
+another programmer. Communicate the names/ideas verbally, but keep around a
+generic non-colored thing to represent them. If the programmer can explain
+afterwards, then it probably is below the average processing limit.</p><p>There&#39;s also a phone test, see whether you can explain your idea over
+the phone and properly carry it over. This requires the other person to hold
+all the ideas in their head.</p><div class="separator">Subtleties</div><p>This 4+-1 doesn&#39;t mean that you cannot have more than 5 lines in your method.
 Or that you cannot have more than 5 ideas in your method. The main thing we are
 concerned about is how many concepts does person have hold in their head to
 understand.</p><p>By limiting the number lines or ideas per function can do harm. One of such
-example is a game loop (link to Carmack).</p><pre><code>while(!exited){
+examples is a game loop (link to Carmack).</p><pre><code>while(!exited){
 	update mouse
 	update systems
 	update entities
@@ -78,19 +87,24 @@ while(!exited){
 	blit to screen
 }</code></pre><p>We have increased our LOC, without actually reducing the complexity. The first
 case is perfectly understandable, we need to keep in mind that we are in
-the <code>while</code> loop and any specific action we are doing.</p><p>If grouping is necessary, we can use empty blocks:</p><pre><code>while(!exited){
-	{
+the <code>while</code> loop and any specific action we are doing.</p><p>Grouping and comments would have kept the game-loop more concise and easier
+to follow.</p><pre><code>while(!exited){
+	{ // updating
 		update mouse
 		update systems
 		update entities
 	}
-	{
+	{ // drawing
 		draw entites
 		draw hud
 	}
-	blit to screen
-}</code></pre></section><section><h3>Extremes</h3><p>This doesn&#39;t mean there are cases where that this bounds shouldn&#39;t be broken.
-Sometimes the essential complexity of the idea requires multiple things. Sometimes it&#39;s not necessary to use more ideas.</p><p>Distributed algorithms can easily violate these rules, because you need to account
+	{ // loop update
+		blit to screen
+	}
+}</code></pre><p>It should also be noted that when a single class, type or function has
+two ideas together wihout unifying idea, it should be counted as two ideas.</p><p>EXAMPLE NEEDED</p><div class="separator">Extremes</div><p>This doesn&#39;t mean there are cases where that this bounds shouldn&#39;t be broken.
+Sometimes the essential complexity of the idea requires multiple things.
+Sometimes it&#39;s not necessary to use more ideas.</p><p>Distributed algorithms can easily violate these rules, because you need to account
 for different kinds of failures and failovers. We can take (quorum) algorithm.
 In those cases human verification becomes difficult or near impossible.
 We can use program verification to prove properties of the system.
@@ -98,4 +112,21 @@ Alternatively we can substitute them with easier to understand algorithms,
 such as Raft, that may not have as good properties, but we are less likely to
 make a mistake in it&#39;s implementation.</p><p>Now when you don&#39;t have 3 things to explain your idea, which can often be the
 case when implementing trivial things, there&#39;s not point in inventing new things
-to satisfy the constraint.</p></section></section><section><h2>Structure Follows Value</h2></section></section><section><h1>Building</h1><section><h2>Spiking</h2></section><section><h2>Gradual Stiffening</h2></section><section><h2>Import Namespaces</h2></section><section><h2>DAG of Namespaces</h2></section><section><h2>Organizational Folder</h2></section></section></body></html>
+to satisfy the constraint.</p><div class="separator">Notes</div><p>It should be noted that good programmers tend have a better skill in moving
+around these &#34;idea groupings&#34; (LINK CHRIS GRANGER), however, good algorists tend
+to be better at being able to hold more things in their head (TODO VERIFY).
+It&#39;s easy to see why, software development mostly requires creating, manipulating
+and making groups of ideas interact; alternatively figuring out why
+multiple groups of ideas do not interact properly. Whereas algorithms require
+clever manipulation of concurrent ideas.</p></section><section><h2>Structure Follows Value</h2><div class="premise"><p>If we lose contact with what Value we are creating we end-up building wrong
+things or changing ideas becomes difficult.</p></div><div class="therefore"><p>Therefore keep your built structures aligned with Value and your understanding
+of it. Let Value guide the structure.</p></div><div class="separator">Description</div><div class="separator">Evaluation</div><div class="separator">Building</div><div class="separator">Notes</div><div class="separator">References</div></section></section><section><h1>Building</h1><section><h2>Spiking</h2><div class="premise"><p>It&#39;s difficult to see the big picture when building things piece by piece.
+However thngs need to be built piece-by-piece.</p></div><div class="therefore"><p>Therefore create spikes that show roughly where other bigger pieces will be
+located and how they are structures. Make a &#34;pseudo&#34; implementation if needed.</p></div><div class="separator">Description</div><div class="separator">Evaluation</div><div class="separator">Building</div><div class="separator">Notes</div><div class="separator">References</div></section><section><h2>Gradual Stiffening</h2><div class="premise"><p>Creating complex systems is difficult, if not impossible. Complex systems
+must be grown. There are many subtleties in how things interact, things that
+you forgot.</p></div><div class="therefore"><p>Iteratively build up the system rather than designing everything upfront.
+Such systems will be more tolerant to change, because they were built by
+iterative change.</p></div><div class="separator">Description</div><div class="separator">Evaluation</div><div class="separator">Building</div><div class="separator">Notes</div><div class="separator">References</div></section><section><h2>Import Namespaces</h2></section><section><h2>DAG of Namespaces</h2><div class="premise"><p>Structures that contain big loops require knowing about the whole structure
+to understand it. However many systems require such circular referencing.</p></div><div class="therefore"><p>Ensure that there are no circular imports. If circular structures are required,
+keep them contained in a single namespace.</p></div><div class="separator">Description</div><div class="separator">Evaluation</div><p>When namespace X depends on Y, then by deleting X, without any further modification,
+Y should still be usable.</p><div class="separator">Building</div><div class="separator">Notes</div><div class="separator">References</div></section><section><h2>Organizational Folder</h2></section></section></body></html>
