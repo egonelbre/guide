@@ -1,0 +1,165 @@
+<section>
+	<title>The Discussion</title>
+
+	<p>Here's the translated chat about the project:</p>
+
+	<transcript C="Customer" A="Analyst">
+		<C>Hi, how difficult would it to make a webpage where
+	   workers can login and add worked hours to different
+	   projects plus any materials that were used and have
+	   an option to add pictures.</C>
+		<A>It depends how much different things are added. It shouldn't be too difficult, probably there already exist things that do that.</A>
+		<C>Yes, there is, it costs about ~150€ per month for single user, also they don't solve our problems very well. I asked the pricing for some 20 users, it was ~6000€.</C>
+		<A>If there isn't any complicated business problems and there is no need for old browser support, then it should be fairly simple.</A>
+		<C>Wait I'll make a quick diagram, how it should work.</C>
+
+		<image src="images/project-sketch.png"></image>
+
+		<C>Every user gets a login user and password. Only supervisor can change things.</C>
+		<A>Do you need any summary/statistics pages?</A>
+		<C>Yes, that would be useful.</C>
+
+		<wait></wait>
+
+		<A>Who will create the projects?</A>
+		<C>The supervisor.</C>
+		<A>What information needs to be associated with each project?</A>
+		<C>If it's a project with fixed pricing then it calculates how much has been spent and whether balance is positive or negative.</C>
+
+		<wait></wait>
+
+		<A>How will the balance be calculated?</A>
+		<C>Hours and materials.</C>
+		<A>Does every worker have the same hour cost? Or does it vary between projects?</A>
+		<C>Usually the cost per hour is same, except workshop hours.</C>
+		<A>Always or usually?</A>
+		<C>For different orders it can be different. You should be able to change the pricing.</C>
+
+		<wait></wait>
+
+		<A>Can the whole thing be in English or does it need to be localized?</A>
+		<C>Translation is a small problem.</C>
+		<A>It's not about the translating part, rather whether there should be built-in support for multiple languages.</A>
+
+		<wait></wait>
+
+		<A>How should changing pricing look like? Should it need some default values that will be used and can be overridden depending on the project? Will they change during project?</A>
+		<C>The pricing will be fixed when the project is created and won't be changed later.</C>
+
+		<wait></wait>
+
+		<A>Do you need something for sub-projects or sub-tasks?</A>
+		<C>Yes, that might come in handy.</C>
+		<A>Do you need multi-level or is a two-level separation sufficient? Project -> Objective X -> Task A; or Project -> Objective A.</A>
+		<C>Two-level separation would be sufficient.</C>
+
+		<wait></wait>
+
+		<A>How will the worker mark down material usage? By price, amount or something else?</A>
+		<C>When project is created then the material usage is already known. But worker should be able to say that instead of 4 bolts we actually needed 6.</C>
+		<A>So will he write: 2 bolts priced at 8€ per piece, or 2 bolts, type XYZ and get the price from system?</A>
+		<C>Yup, the latter one.</C>
+
+		<wait></wait>
+
+		<A>Can the bolt price change during the project and how should it be handled, let's say there is:
+			<ol>
+				<li>In a project it's marked that 2 bolts were used.</li>
+				<li>Then price of that bolt changes.</li>
+			</ol> Should the price be considered at 1. or 2.</A>
+		<C>At moment 1.</C>
+
+		<wait></wait>
+
+		<A>How does the worker mark down his status? "I worked on X for 4hours?" How should the work hour pricing be calculated? Does it have to be legally valid from an accounting standpoint or is it only for internal tracking?</A>
+		<C>For workers we only track the hours, accounting manages the payments separately. Important are materials and cost per hour.</C>
+   </transcript>
+
+   <p>This whole discussion took about 1hour. This seems like
+a lot of jumping around instead of a rigid discussion, but
+it conveys sufficient information about the project to
+make a prototype.</p>
+
+	<section>
+		<title>Artifacts</title>
+
+		<p>While discussing I was simultanously desiging different artifacts that need to be tracked:</p>
+
+		<code>
+			ResourceType (Worker, Material)
+
+			[]Resource {
+				Name
+				ResourceType
+				Unit
+				UnitPrice
+			}
+
+			Unit (Hour, Piece, Grams, Litre)
+
+			Customer {
+				Name
+				Phone
+			}
+
+			Worker {
+				Name
+				Supervisor
+			}
+
+			Project {
+				Customer
+				Title
+				Pricing {
+					Hours
+					Price
+				}
+				Status
+				Description
+			}
+
+			Task {
+				Project
+				Title
+				Description
+			}
+
+			Expense {
+				Project
+				Task
+				Worker
+				Date
+				Resource
+				Amount
+				Unit
+				UnitPrice
+			}
+
+			Comment {
+				Task
+				Worker
+				Date
+				Comment
+			}
+
+			Attachment {
+				Task
+				Worker
+				Date
+				Comment
+			}
+		</code>
+
+		<p>This isn't some magic syntax, it's pseudo-code of artifacts. Here I decided to track work-hours and materials as "Expense" instead of separate entities, it will add some uniformity to the discussion.</p>
+	</section>
+
+	<section>
+		<title>Prototype</title>
+
+		<p>I'm sure that we don't have full understanding of the business logic, but we do understand how things are related. It will be sufficient to create a prototype.</p>
+
+		<p>Note, that it is a concious desicion to stop analysis at this point. This is the minimal viable product that provides value to the customer. I'm not sure whether customer would be to imagine all the intricacies even if I asked them. I might get wrong or guesses instead of good answers. We need something solid, something that the customer can try out.</p>
+
+		<p>There are several ways we could build the prototype: paper mock-ups, wireframes, some prototyping software, HTML page, actual code. Use whatever you feel most comfortable fastest with. In this case the webpage seems pretty trivial so there is no need for paper mock-ups or wireframes. We can go directly to HTML or code.</p>
+	</section>
+</section>

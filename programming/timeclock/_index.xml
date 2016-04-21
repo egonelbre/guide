@@ -1,0 +1,15 @@
+<section>
+	<title>Timeclock</title>
+
+	<p>I was asked how difficult it would be to implement a something to show project progress for a welding company. I thought it would be a great case-study.</p>
+
+	<p>In the <link src="../issue-tracker/index.xml">Issue Tracker</link> we took things very slow to show the ideas behind building something. Here we will try to go at full speed. How much you can do at the same time will depend on your skill level and previous knowledge of the domain. The code for this project can be found at <link href="http://github.com/loov/timeclock">http://github.com/loov/timeclock</link></p>
+
+	<toc>
+		<include src="the_discussion.xml"></include>
+		<include src="first_prototype.xml"></include>
+		<include src="server.xml"></include>
+		<include src="feedback_00.xml"></include>
+		<include src="redesign_00.xml"></include>
+	</toc>
+</section>

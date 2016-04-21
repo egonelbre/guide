@@ -1,0 +1,36 @@
+1. Minimal database
+
+var _ project.Projects = &DB{}
+
+type DB struct {
+	projects []project.Project
+}
+
+var upgradeofwater = project.Project{
+	ID:          "15113",
+	Caption:     "Upgrade of watering system",
+	Customer:    "ACME",
+	Description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam impedit cumque nam necessitatibus quod hic possimus rerum, eveniet repudiandae! Ex quis unde provident, explicabo commodi ullam quibusdam enim officiis quaerat.",
+	Status:      project.Active,
+
+	Engineers: []user.ID{},
+	Estimate:  30 * day,
+
+	Created:   time.Now().Add(-day * 5),
+	Modified:  time.Now().Add(-day * 2),
+	Completed: time.Time{},
+}
+
+...
+
+
+func New(connection string) (*DB, error) {
+	return &DB{
+		projects: []project.Project{
+			upgradeofwater,
+			coversfloatation,
+		},
+	}, nil
+}
+
+2. Separate project information and listing to a separate package and create Presenter abstraction

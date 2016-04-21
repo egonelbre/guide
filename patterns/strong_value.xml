@@ -1,0 +1,105 @@
+<section>
+	<title>Strong Value</title>
+	<autoindex>
+		<ix>Value</ix>
+		<ix>Context</ix>
+		<ix>Evaluator</ix>
+	</autoindex>
+
+	<quote by="Value Stream - ScrumPLOP" href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream" class="epigraph">... starting in The Mist, you are seeking ways to create Value, where value is defined as something of worth to some person or set of people whom we wish to serve.</quote>
+
+	<premise>There is always a lot of things that could be done, but we can do very little. It is easy to get lost in the ideas, technical issues and technical debt. We must make choices in what we do and more importantly things that we won't do.</premise>
+
+	<p>The intent of writing software is to create Value to people. Anything that is not of Value is waste.</p>
+
+	<therefore>Focus on creating Value and how it relates to all the stakeholders and its surroundings. Ensure that the Value is clear to everyone and fits together with other Values around it.</therefore>
+
+	<group title="Description">
+		<p>With Value there are two important a4spects that must be considered Context and the Evaluator.</p>
+
+		<p>We cannot understand Value without the Context where it appears. Value is always connected to other things of Value. We cannot properly evaluate importance of something without being able to compare it with something else. Hence we must have a good understanding of the Value and how it relates to other things surrounding it.</p>
+
+		<example>
+			<ul>
+				<li>A door is valuable when it is front of a house.</li>
+				<li>A keyboard is valuable when it is connected to a computer.</li>
+				<li>A web server is valuable when it serves content to a browser.</li>
+			</ul>
+		</example>
+
+		<p>Value is not created for anyone, it is created for someone. We should keep in mind how the Value enhances and improves the life of the person using it.</p>
+
+		<example>
+			<p>Easy to use GUI interface provides more value to beginners, however it is slower to use for power-users. A command-line interface is often faster to use, when learned, but it is more difficult to learn.</p>
+		</example>
+
+		<p>Value of something is not a binary scale, there are subtle things that improve or diminish Value. There are also a lot of things that do not significantly add to the value.</p>
+
+		<example>
+			<p>A color blind palette choice can make the software easier to use for people with color deficieny, but is often overlooked. Never relying on only color to distinguish visual elements is even better.</p>
+		</example>
+
+		<example>
+			<p>When writing a prototype or learning, there is little value in good documentation, good naming conventions and tests. Hence when learning something, do not write comments or polish it, you can iterate quicker and learn more by skipping those activities.</p>
+		</example>
+
+		<p>There are a many things that can be valuable and it is easy to miss the less
+		obvious parts. There are things directly related to code:
+			<ul>
+				<li><link src="value/namespaces.xml">Value in Namespaces</link> - we need to organize our structures to ensure that we have clear distinction between ideas.</li>
+				<li><link src="value/objects.xml">Value in Objects</link> - many of the things we write can be directly related to the world.</li>
+				<li><link src="value/functions.xml">Value in Functions</link> - pure functions provide a reliable and repeatable computations.</li>
+				<li><link src="value/logic.xml">Value in Logic</link> - describing logical relations between allows separating the intent from the way things are computeted.</li>
+				<li><link src="value/interaction.xml">Value in Interaction</link> - interaction between things can be just as important as the interacting things themselves.</li>
+				<li><link src="value/libraries.xml">Value in Libraries</link> - separating ideas into libraries creates a possibility for reuse.</li>
+				<li><link src="value/platform.xml">Value in Platform</link> - a good platform allows other things to be easier and simpler understand.</li>
+			</ul>
+		</p>
+
+		<p>There are also things related to the Visuals:
+			<ul>
+				<li><link src="value/ux.xml">Value in User Experience</link> - a great experience leads to less frustration in people.</li>
+				<li><link src="value/ui.xml">Value in User Interface</link> - good interface pleases and guides people to making better choices.</li>
+			</ul>
+		</p>
+	</group>
+
+	<group title="Evaluation">
+		<p>To have Strong Value in your code you should understand:
+			<ul>
+				<li>when it is being used -- in a rush, at work or at leisure time;</li>
+				<li>where it is being used -- in office, on a bus or on a couch;</li>
+				<li>how it is being used -- on a desktop computer, on a tablet or a TV;</li>
+				<li>who is using it -- a power user, a color blind person, a blind person.</li>
+				<li>how it relates to other Values around it, how they complement each other.</li>
+			</ul>
+		</p>
+	</group>
+
+	<group title="Building">
+		<p>There are several ways that can be used to find what is Valuable.</p>
+		<p>Good <link src="value/ux.xml">User Experience</link> and <link src="value/ui.md">User Interface</link> show pieces that are valuable to the end-user. Hence by building the "best" user-interface you can find some of the strong values.</p>
+		<p>Domain Expert terminology and a Domain Expert can directly show what are the important pieces.</p>
+		<p>When building Strong Values into your system, start from the strongest and iteratively work towards adding them.<ref href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream/greatest-value"></ref></p>
+		<p>You may not get the perfect separation into Value structures from the start, but over-time, since you started with the Strongest Value, they will be iterated the most.</p>
+	</group>
+
+	<group title="Subtleties">
+	</group>
+
+	<group title="Extremes">
+	</group>
+
+	<group title="Notes">
+		<p>The notion of Value very strongly correlates to the notion of Centers in Christopher Alexanders work. Similarly how centers are composed of other centers and how centers complement each others, so does Value.<ref href="http://www.regismedina.com/articles/christopher-alexander-theory-of-incremental-design"></ref></p>
+	</group>
+
+	<references>
+		<ref href="http://www.leansoftwarearchitecture.com/">Lean Architecture by James Coplien</ref>
+		<ref href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream/greatest-value">Greatest Value - ScrumPLOP</ref>
+		<ref href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream - ScrumPLOP</ref>
+		<ref href="http://www.natureoforder.com/summarybk1.htm">The Nature of Order: The Phenomenon of Life by Christopher Alexander</ref>
+		<ref href="http://www.regismedina.com/articles/christopher-alexander-theory-of-incremental-design">Christopher Alexander - a theory of incremental design by Regis Medina</ref>
+		<ref>DDD by Eric Evans</ref>
+	</references>
+</section>

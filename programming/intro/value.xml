@@ -1,0 +1,86 @@
+<section>
+	<title>Value</title>
+
+	<quote by="Value Stream - ScrumPLOP" href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">... starting in The Mist, you are seeking ways to create Value, where value is defined as something of worth to some person or set of people whom we wish to serve.</quote>
+
+	<p>Why do we write programs in the first place?</p>
+
+	<p>Obviously we want to provide <ix>value</ix> to people, not waste. This is why <ix>value</ix> is so important, it helps us ground in search for solutions. It helps us understand why we are doing things in the first place. If you are not creating something of <ix>value</ix> then you are creating waste.</p>
+
+	<section>
+		<title>Valuable</title>
+
+		<p>To understand <ix>value</ix> we must first understand why do we call things <ix>valuable</ix>.</p>
+
+		<p>In the simplest terms when <c>X</c> is <ix>valuable</ix> to someone <c>Y</c> it means, that <c>X</c> has importance to <c>Y</c>, it can bring benefit to <c>Y</c> in some way.</p>
+
+		<p>This is not rocket science:
+			<ul>
+				<li>the internet is valuable because it can connect people to information with very little cost,</li>
+				<li>a keyboard is valuable because it allows to interact with the computer and</li>
+				<li>an text editor is valuable because it allows to modify and adjust text with ease.</li>
+			</ul>
+		</p>
+
+		<p>We know and feel when something is valuable to us and we can emphatize when something is valuable to someone else. We should embrace this inner feeling and let it guide us.</p>
+	</section>
+
+	<section>
+		<title>The Context</title>
+
+		<p>However, understanding <ix>value</ix> is not that easy. We must always bear in mind that the <ix>value</ix> something possesses is deeply tied in the context where it exists.</p>
+
+		<ul>
+			<li>If there isn't information on the internet, then it's not as valuable.</li>
+			<li>If there is no computer for the keyboard, then the keyboard is not useful.</li>
+			<li>If you have nothing to write, then a text editor is not valuable.</li>
+		</ul>
+
+		<p>This is all common sense, but these examinations help us examine more important questions. Let's take something more difficult.</p>
+
+		<p><i>Does 'logging in to a system' have value?</i> First reaction would be to say, <i>"Yes, of course it does.?"</i> But, have you ever said, <i>"I got so much value from logging in to the system?"</i> I doubt it. Should we conclude that <i>"No, of course logins have no value, they are only an annoyance?"</i></p>
+
+		<p>As you may have already guessed, neither answer is correct. The goal of "logging in" is to protect <ix>value</ix>, rather than to be of <ix>value</ix>. If there is no login screen for a system that you don't use, then it is not of importance to you. When it's a online bank login, the login is as valuable to you, as how much money you have on your accounts. For the banks the login system is very important, although it may not be of any value.</p>
+
+		<p>It's not as simple as <i>"Does login have value?"</i>, the <ix>value</ix> of something will be deeply tied to where it happens.</p>
+	</section>
+
+	<section>
+		<title>Evaluator</title>
+
+		<p>You should also have noticed that the value will also depend on who is doing the evaluating. We have to keep in mind that there is always a evaluator when looking at value.</p>
+
+		<p>When creating value we should always look through the eyes of the person that we are creating the value for. And the person we provide value for can change. Let's say we are building a wooden-box.</p>
+
+		<p>In the simplest case we are providing value for the end-user. You make a wooden-box and the end-user uses it.</p>
+
+		<ul>
+			<li>We could provide value to some other person in your team. You cut few boards and give them to another person to assemble. The end-user really doesn't care about those boards, they are not valuable to him.</li>
+			<li>We could provide value to ourselves. I make a jig that allows me to cut boards faster and with less effort. Neither the person doing the assembly or end-user won't care about the jig.</li>
+			<li>All of these things help to provide value to the end-user. It is something that we must keep in our minds, value helps to create <ix>value</ix>.</li>
+		</ul>
+
+		<p>We shouldn't restrict our minds to creating "boxes", but rather see the bigger picture. How is the box valuable to the end-user, how will he use it. Does he hold very lightweight things there - this means we can make the box sides thinner and reduce waste. Does he use different things there, maybe we can add separators into the box.</p>
+
+		<p>Understanding what is created and why things are valuable to people is essential to making good decisions, in general.</p>
+	</section>
+
+	<section>
+		<title>Outside the box</title>
+
+		<p>We should have a bigger view and understand that we can get same value from multiple solutions. Engineering is about understanding those different solutions and deciding which is the most appropriate.</p>
+
+		<p>When we look at the "logging in to a system" case. If the data can be public, then we won't need a login. Are we only using it on our own computer, no login necessary. Are we only using it from within a intranet, no login necessary.</p>
+
+		<p>Look for multiple solutions, you can avoid a lot of work this way.</p>
+	</section>
+	<section>
+		<title>Decisions</title>
+
+		<p>Value will be at the core at our decision making, it helps to give us clarity why we are doing something and not doing something else. Always understand what the <ix>value</ix> is for the end-user, because there all the things built must come together.</p>
+
+		<p>All of this talk about <ix>value</ix> may seem fluffy, but we will soon put all this understanding to the test.</p>
+	</section>
+</section>
+
+

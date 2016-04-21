@@ -1,0 +1,211 @@
+<section>
+	<title>An Issue</title>
+	<p>Here is our first important question. <hypothetical>"What provides value in an Issue Tracker?"</hypothetical></p>
+
+	<p>We may notice the important pieces from the language used.
+		<ul>
+			<li>What are we working on?</li>
+			<li>I need to finish this issue.</li>
+			<li>I don't have good visibility on the issues.</li>
+		</ul>
+	</p>
+
+	<p>We may also get this information from a domain expert. In our case it is obvious, the most important thing is an <ix>issue</ix>.</p>
+
+	<p>Here we should think, why <ix>issue</ix> is important:
+		<ul>
+			<li>It shows what we are doing.</li>
+			<li>It shows what we have done.</li>
+			<li>It shows what we still need to do.</li>
+		</ul>
+	</p>
+
+	<p><ix>Issue</ix> is definitely a valuable part of Tracker hence we must capture it in code.</p>
+
+	<section>
+		<title>Contain it</title>
+		<vcs repo="https://github.com/loov/tracker/" sha="bd9af4dcda0207555204bad0addcd0ce4d0a61dc"></vcs>
+
+		<p>To ensure that we can capture <ix>issue</ix> and do not lose the knowledge about it's importance we should create a namespace for it. That way we make it significant and important. At the same time we create a locus of attention which allows to understand and examine the feature wholly and whether it is complete.</p>
+
+		<p>Of course, namespaces are not the only way to contain things - there are also packages, classes, functions, methods, constraints etc. What you use to contain will depend on how large, detailed or important the contained thing is.</p>
+
+		<p>It is better to start with a notch larger container than is needed, it is not difficult to make it smaller. However the reverse, moving from smaller container to larger, is usually more difficult.</p>
+
+		<p><ix>Issue</ix> is a very important concept, hence we start with a package <c>issue</c>. Our starting folder structure will be:
+			<filesystem>
+			/main.go #1#
+			/issue/
+			</filesystem></p>
+		<p>It is clear that at somepoint we will need <file at="1">main.go</file>, so we can add it now - although, when we add it doesn't matter.</p>
+	</section>
+
+	<section>
+		<title>Spike it</title>
+		<vcs repo="https://github.com/loov/tracker/" sha="9f47cfaaeadbaa999dc36fd238684151bb9bc6e4"></vcs>
+
+		<p>We should try to figure out what our <c>issue</c> contains. Create <file>issue/info.go</file> with:</p>
+		<code language="go" file="issue/info.go">
+		package issue
+
+		type ID int                     //#1#
+		type Status string              //#2#
+
+		const (
+			Created Status = "Created"  //#3#
+			Closed         = "Closed"
+		)
+
+		type Info struct {              //#4#
+			ID      ID
+			Caption string
+			Desc    string
+			Status  Status
+		}
+		</code>
+
+		<p>We must have an <c at="1">issue.ID</c> to uniquely identify an issue. Each issue usually has an <c at="2" at="3">issue.Status</c> associated with it. We need something to bring all the attributes together <c at="4">issue.Info</c>. Keep in mind we are sketching the code and are not committed to this structure. We are not looking perfection, but rather a global view how things will work together.</p>
+
+		<sidenote><p>Notice that I don't use long names such as <c>IssueStatus</c>, <c>IssueInfo</c> because the namespace for them already contains name <c>issue</c>. We should always leverage our namespace for naming. The full name for them are <c>issue.Status</c> and <c>issue.Info</c> which help to clarify.</p></sidenote>
+
+		<p>We also need some way to store and load those issues. The way we store and load
+		them can change, hence we should abstract this knowledge away. We create an
+		interface <c>issue.Manager</c> for it. We put it into <file>issue/manager.go</file>:
+			<code language="go" file="issue/manager.go">
+			package issue
+
+			type Manager interface {
+				Create(info Info) (ID, error)
+				Load(id ID) (Info, error)
+				Close(id ID) (error)
+				List() (issues []Info, error)
+			}
+			</code>
+		</p>
+
+		<p>To get a overview how we will use it, we write some usage code into <file>main.go</file></p>
+
+		<code language="go" file="main.go">
+		package main
+
+		import (
+			"fmt"
+
+			"github.com/loov/tracker/issue"
+		)
+
+		func check(err error) {
+			if err != nil {
+				panic(err)
+			}
+		}
+
+		func main() {
+			c manager issue.Manager
+
+			id, err := manager.Create(issue.Info{
+				Caption: "Hello",
+				Desc: "World",
+				Status: issue.Created,
+			})
+			check(err)
+
+			info, err := manager.Load(id)
+			check(err)
+
+			fmt.Println(info)
+
+			infos, err := manager.List()
+			check(err)
+			fmt.Println(infos)
+		}
+		</code>
+
+		<p>It doesn't matter in which order you create these pieces, sometimes it is easier to create the usage code first, other times it is easier to create the implementation first. The thing that does matter is that both exist to ensure that we have the implementation details right and that we can integerate it with rest of the code.</p>
+
+		<p>The usage code can also be sketched as a test, this depends on how the sketched code will be used, how it needs to integerate with the rest of the system and other factors.</p>
+	</section>
+
+	<section>
+		<title>Gradual stiffening</title>
+
+		<p>Notice that we actually don't have any runnable code yet, it's fine, because until now we were trying to grasp what we are implementing and that all the pieces work together as intended.</p>
+
+		<p>Now we will step-by-step start to flesh out the actual structure, until we have solid and good runnable code. We are in our beginning stages of our project so there really isn't much to worry about. We should skim over our code and notice anything that doesn't feel nice.</p>
+
+		<p>The first thing we may notice is <c>issue.Created</c>. What would <c>info.Status == issue.Created</c> mean? This suggests that we haven't captured the intent as well as we should have. Let's refine our sketch, <c>info.Status == issue.Open</c> sounds much better, hence we change <file>issue/info.go</file>:</p>
+
+		<code language="go" file="issue/info.go">
+		const (
+			Open Status = "Open"
+			Done        = "Done"
+		)
+		</code>
+
+		<p>In <file>main.go</file> the <c>manager</c> doesn't feel solid, it feels like a fuzzy concept
+		without specific meaning. There probably will be more things that need to "manage"
+		things. Is there a better name for it?</p>
+
+		<p>What does the <c>manager</c> do? <thought>"It manages and tracks issues."</thought> Here is a clue for a nicer name <c>Tracker</c>. We shall refine <file>issue/manager.go</file> into <file>issue/tracker.go</file> and change:
+			<code language="go" file="issue/tracker.go">
+			package issue
+
+			type Tracker interface {
+				Create(info Info) (ID, error)
+				Load(id ID) (Info, error)
+				Close(id ID) (error)
+				List() (issues []Info, error)
+			}
+			</code>
+		</p>
+
+		<p>We also do all the necessary adjustments to <file>main.go</file>. At the end of this we should have code that compiles however it's fine if it is not yet completely bug-free. We will do this in the next step, however gradual stiffening together with cleanup should be mixed it will always end with a final cleanup pass.</p>
+	</section>
+
+	<section>
+		<title>Cleanup</title>
+		<vcs repo="https://github.com/loov/tracker/" sha="56f7a0930c1715deeef9e1cf18924353d4968d44"></vcs>
+
+		<p>Now we have a good idea about the feature and how to put it into code, we shall go over and fill in all the missing details and ensure that we have comments and a few tests and are able to use it in some form.</p>
+
+		<p>Here we add a stub implementation for the tracker and then write some tests for the tracker.</p>
+
+		<p><b>Cleanup code</b> means now that you have figured out the sketch, you can go and trace over it with nice clean looking lines, using the ruler and delete all the messy bits.</p>
+
+		<p>The other thing what we want to do here is to make easier to understand and ensure whether the code really behaves as it should. In most cases you would want unit or behavior tests, but they are not the only way. You could also write property tests. Or write output that could be verified by hand, if the correct behavior is difficult to describe in code.</p>
+
+		<b>Few interesting bits while solidifying code. When you come across questions, mark them as such. For example while writing the tracker test case, I made a mistake while writing:
+			<code language="go" file="issue/tracker_test.go">
+				tracker.Close(id)
+				// ...
+				expect := Info{
+					ID:      id,
+					Caption: "Caption",
+					Desc:    "Desc",
+					Status:  Closed,     // <--- error, should be Done
+				}
+			</code>
+		</p>
+
+		<p>I mixed up two things: the method is called <c>Close</c> and the resulting status is <c>Done</c>. Because I made a mistake while writing this, it suggests to me that the code is not clear enough... but I'm not sure how to improve it. It probably isn't that important, so I'll mark it as a <b>TODO</b> and move on to other things:
+			<code language="go" file="issue/info.go">
+			const (
+				//TODO: should tracker.Create renamed to "Open", because status is Open
+				Open = Status("Open") // Open means that the issue needs to be worked on
+				//TODO: should "Done" be renamed to "Closed", because tracker has method Close
+				Done = Status("Done") // Done means that the issue is completed and delivered
+			)
+			</code>
+		</p>
+
+		<p>I could try to figure out this immediately, but I really don't think I have necessary information right now and I will probably find out the details while implementing other things.</p>
+	</section>
+
+	<section>
+		<title>Is it done?</title>
+
+		<p>Now we have captured something of value in code. It can't be used easily right now, but we have something that someone would like to use.</p>
+
+		<p>It might look that it was a really involved process that created only these few lines of code. In reality, it's pretty fluid and moves quite quickly. The only reason it looks involved is because I tried to write down everything I was thinking while writing the code.</p>
+	</section>
+</section>

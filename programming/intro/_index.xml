@@ -1,0 +1,10 @@
+<section>
+	<title>Intro</title>
+
+	<toc>
+		<include src="why.xml"></include>
+		<include src="premise.xml"></include>
+		<include src="value.xml"></include>
+		<include src="building.xml"></include>
+	</toc>
+</section>

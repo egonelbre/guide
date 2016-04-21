@@ -1,0 +1,175 @@
+<section>
+	<title>Server</title>
+	<vcs repo="https://github.com/loov/timeclock" sha="c420b57de35a12d2ce78c63cf24c030927bccb5b"></vcs>
+
+	<p>Now that we have represented the <c>Project</c> we should try to expose it. This means having a server and frontend.</p>
+
+	<p>For the server we shall go with the standard http library and for the frontend with plain-old-HTML. We should use JavaScript minimally in this project because the users are likely to have older browsers and this will make the implementation more likely to work on any platform.</p>
+
+	<section>
+		<title>Setup</title>
+
+		<p>I'm going with my usual server setup in <file>main.go</file>:
+			<code language="go" file="main.go">
+				package main
+
+				import (
+					"flag"
+					"net/http"
+					"os"
+				)
+
+				var (
+					addr = flag.String("listen", ":8000", "http server `address`") //#1#
+				)
+
+				func main() {
+					flag.Parse()
+
+					host, port := os.Getenv("HOST"), os.Getenv("PORT") //#2#
+					if host != "" || port != "" {
+						*addr = host + ":" + port
+					}
+
+					assets := http.FileServer(http.Dir("assets"))
+					http.Handle("/assets/", http.StripPrefix("/assets/", assets)) //#3#
+
+					http.HandleFunc("/", index) //#4#
+
+					log.Println("Starting server on", *addr)
+					http.ListenAndServe(*addr, nil)
+				}
+
+				func index(w http.ResponseWriter, r *http.Request) {
+					http.ServeFile(w, r, "index.html")
+				}
+			</code>
+		</p>
+
+		<p>We add <var at="1">addr</var> to allow configuring the listen address. We override <var at="2"></var> the configuration from environment variables - this way I can use <link href="https://github.com/codegangsta/gin">gin</link> to automatically recompile the server. We serve <var at="3">assets</var> for any static files, such as css. We show a simple <var at="4">index.html</var> page to see whether our server actually works as intended.</p>
+
+		<p><file>index.html</file> contains nothing special:
+		<code language="html" file="index.html"><![CDATA[
+			<!DOCTYPE html>
+			<html>
+			<head>
+				<meta charset="utf-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<title>Timeclock</title>
+				<link rel="stylesheet" href="/assets/css/main.css">
+			</head>
+			<body>
+				<h1>Timeclock</h1>
+			</body>
+			</html>
+		]]></code></p>
+
+		<p><file>main.css</file> contains a minimal html reset:
+		<code language="css">
+			* {
+				box-sizing: border-box;
+			}
+
+			body, html {
+				margin: 0;
+				padding: 0;
+				color: #333;
+
+				letter-spacing: 0.02em;
+
+				-ms-word-wrap: break-all;
+				word-wrap: break-word;
+				-webkit-font-smoothing: antialiased;
+			}
+		</code></p>
+
+		<p>The basic html/css setup might vary. You could use some standard css setup such as <link href="http://getskeleton.com/">skeleton.css</link> or <link href="http://getbootstrap.com/">bootstrap</link>, to speed up your workflow.</p>
+		<p>We test our server with <cmd>gin .</cmd> and see whether <c>localhost:3000</c> shows something.</p>
+	</section>
+
+	<section>
+		<title>Viewing project info</title>
+
+		<vcs repo="https://github.com/loov/timeclock" sha="4ef17bc635874534b6474f73384bcabb403bf9b2"></vcs>
+
+		<p>After we ensure that the server is working, we make the page show some mock project information. We convert server to use <c>html/template</c>.</p>
+
+		<p>We also add a function to handle any internal errors... note it should use minimally anything that we build. Otherwise, if we use a broken thing to display broken thing we might cause very severe errors.</p>
+
+		<code language="go" file="main.go"><![CDATA[
+			func internalError(w http.ResponseWriter, r *http.Request, err error) {
+				message := template.HTMLEscapeString(err.Error())
+				page := fmt.Sprintf(`
+			<!DOCTYPE html>
+			<html>
+			<head>
+				<meta charset="utf-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<title>Timeclock</title>
+				<link rel="stylesheet" href="/assets/css/main.css">
+			</head>
+			<body>
+				<div class="error">%s</div>
+			</body>
+			</html>
+			`, message)
+				w.WriteHeader(http.StatusInternalServerError)
+				w.Write([]byte(page))
+			}
+
+			func index(w http.ResponseWriter, r *http.Request) {
+				t, err := template.ParseFiles("index.html")
+				if err != nil {
+					log.Printf("error parsing template: %v", err)
+					internalError(w, r, err)
+					return
+				}
+
+				example := &project.Project{
+					Title:    "Alpha",
+					Customer: "ACME",
+					Pricing: project.Pricing{
+						Hours: 480,
+						Price: 1000,
+					},
+					Description: "Implement views",
+					Status:      project.InProgress,
+				}
+
+				err = t.Execute(w, example)
+				if err != nil {
+					log.Printf("error parsing template: %v", err)
+					internalError(w, r, err)
+					return
+				}
+			}
+		]]></code>
+
+		<p>We also adjust the <file>index.html</file> to use project information:
+			<code language="html"><![CDATA[
+				<div class="project">
+					<div class="title">{{.Title}}</div>
+					<table class="info" border="0">
+						<tr>
+							<td><b>Customer</b></td><td>{{.Customer}}</td>
+							<td class="description" rowspan="4">{{.Description}}</td>
+						</tr>
+						<tr><td><b>Status</b></td><td>{{.Status}}</td></tr>
+						<tr><td><b>Hours</b></td><td>{{.Pricing.Hours}}</td></tr>
+						<tr><td><b>Price</b></td><td>{{.Pricing.Price}}€</td></tr>
+					</table>
+				</div>
+			]]></code>
+		</p>
+
+		<p>We also made some adjustments to the .css to make it look nicer.</p>
+
+		<image src="images/project-info-00.png"><title>Project View 00</title></image>
+
+		<p>Then we add a way to view expenses:</p>
+
+		<image src="images/project-info-01.png"><title>Project View 01</title></image>
+
+		<p>Before proceeding we can ask users whether this is what they were looking for. This is so we can understand whether we are on the right track.</p>
+	</section>
+</section>

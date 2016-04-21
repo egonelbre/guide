@@ -1,0 +1,17 @@
+<section>
+	<title>Issue Tracker</title>
+
+	<p>Our first case study will be an <b>issue tracker</b>. Probably you have seen one and use one, that way it will be easy to discuss. The code for this project can be found at <link href="http://github.com/loov/tracker">github.com/loov/tracker</link>.</p>
+
+	<p>Since we already stated that <sym>value</sym> will be very dependent on the <sym>context</sym>. So, here is our facilitated situation:
+		<description>There is a company of 40 people and contains 8 teams. Some problems inside teams take too much time to solve and there is no proper visibility on the issues that the team must solve. When a issue moves from person to person and team to team there is no direct knowledge how much has been done.</description>
+	</p>
+
+	<p>Scrum suggests that a <link href="https://sites.google.com/a/scrumplop.org/published-patterns/product-organization-pattern-language/development-team">Development Team</link> must work as one unit instead of single individuals to achieve the best performance. Many issue trackers take the other approach, an issue is assigned to a specific person. Our goal will be to create an issue tracker that handles only teams.</p>
+
+	<p>Of course, you may not disagree with this goal, but nevertheless it serves as a good starting point for implementing something new. Going forward, there can be many decisons about value and importance that you may not agree with. It is fine to disagree with these points, they are there because we need some decision to go forward with the implementation.</p>
+
+	<toc>
+		<include src="an_issue.xml"></include>
+	</toc>
+</section>

@@ -1,0 +1,84 @@
+<section>
+	<title>First prototype</title>
+
+	<vcs repo="https://github.com/loov/timeclock" sha="3e1add335e723017366d5ff0e5c66dfab44a98a2"></vcs>
+
+	<p>In the previous chapter we created a sketch of data structures that we might need. Let us convert it into code.</p>
+
+	<p>Our first qestion should be: "What are the most valuable pieces from: <c>Resource</c>, <c>Customer</c>, <c>Worker</c>, <c>Project</c>, <c>Task</c>, <c>Expense</c>, <c>Comment</c>, <c>Attachment</c>?"</p>
+
+	<p>We should pick some of them that we can maintain in our heads at the same time. It should stay between 3-6. 1-2 items at a time can give you tunnel vision with regards to integrating different pieces. More than 6, it becomes impossible to keep all the pieces in your head together.</p>
+
+	<p>The main goal of the program is to track projects. So, I would pick <c>Project</c>, <c>Task</c>, <c>Resource</c> and <c>Expense</c> as our first iteration.</p>
+
+	<section>
+		<title>Project</title>
+
+		<p>We start with describing the project information:
+			<code language="go">
+				type Project struct {
+					Title       string
+					Customer    string //TODO: ref
+					Pricing     Pricing
+					Description string
+					Status      Status
+				}
+
+				type Status string
+
+				const (
+					Queued     Status = "Queued"
+					InProgress        = "In Progress"
+					Done              = "Done"
+					Delivered         = "Delivered"
+				)
+
+				//TODO: is there a better name for this?
+				type Pricing struct {
+					Hours float64
+					Price float64
+				}
+
+				type Task struct {
+					Title       string
+					Description string
+					Status      Status
+				}
+			</code>
+		</p>
+
+		<p>You may notice we have replaced proper references to other identifiers and items with a simple string. This helps us bootstrap things faster. That way we don't have to think about many things.</p>
+	</section>
+
+	<section>
+		<title>Resource</title>
+
+		<p>For the resource we try to write the minimal and guessing how some things should be represented:
+			<code>
+			type Resource struct {
+				Name string
+				Unit Unit
+				PPU  float64 // price per unit
+			}
+
+			type Expense struct {
+				Worker   string //TODO: ref
+				Date     time.Time
+				Resource Resource
+				Units    float64
+				Price    float64
+			}
+
+			type Unit string
+
+			const (
+				Litre = "l"
+				Grams = "g"
+				Piece = ""
+			)
+			</code>
+		</p>
+
+		<p>I was also thinking whether to separate <c>Resource</c> into a package or not. There might be some resource management needed and more complicated logic. If we need, we can always make one.</p>
+	</section>
+</section>

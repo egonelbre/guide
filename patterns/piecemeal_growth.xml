@@ -1,0 +1,25 @@
+<section>
+	<title>Piecemeal Growth</title>
+
+	<premise>Creating complex systems is difficult, if not impossible. Complex systems must be grown. There are many subtleties in how things interact, things that you forgot.</premise>
+	<therefore>Iteratively build up the system rather than designing everything upfront. Such systems will be more tolerant to change, because they were built by iterative change.</therefore>
+
+	<group title="Description">
+
+	</group>
+
+	<group title="Evaluation">
+	</group>
+
+	<group title="Building">
+
+	</group>
+
+	<group title="Notes">
+
+	</group>
+
+	<references>
+		<ref href="http://c2.com/cgi/wiki?PiecemealGrowth"></ref>
+	</references>
+</section>
