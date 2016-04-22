@@ -164,11 +164,11 @@
 
 		<p>We also made some adjustments to the .css to make it look nicer.</p>
 
-		<image src="images/project-info-00.png"><title>Project View 00</title></image>
+		<image src="images/project-info-00.png"><caption>Project View 00</caption></image>
 
 		<p>Then we add a way to view expenses:</p>
 
-		<image src="images/project-info-01.png"><title>Project View 01</title></image>
+		<image src="images/project-info-01.png"><caption>Project View 01</caption></image>
 
 		<p>Before proceeding we can ask users whether this is what they were looking for. This is so we can understand whether we are on the right track.</p>
 	</section>

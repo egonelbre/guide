@@ -1,76 +1,162 @@
+<html><head><title>A Guide to ...</title><link rel='stylesheet' href='assets/main.css'></head><body><section>
+	<h0>A Guide To Patterns</h0>
+	<figure><img class="book-title" src="assets/hiking.png"></figure>
 
-<html>
-<head>
-	<title>A Guide to ...</title>
-	<link rel="stylesheet" href="assets/main.css">
-</head>
-<body><section><h1>A Guide To Patterns</h1><p><figure><img src="assets/hiking.png" alt="" title=""></figure></p></section><section><h1>Introduction</h1></section><section><h1>The Overview</h1><section><h2>Strong Value</h2><blockquote><p>... starting in The Mist, you are seeking ways to create Value,
-where value is defined as something of worth to some person or set
-of people whom we wish to serve.</p><div class="quote"><p><a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream - ScrumPLoP</a></p></div></blockquote><div class="premise"><p>There are always a lot of things that could be done, but we can do very little.
-It is easy to get lost in the ideas, technical issues and technical debt.
-We must make choices in what we do and more importantly things that we won&#39;t do.</p></div><p>The intent of writing software is to create Value to people. Anything that is not
-of Value is waste.</p><div class="therefore"><p>Focus on creating Value and how it relates to all the stakeholders and its surroundings.
-Ensure that the Value is clear to everyone and fits together with other Values around it.</p></div><div class="separator">Description</div><p>With Value there are two important aspects that must be considered Context and the  Evaluator.</p><p>We cannot understand Value without the Context where it appears. Value is always
-connected to other things of Value. We cannot properly evaluate importance
-of something without being able to compare it with something else. Hence
-we must have a good understanding of the Value and how it relates to other
-things surrounding it.</p><div class="example"><p>A door is valuable when it is front of a house.
-A keyboard is valuable when it is connected to a computer.
-A web server is valuable when it serves content to a browser.</p></div><p>Value is not created for anyone, it is created for someone. We should keep in mind
-how the Value enhances and improves the life of the person using it.</p><div class="example"><p>Easy to use GUI interface provides more value to beginners, however it
-is slower to use for power-users. A command-line interface is often faster
-to use, when learned, but it is more difficult to learn.</p></div><p>Value of something is not a binary scale, there are subtle things that improve or
-diminish Value. There are also a lot of things that do not significantly add
-to the value.</p><div class="example"><p>A color blind palette choice can make the software easier to use for people with
-color deficieny, but is often overlooked. Never relying on only color to distinguish
-visual elements is even better.</p></div><div class="example"><p>When writing a prototype or learning, there is little value in good documentation,
-good naming conventions and tests. Hence when learning something, do not write
-comments or polish it, you can iterate quicker and learn more by skipping those
-activities.</p></div><p>There are a many things that can be valuable and it is easy to miss the less
-obvious parts. There are things directly related to code:</p><ul><li><a href="patterns/value/namespaces.md">Value in Namespaces</a> - we need to organize our structures</li></ul><p>to ensure that we have clear distinction between ideas.</p><ul><li><a href="patterns/value/objects.md">Value in Objects</a> - many of the things we write can be</li></ul><p>directly related to the world.</p><ul><li><a href="patterns/value/functions.md">Value in Functions</a> - pure functions provide a reliable and</li></ul><p>repeatable computations.</p><ul><li><a href="patterns/value/logic.md">Value in Logic</a> - describing logical relations between allows</li></ul><p>separating the intent from the way things are computeted.</p><ul><li><a href="patterns/value/interaction.md">Value in Interaction</a> - interaction between things can</li></ul><p>be just as important as the interacting things themselves.</p><ul><li><a href="patterns/value/libraries.md">Value in Libraries</a> - separating ideas into libraries creates</li></ul><p>a possibility for reuse.</p><ul><li><a href="patterns/value/platform.md">Value in Platform</a> - a good platform allows other things</li></ul><p>to be easier and simpler understand.</p><p>There are also things related to the Visuals:</p><ul><li><a href="patterns/value/ux.md">Value in User Experience</a> - a great experience leads to less</li></ul><p>frustration in people.</p><ul><li><a href="patterns/value/ui.md">Value in User Interface</a> - good interface pleases and guides</li></ul><p>people to making better choices.</p><div class="separator">Evaluation</div><p>To have Strong Value in your code you should understand:</p><ul><li>when it is being used -- in a rush, at work or at leisure time;
-where it is being used -- in office, on a bus or on a couch;
-how it is being used -- on a desktop computer, on a tablet or a TV;
-who is using it -- a power user, a color blind person, a blind person.
-how it relates to other Values around it, how they complement each other.</li></ul><div class="separator">Finding</div><p>There are several ways that can be used to find what is Valuable.</p><p>Good <a href="patterns/value/ux.md">User Experience</a> and <a href="patterns/value/ui.md">User Interface</a> show
-pieces that are valuable to the end-user. Hence by building the &#34;best&#34;
-user-interface you can find some of the strong values.</p><p>Domain Expert terminology and a Domain Expert can directly show what are
-the important pieces.</p><div class="separator">Building</div><p>When building Strong Values into your system, start from the strongest and
-iteratively work towards adding them. <a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream/greatest-value">1</a></p><p>You may not get the perfect separation into Value structures from the start,
-but over-time, since you started with the Strongest Value, they will be
-iterated the most.</p><div class="separator">Notes</div><p>The notion of Value very strongly correlates to the notion of Centers in
-Christopher Alexanders work. Similarly how centers are composed of other
-centers and how centers complement each others, so does Value. <a href="http://www.regismedina.com/articles/christopher-alexander-theory-of-incremental-design">2</a></p><div class="separator">References</div><ul><li><a href="http://www.leansoftwarearchitecture.com/">Lean Architecture</a> by James Coplien
-<a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream/greatest-value">Greatest Value</a> - ScrumPLOP
-<a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream</a> - ScrumPLOP
-<a href="http://www.natureoforder.com/summarybk1.htm">The Nature of Order: The Phenomenon of Life</a> by Christopher Alexander
-<a href="http://www.regismedina.com/articles/christopher-alexander-theory-of-incremental-design">Christopher Alexander - a theory of incremental design</a> by Regis Medina
-DDD by Eric Evans</li></ul></section><section><h2>Magic Number 4</h2><blockquote><p>The scientists of today think deeply instead of clearly.
-One must be sane to think clearly, but one can think deeply and be quite insane.</p><div class="quote"><p>Nikola Tesla</p></div></blockquote><div class="premise"><p>Whenever we are describing or explaining concepts there is a strict limit
-how much we can keep in our heads at once. However, if we use few things to
-explain things, then we increase the number of &#34;abstraction layers&#34;.</p></div><div class="therefore"><p>When describing an concept use 4±1 other ideas to explain it.</p></div><div class="separator">Rationale</div><p>People have a well known limit in their processing capabilities called magic number four.
-(https://en.wikipedia.org/wiki/Working_memory#Capacity) (http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2864034/).
-Anytime we exceed this limit then the explanation of the concept doesn&#39;t fit into our working memory.</p><p>Going the other way, using as few other ideas, doesn&#39;t work either. If we
-need in total 5 things to explain something, and we use 2 things to explain each
-thing. This in the best case would create two additional ideas or concepts.</p><p>DIAGRAMS</p><div class="separator">Evaluation</div><p>Counting <code>ideas</code> properly is difficult, but it is good principle to think about.
-Here the proof is in the pudding. If you cannot keep the ideas in your head,
-this means that you have exceeded the limit.</p><p>To test this, use Naked-CRC (link to Legacy Software) cards
-(or equivalent for your paradigm) to describe the behavior of the system to
-another programmer. Communicate the names/ideas verbally, but keep around a
-generic non-colored thing to represent them. If the programmer can explain
-afterwards, then it probably is below the average processing limit.</p><p>There&#39;s also a phone test, see whether you can explain your idea over
-the phone and properly carry it over. This requires the other person to hold
-all the ideas in their head.</p><div class="separator">Subtleties</div><p>This 4+-1 doesn&#39;t mean that you cannot have more than 5 lines in your method.
-Or that you cannot have more than 5 ideas in your method. The main thing we are
-concerned about is how many concepts does person have hold in their head to
-understand.</p><p>By limiting the number lines or ideas per function can do harm. One of such
-examples is a game loop (link to Carmack).</p><pre><code>while(!exited){
+	<toc title="Value">
+		<section>
+	<h1>Introduction</h1>
+
+</section>
+
+
+		<section>
+	<h1>Strong Value</h1>
+	<autoindex>
+		<ix>Value</ix>
+		<ix>Context</ix>
+		<ix>Evaluator</ix>
+	</autoindex>
+
+	<div class="quote"><div class="text">... starting in The Mist, you are seeking ways to create Value, where value is defined as something of worth to some person or set of people whom we wish to serve.</div><div class="by"><a href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream - ScrumPLOP</a></div></div>
+
+	<div class="premise">There is always a lot of things that could be done, but we can do very little. It is easy to get lost in the ideas, technical issues and technical debt. We must make choices in what we do and more importantly things that we won't do.</div>
+
+	<p>The intent of writing software is to create Value to people. Anything that is not of Value is waste.</p>
+
+	<div class="therefore">Focus on creating Value and how it relates to all the stakeholders and its surroundings. Ensure that the Value is clear to everyone and fits together with other Values around it.</div>
+
+	<group><div class="separator">Description</div>
+		<p>With Value there are two important a4spects that must be considered Context and the Evaluator.</p>
+
+		<p>We cannot understand Value without the Context where it appears. Value is always connected to other things of Value. We cannot properly evaluate importance of something without being able to compare it with something else. Hence we must have a good understanding of the Value and how it relates to other things surrounding it.</p>
+
+		<example>
+			<ul>
+				<li>A door is valuable when it is front of a house.</li>
+				<li>A keyboard is valuable when it is connected to a computer.</li>
+				<li>A web server is valuable when it serves content to a browser.</li>
+			</ul>
+		</example>
+
+		<p>Value is not created for anyone, it is created for someone. We should keep in mind how the Value enhances and improves the life of the person using it.</p>
+
+		<example>
+			<p>Easy to use GUI interface provides more value to beginners, however it is slower to use for power-users. A command-line interface is often faster to use, when learned, but it is more difficult to learn.</p>
+		</example>
+
+		<p>Value of something is not a binary scale, there are subtle things that improve or diminish Value. There are also a lot of things that do not significantly add to the value.</p>
+
+		<example>
+			<p>A color blind palette choice can make the software easier to use for people with color deficieny, but is often overlooked. Never relying on only color to distinguish visual elements is even better.</p>
+		</example>
+
+		<example>
+			<p>When writing a prototype or learning, there is little value in good documentation, good naming conventions and tests. Hence when learning something, do not write comments or polish it, you can iterate quicker and learn more by skipping those activities.</p>
+		</example>
+
+		<p>There are a many things that can be valuable and it is easy to miss the less
+		obvious parts. There are things directly related to code:
+			<ul>
+				<li><span class="link" src="value/namespaces.xml">Value in Namespaces</span> - we need to organize our structures to ensure that we have clear distinction between ideas.</li>
+				<li><span class="link" src="value/objects.xml">Value in Objects</span> - many of the things we write can be directly related to the world.</li>
+				<li><span class="link" src="value/functions.xml">Value in Functions</span> - pure functions provide a reliable and repeatable computations.</li>
+				<li><span class="link" src="value/logic.xml">Value in Logic</span> - describing logical relations between allows separating the intent from the way things are computeted.</li>
+				<li><span class="link" src="value/interaction.xml">Value in Interaction</span> - interaction between things can be just as important as the interacting things themselves.</li>
+				<li><span class="link" src="value/libraries.xml">Value in Libraries</span> - separating ideas into libraries creates a possibility for reuse.</li>
+				<li><span class="link" src="value/platform.xml">Value in Platform</span> - a good platform allows other things to be easier and simpler understand.</li>
+			</ul>
+		</p>
+
+		<p>There are also things related to the Visuals:
+			<ul>
+				<li><span class="link" src="value/ux.xml">Value in User Experience</span> - a great experience leads to less frustration in people.</li>
+				<li><span class="link" src="value/ui.xml">Value in User Interface</span> - good interface pleases and guides people to making better choices.</li>
+			</ul>
+		</p>
+	</group>
+
+	<group><div class="separator">Evaluation</div>
+		<p>To have Strong Value in your code you should understand:
+			<ul>
+				<li>when it is being used -- in a rush, at work or at leisure time;</li>
+				<li>where it is being used -- in office, on a bus or on a couch;</li>
+				<li>how it is being used -- on a desktop computer, on a tablet or a TV;</li>
+				<li>who is using it -- a power user, a color blind person, a blind person.</li>
+				<li>how it relates to other Values around it, how they complement each other.</li>
+			</ul>
+		</p>
+	</group>
+
+	<group><div class="separator">Building</div>
+		<p>There are several ways that can be used to find what is Valuable.</p>
+		<p>Good <span class="link" src="value/ux.xml">User Experience</span> and <span class="link" src="value/ui.md">User Interface</span> show pieces that are valuable to the end-user. Hence by building the "best" user-interface you can find some of the strong values.</p>
+		<p>Domain Expert terminology and a Domain Expert can directly show what are the important pieces.</p>
+		<p>When building Strong Values into your system, start from the strongest and iteratively work towards adding them.<ref href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream/greatest-value"></ref></p>
+		<p>You may not get the perfect separation into Value structures from the start, but over-time, since you started with the Strongest Value, they will be iterated the most.</p>
+	</group>
+
+	<group><div class="separator">Subtleties</div>
+	</group>
+
+	<group><div class="separator">Extremes</div>
+	</group>
+
+	<group><div class="separator">Notes</div>
+		<p>The notion of Value very strongly correlates to the notion of Centers in Christopher Alexanders work. Similarly how centers are composed of other centers and how centers complement each others, so does Value.<ref href="http://www.regismedina.com/articles/christopher-alexander-theory-of-incremental-design"></ref></p>
+	</group>
+
+	<references>
+		<ref href="http://www.leansoftwarearchitecture.com/">Lean Architecture by James Coplien</ref>
+		<ref href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream/greatest-value">Greatest Value - ScrumPLOP</ref>
+		<ref href="https://sites.google.com/a/scrumplop.org/published-patterns/value-stream">Value Stream - ScrumPLOP</ref>
+		<ref href="http://www.natureoforder.com/summarybk1.htm">The Nature of Order: The Phenomenon of Life by Christopher Alexander</ref>
+		<ref href="http://www.regismedina.com/articles/christopher-alexander-theory-of-incremental-design">Christopher Alexander - a theory of incremental design by Regis Medina</ref>
+		<ref>DDD by Eric Evans</ref>
+	</references>
+</section>
+		<section>
+	<h1>Magic Number 4</h1>
+
+	<div class="quote"><div class="text">The scientists of today think deeply instead of clearly. One must be sane to think clearly, but one can think deeply and be quite insane.</div><div class="by">Nikola Tesla</div></div>
+
+	<div class="premise">Whenever we are describing or explaining concepts there is a strict limit how much we can keep in our heads at once. However, if we use few things to explain things, then we increase the number of "abstraction layers".</div>
+
+	<div class="therefore">When describing an concept use 4±1 other ideas to explain it.</div>
+
+	<group><div class="separator">Description</div>
+		<p>People have a well known limit in their processing capabilities called magic number four.<ref href="https://en.wikipedia.org/wiki/Working_memory#Capacity"></ref><ref href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2864034/"></ref> Anytime we exceed this limit then the explanation of the concept doesn't fit into our working memory.</p>
+
+		<p>Going the other way, using as few other ideas, doesn't work either. If we need in total 5 things to explain something, and we use 2 things to explain each thing. This in the best case would create two additional ideas or concepts.</p>
+
+		<span class="todo">DIAGRAMS</span>
+	</group>
+
+	<group><div class="separator">Evaluation</div>
+		<p>Counting `ideas` properly is difficult, but it is good principle to think about. Here the proof is in the pudding. If you cannot keep the ideas in your head, this means that you have exceeded the limit.</p>
+
+		<p>To test this, use Naked-CRC cards<ref href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052"></ref> (or equivalent for your paradigm) to describe the behavior of the system to another programmer. Communicate the names/ideas verbally, but keep around a generic non-colored thing to represent them. If the programmer can explain afterwards, then it probably is below the average processing limit.</p>
+
+		<p>There's also a phone test, see whether you can explain your idea over the phone and properly carry it over. This requires the other person to hold all the ideas in their head.</p>
+	</group>
+
+
+	<group><div class="separator">Subtleties</div>
+		<p>This 4+-1 doesn't mean that you cannot have more than 5 lines in your method. Or that you cannot have more than 5 ideas in your method. The main thing we are concerned about is how many concepts does person have hold in their head to understand.</p>
+
+		<p>By limiting the number lines or ideas per function can do harm. One of such
+		examples is a game loop.<ref href="http://number-none.com/blow/john_carmack_on_inlined_code.html"></ref></p>
+
+		<figure><pre>while(!exited){
 	update mouse
 	update systems
 	update entities
 	draw entites
 	draw hud
 	blit to screen
-}</code></pre><pre><code>update(){
+}
+</pre></figure>
+
+		<figure><pre>update(){
 	update mouse
 	update systems
 	update entities
@@ -85,10 +171,15 @@ while(!exited){
 	update()
 	draw()
 	blit to screen
-}</code></pre><p>We have increased our LOC, without actually reducing the complexity. The first
-case is perfectly understandable, we need to keep in mind that we are in
-the <code>while</code> loop and any specific action we are doing.</p><p>Grouping and comments would have kept the game-loop more concise and easier
-to follow.</p><pre><code>while(!exited){
+}
+</pre></figure>
+
+		<p>We have increased our LOC, without actually reducing the complexity. The first case is perfectly understandable, we need to keep in mind that we are in the `while` loop and any specific action we are doing.</p>
+
+		<p>Grouping and comments would have kept the game-loop more concise and easier
+		to follow.</p>
+
+		<figure><pre>while(!exited){
 	{ // updating
 		update mouse
 		update systems
@@ -101,32 +192,193 @@ to follow.</p><pre><code>while(!exited){
 	{ // loop update
 		blit to screen
 	}
-}</code></pre><p>It should also be noted that when a single class, type or function has
-two ideas together wihout unifying idea, it should be counted as two ideas.</p><p>EXAMPLE NEEDED</p><div class="separator">Extremes</div><p>This doesn&#39;t mean there are cases where that this bounds shouldn&#39;t be broken.
-Sometimes the essential complexity of the idea requires multiple things.
-Sometimes it&#39;s not necessary to use more ideas.</p><p>Distributed algorithms can easily violate these rules, because you need to account
-for different kinds of failures and failovers. We can take (quorum) algorithm.
-In those cases human verification becomes difficult or near impossible.
-We can use program verification to prove properties of the system.
-Alternatively we can substitute them with easier to understand algorithms,
-such as Raft, that may not have as good properties, but we are less likely to
-make a mistake in it&#39;s implementation.</p><p>Now when you don&#39;t have 3 things to explain your idea, which can often be the
-case when implementing trivial things, there&#39;s not point in inventing new things
-to satisfy the constraint.</p><div class="separator">Notes</div><p>It should be noted that good programmers tend have a better skill in moving
-around these &#34;idea groupings&#34; (LINK CHRIS GRANGER), however, good algorists tend
-to be better at being able to hold more things in their head (TODO VERIFY).
-It&#39;s easy to see why, software development mostly requires creating, manipulating
-and making groups of ideas interact; alternatively figuring out why
-multiple groups of ideas do not interact properly. Whereas algorithms require
-clever manipulation of concurrent ideas.</p></section><section><h2>Structure Follows Value</h2><div class="premise"><p>If we lose contact with what Value we are creating we end-up building wrong
-things or changing ideas becomes difficult.</p></div><div class="therefore"><p>Therefore keep your built structures aligned with Value and your understanding
-of it. Let Value guide the structure.</p></div><div class="separator">Description</div><div class="separator">Evaluation</div><div class="separator">Building</div><div class="separator">Notes</div><div class="separator">References</div></section></section><section><h1>Building</h1><section><h2>Spiking</h2><div class="premise"><p>It&#39;s difficult to see the big picture when building things piece by piece.
-However thngs need to be built piece-by-piece.</p></div><div class="therefore"><p>Therefore create spikes that show roughly where other bigger pieces will be
-located and how they are structures. Make a &#34;pseudo&#34; implementation if needed.</p></div><div class="separator">Description</div><div class="separator">Evaluation</div><div class="separator">Building</div><div class="separator">Notes</div><div class="separator">References</div></section><section><h2>Gradual Stiffening</h2><div class="premise"><p>Creating complex systems is difficult, if not impossible. Complex systems
-must be grown. There are many subtleties in how things interact, things that
-you forgot.</p></div><div class="therefore"><p>Iteratively build up the system rather than designing everything upfront.
-Such systems will be more tolerant to change, because they were built by
-iterative change.</p></div><div class="separator">Description</div><div class="separator">Evaluation</div><div class="separator">Building</div><div class="separator">Notes</div><div class="separator">References</div></section><section><h2>Import Namespaces</h2></section><section><h2>DAG of Namespaces</h2><div class="premise"><p>Structures that contain big loops require knowing about the whole structure
-to understand it. However many systems require such circular referencing.</p></div><div class="therefore"><p>Ensure that there are no circular imports. If circular structures are required,
-keep them contained in a single namespace.</p></div><div class="separator">Description</div><div class="separator">Evaluation</div><p>When namespace X depends on Y, then by deleting X, without any further modification,
-Y should still be usable.</p><div class="separator">Building</div><div class="separator">Notes</div><div class="separator">References</div></section><section><h2>Organizational Folder</h2></section></section></body></html>
+}
+</pre></figure>
+
+		<p>It should also be noted that when a single class, type or function has two ideas together wihout unifying idea, it should be counted as two ideas.</p>
+
+		<div class="todo">EXAMPLES</div>
+	</group>
+
+	<group><div class="separator">Extremes</div>
+		<p>This doesn't mean there are cases where that this bounds shouldn't be broken. Sometimes the essential complexity of the idea requires multiple things. Sometimes it's not necessary to use more ideas.</p>
+
+		<p>Distributed algorithms can easily violate these rules, because you need to account for different kinds of failures and failovers. We can take (quorum) algorithm. In those cases human verification becomes difficult or near impossible. We can use program verification to prove properties of the system. Alternatively we can substitute them with easier to understand algorithms, such as Raft, that may not have as good properties, but we are less likely to make a mistake in it's implementation.</p>
+
+		<p>Now when you don't have 3 things to explain your idea, which can often be the case when implementing trivial things, there's not point in inventing new things to satisfy the constraint.</p>
+	</group>
+
+	<group><div class="separator">Building</div>
+
+	</group>
+
+	<group><div class="separator">Notes</div>
+		<p>It should be noted that good programmers tend have a better skill in moving
+		around these "idea groupings" <span class="todo">link Chris Granger</span>, however, good algorists tend
+		to be better at being able to hold more things in their head <span class="todo">verify</span>.
+		It's easy to see why, software development mostly requires creating, manipulating
+		and making groups of ideas interact; alternatively figuring out why
+		multiple groups of ideas do not interact properly. Whereas algorithms require
+		clever manipulation of concurrent ideas.</p>
+
+		<div class="todo">Similarities to Grady Booch in "Object Solutions"....</div>
+		<div class="todo">Cohesion in Structured Analysis and System Specification</div>
+		<div class="todo">http://vanderburg.org/blog/2011/01/31/cohesion.html</div>
+	</group>
+
+	<references>
+	</references>
+</section>
+		<section>
+	<h1>Structure Follows Value</h1>
+
+	<div class="premise">If we lose contact with what Value we are creating we end-up building wrong things or changing ideas becomes difficult.</div>
+	<div class="therefore">Therefore keep your built structures aligned with Value and your understanding of it. Let Value guide the structure.</div>
+
+	<group><div class="separator">Description</div>
+	</group>
+
+	<group><div class="separator">Evaluation</div>
+	</group>
+
+	<group><div class="separator">Subtleties</div>
+	</group>
+
+	<group><div class="separator">Extremes</div>
+	</group>
+
+	<group><div class="separator">Building</div>
+	</group>
+
+	<group><div class="separator">Notes</div>
+	</group>
+
+	<references>
+	</references>
+</section>
+
+		<section>
+	<h1>Piecemeal Growth</h1>
+
+	<div class="premise">Creating complex systems is difficult, if not impossible. Complex systems must be grown. There are many subtleties in how things interact, things that you forgot.</div>
+	<div class="therefore">Iteratively build up the system rather than designing everything upfront. Such systems will be more tolerant to change, because they were built by iterative change.</div>
+
+	<group><div class="separator">Description</div>
+
+	</group>
+
+	<group><div class="separator">Evaluation</div>
+	</group>
+
+	<group><div class="separator">Building</div>
+
+	</group>
+
+	<group><div class="separator">Notes</div>
+
+	</group>
+
+	<references>
+		<ref href="http://c2.com/cgi/wiki?PiecemealGrowth"></ref>
+	</references>
+</section>
+
+	</toc>
+
+	<toc title="Building">
+		<section>
+	<h1>Spiking</h1>
+
+	<div class="premise">It's difficult to see the big picture when building things piece by piece. However thngs need to be built piece-by-piece.</div>
+
+	<div class="therefore">Therefore create spikes that show roughly where other bigger pieces will be located and how they are structures. Make a "pseudo" implementation if needed.</div>
+
+	<group><div class="separator">Description</div>
+	</group>
+
+	<group><div class="separator">Evaluation</div>
+	</group>
+
+	<group><div class="separator">Building</div>
+	</group>
+
+	<group><div class="separator">Notes</div>
+	</group>
+
+	<references>
+	</references>
+</section>
+		<section>
+	<h1>Gradual stiffening</h1>
+
+	<div class="premise"></div>
+	<div class="therefore"></div>
+
+	<group><div class="separator">Description</div>
+
+	</group>
+
+	<group><div class="separator">Evaluation</div>
+	</group>
+
+	<group><div class="separator">Building</div>
+
+	</group>
+
+	<group><div class="separator">Notes</div>
+
+	</group>
+
+	<group><div class="separator">References</div>
+
+	</group>
+</section>
+		<section>
+	<h1>Import Namespaces</h1>
+
+	<div class="premise"></div>
+	<div class="therefore"></div>
+
+	<group><div class="separator">Description</div></group>
+
+	<group><div class="separator">Evaluation</div>
+	</group>
+
+	<group><div class="separator">Building</div>
+	</group>
+
+	<group><div class="separator">Notes</div>
+	</group>
+
+	<group><div class="separator">References</div>
+	</group>
+</section>
+
+		<section>
+	<h1>DAG of Namespaces</h1>
+
+	<div class="premise">Structures that contain big loops require knowing about the whole structure to understand it. However many systems require such circular referencing.</div>
+	<div class="therefore">Ensure that there are no circular imports. If circular structures are required, keep them contained in a single namespace.</div>
+
+	<group><div class="separator">Description</div>
+
+	</group>
+
+	<group><div class="separator">Evaluation</div>
+		<p>When namespace <c>X</c> depends on <c>Y</c>, then by deleting <c>X</c>, without any further modification, <c>Y</c> should still be usable.</p>
+	</group>
+
+	<group><div class="separator">Building</div>
+
+	</group>
+
+	<group><div class="separator">Notes</div>
+
+	</group>
+
+	<group><div class="separator">References</div>
+
+	</group>
+</section>
+	</toc>
+</section></body></html>

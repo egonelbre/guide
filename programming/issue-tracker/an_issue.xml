@@ -33,10 +33,10 @@
 		<p>It is better to start with a notch larger container than is needed, it is not difficult to make it smaller. However the reverse, moving from smaller container to larger, is usually more difficult.</p>
 
 		<p><ix>Issue</ix> is a very important concept, hence we start with a package <c>issue</c>. Our starting folder structure will be:
-			<filesystem>
+			<code>
 			/main.go #1#
 			/issue/
-			</filesystem></p>
+			</code></p>
 		<p>It is clear that at somepoint we will need <file at="1">main.go</file>, so we can add it now - although, when we add it doesn't matter.</p>
 	</section>
 
@@ -174,7 +174,7 @@
 
 		<p>The other thing what we want to do here is to make easier to understand and ensure whether the code really behaves as it should. In most cases you would want unit or behavior tests, but they are not the only way. You could also write property tests. Or write output that could be verified by hand, if the correct behavior is difficult to describe in code.</p>
 
-		<b>Few interesting bits while solidifying code. When you come across questions, mark them as such. For example while writing the tracker test case, I made a mistake while writing:
+		<p>Few interesting bits while solidifying code. When you come across questions, mark them as such. For example while writing the tracker test case, I made a mistake while writing:
 			<code language="go" file="issue/tracker_test.go">
 				tracker.Close(id)
 				// ...
@@ -182,7 +182,7 @@
 					ID:      id,
 					Caption: "Caption",
 					Desc:    "Desc",
-					Status:  Closed,     // <--- error, should be Done
+					Status:  Closed,     // compilation error, should be Done
 				}
 			</code>
 		</p>

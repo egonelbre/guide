@@ -1,19 +1,21 @@
 body {
-  padding: 48px;
-  font: 16px/1.5 Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-  color: #333;
-  font-weight: 300;
+	padding: 48px;
+	font: 16px/1.5 Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	color: #333;
+	font-weight: 300;
 
-  max-width: 700px;
-  margin: 0 auto;
+	max-width: 700px;
+	margin: 0 auto;
 
-  background: #fffff8;
+	background: #fffff8;
 
-  text-align: justify;
-  tab-size: 4;
+	text-align: justify;
+	tab-size: 4;
 }
 
-h1 {
+h0, h1 {
+	display: block;
+
 	font-size: 40px; font-weight: 800; color: #444;
 	margin-top: 1.5em;
 	margin-bottom: 1.5em;
@@ -41,18 +43,6 @@ h5 {
 	margin-top: 1.5em;
 }
 
-body      { counter-reset: h1-counter; }
-h1        { counter-increment: h1-counter; counter-reset: h2-counter; }
-h2        { counter-increment: h2-counter; counter-reset: h3-counter; }
-h3        { counter-increment: h3-counter; counter-reset: h4-counter;}
-h1:before { content: counter(h1-counter) ". "; }
-h2:before { content: counter(h1-counter) "." counter(h2-counter) ". "; }
-h3:before { content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) ". "; }
-h4:before { content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) ". "; }
-
-body > section:first-of-type  h1:before { content: ""; counter-reset: h1-counter; }
-body > section:first-of-type  h1        { counter-increment: none; }
-
 h1:before, h2:before, h3:before, h4:before {
 	font-size: 70%;
 	margin-right: 0.3em;
@@ -76,6 +66,13 @@ pre {
 	line-height: 1.2;
 	font-size: 14px;
 }
+
+c {
+	font-family: monospace;
+	background: #f0f0f0;
+	border-radius: 3px;
+}
+
 .callout {
 	display: inline-block;
 
@@ -95,8 +92,6 @@ pre {
 }
 
 blockquote {
-	margin: 3em auto;
-	max-width: 600px;
 }
 
 blockquote.epigraph > * {
@@ -119,12 +114,15 @@ blockquote.epigraph > * {
 }
 
 .quote {
+	margin: 1em auto;
+	max-width: 600px;
+
 	text-align: right;
 	font-style: italic;
 	font-weight: 800;
 	color: #333;
 }
-.quote a {
+.quote .by {
 	color: #333;
 	text-decoration: none;
 }
@@ -154,6 +152,10 @@ blockquote.epigraph > * {
 .separator {
 	border-bottom: 1px solid #ccc;
 	text-align: center;
+}
+
+.todo {
+	background: #faa;
 }
 
 a.sha {

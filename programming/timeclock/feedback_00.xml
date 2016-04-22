@@ -4,11 +4,11 @@
 	<p>After remotely showing the first prototype to a user, he gave some
 	feedback and sketched out some other views.</p>
 
-	<image src="images/feedback-00-worker-view.png"><title>Worker View</title></image>
-	<image src="images/feedback-00-worker-view.png"><title>Worker Project View</title></image>
-	<image src="images/feedback-00-customer-view.png"><title>Customer View</title></image>
-	<image src="images/feedback-00-customer-project-view.png"><title>Customer Project View</title></image>
-	<image src="images/feedback-00-customer-project-view.png"><title>Customer Project Date View</title></image>
+	<image src="images/feedback-00-worker-view.png"><caption>Worker View</caption></image>
+	<image src="images/feedback-00-worker-view.png"><caption>Worker Project View</caption></image>
+	<image src="images/feedback-00-customer-view.png"><caption>Customer View</caption></image>
+	<image src="images/feedback-00-customer-project-view.png"><caption>Customer Project View</caption></image>
+	<image src="images/feedback-00-customer-project-view.png"><caption>Customer Project Date View</caption></image>
 
 	<p>They also said that the "Project Date View" should contain a place for comments and discussion and that when the project has fixed pricing, then the <c>Customer</c> shouldn't be able to view how many hours workers worked.</p>
 
@@ -136,7 +136,7 @@
 				</code></p>
 
 			<p>Of course we need to update the project view to.</p>
-			<image src="images/project-info-02.png"><title>Project View</title></image>
+			<image src="images/project-info-02.png"><caption>Project View</caption></image>
 	</section>
 
 	<section>

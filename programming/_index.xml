@@ -2,9 +2,11 @@
 	<title>A Guide To Programming</title>
 	<image class="book-title" src="../assets/hiking.png"></image>
 
-	<include src="intro/_index.xml"></include>
-	<include src="issue-tracker/_index.xml"></include>
-	<include src="timeclock/_index.xml"></include>
-	<include src="spector/_index.xml"></include>
-	<include src="wiki/_index.xml"></include>
+	<toc>
+		<include src="intro/_index.xml"></include>
+		<include src="issue-tracker/_index.xml"></include>
+		<include src="timeclock/_index.xml"></include>
+		<include src="spector/_index.xml"></include>
+		<include src="wiki/_index.xml"></include>
+	</toc>
 </section>
