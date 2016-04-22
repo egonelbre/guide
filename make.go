@@ -202,6 +202,60 @@ func (context *Context) HandleCode(start xml.StartElement) error {
 	return err
 }
 
+func (context *Context) HandleTranscript(start xml.StartElement) error {
+	names := map[string]string{}
+
+	for _, attr := range start.Attr {
+		names[attr.Name.Local] = attr.Value
+	}
+
+	context.Encoder.WriteStart("div", attr("class", "transcript"))
+
+	for {
+		token, err := context.Decoder.Token()
+		if err != nil {
+			if err == io.EOF {
+				break
+			}
+			return err
+		}
+
+		if _, ended := token.(xml.EndElement); ended {
+			break
+		}
+
+		if start, ok := token.(xml.StartElement); ok {
+			if start.Name.Local == "wait" {
+				context.Encoder.WriteStart("div", attr("class", "wait"))
+				context.Encoder.WriteRaw("&nbsp;")
+				context.Decoder.Skip()
+				context.Encoder.WriteEnd("div")
+				continue
+			}
+
+			name := names[start.Name.Local]
+			context.Encoder.WriteStart("div", attr("class", "entry"))
+
+			context.Encoder.WriteStart("span", attr("class", "name"))
+			context.Encoder.WriteRaw(html.EscapeString(name))
+			context.Encoder.WriteEnd("span")
+
+			context.Encoder.WriteStart("span", attr("class", "message"))
+			err := context.Recurse()
+			context.Encoder.WriteEnd("span")
+
+			context.Encoder.WriteEnd("div")
+
+			if err != nil {
+				return err
+			}
+		}
+	}
+	context.Encoder.WriteEnd("div")
+
+	return nil
+}
+
 func (context *Context) Recurse() error {
 	for {
 		token, err := context.Decoder.Token()
@@ -249,6 +303,8 @@ func (context *Context) Handle(token xml.Token) error {
 			return context.HandleInclude(start)
 		case "group":
 			return context.HandleGroup(start)
+		case "transcript":
+			return context.HandleTranscript(start)
 		case "title":
 			return context.HandleTitle(start)
 		case "section":

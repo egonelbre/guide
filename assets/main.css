@@ -141,6 +141,24 @@ blockquote.epigraph > * {
 	color: #666;
 }
 
+.transcript {
+	background: #f0f0f0;
+	padding: 1em;
+}
+
+.transcript .name {
+	font-weight: bold;
+	margin-right: 0.5em;
+}
+
+.transcript .message {
+	font-style: italic;
+}
+
+.transcript .wait {
+	height: 1em;
+}
+
 .premise {
 	font-weight: bold;
 }
