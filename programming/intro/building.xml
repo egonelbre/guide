@@ -12,42 +12,41 @@
 
 		<p>We dedicated a lot of time explaining what value is and why it is important. To ensure that we actually build something of value, we need to understand the value it provides and how it provides it.</p>
 
-		<p>By dissecting and deconstructing value we are able to find boundaries that align with the problem domain.</p>
+		<p>By constructing and deconstructing structures that are based on direct value we can be more certain that the end-result reflects what is needed.</p>
 	</section>
 
 	<section>
 		<title>Spiking</title>
 
-		<p>To ensure that we get a good global view how things will interact we put up several spikes and imagine everything working together. This helps to iterate much faster on the larger view without being slowed down by techinical details.</p>
+		<p>To ensure that we get a good global view how things will interact we put up several spikes and imagine everything working together. This helps to iterate much faster on the larger whole without being slowed down by techinical details.</p>
 	</section>
 
 	<section>
 		<title>Gradual Stiffening</title>
 
-		<p>To accomodate all the issues that arises from integrating different pieces we gradually make the code more solid. This allows better detection on any problems that may arise.</p>
+		<p>To accomodate all the issues that arises from integrating different pieces we gradually make the code more solid. This allows better detection on any problems that may arise. It means that the pieces will fit together more easily when we don't try to do everything at onces.</p>
 	</section>
 
 	<section>
 		<title>Cleanup</title>
 
-		<p>This always happens in tandem with gradual stiffening and should be done to finish that everything is correct and in order.</p>
+		<p>This always happens in tandem with gradual stiffening and should be done to finish that everything is correct and in order. When developing we are bound to make mistakes or take-shortcuts. It's part of development to regularly keep our code clean and readable.</p>
 	</section>
 
 	<section>
 		<title>Putting them together</title>
 
-
-		<p>It might not be easy to comprehend this without practical examples, but the easiest way to understand is to imagine this with drawing.</p>
+		<p>It might not be easy to comprehend this without practical examples. Easiest way to understand this, is to compare this with drawing.</p>
 
 		<p><ul>
-			<li>You don't start drawing from the top-left corner and proceed to the right</li>
-			<li>side, and then the next line. First you figure out, what you are drawing</li>
+			<li>You don't start drawing from the top-left corner and proceed to the right side, and then the next line.</li>
+			<li>First you figure out, what and why you are drawing</li>
 			<li>and what are the things you are going to draw (structure follows value).</li>
 			<li>Then you do few rough sketches until you see that the drawing will work nicely (spiking).</li>
 			<li>Then you start to refine the sketches, then you draw properly with a pen (gradual stiffening).</li>
 			<li>Then you clean all the sketch lines and color it (cleanup).</li>
 		</ul></p>
 
-		<p>The basic pattern of programming is the same.</p>
+		<p>The process of programming is the same.</p>
 	</section>
 </section>

@@ -7,13 +7,12 @@
 		<include src="strong_value.xml"></include>
 		<include src="magic_4.xml"></include>
 		<include src="structure_follows_value.xml"></include>
+		<include src="strucutre_preserving_transformations.xml"></include>
 		<include src="piecemeal_growth.xml"></include>
 	</toc>
 
 	<toc title="Building">
 		<include src="spiking.xml"></include>
 		<include src="gradual_stiffening.xml"></include>
-		<include src="import_namespaces.xml"></include>
-		<include src="dag_of_namespaces.xml"></include>
 	</toc>
 </section>

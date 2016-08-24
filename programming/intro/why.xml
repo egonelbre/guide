@@ -10,9 +10,9 @@
 		<li>How do you ensure that the program architecture is beautiful?</li>
 	</ul></p>
 
-	<p>This book guides you through building several programs from start to deployment. It is meant to give insight how to incrementally develop architecture without big upfront investment. Hopefully, it will also provide some insight into the questions asked previously.</p>
+	<p>This book guides you through building several programs from start to deployment. It is meant to give insight how to grow architecture without big upfront investment. Hopefully, it will also provide some insight into the questions asked previously.</p>
 
-	<p>During programming it is very easy to get lost in all the small implementation details. Then again, when looking at the large picture, it is easy to miss small important details. These views must be balanced and treated equally, otherwise the code will suffer.</p>
+	<p>During programming it is very easy to get lost in all the small implementation details. Then again, when looking at the large picture, it is easy to miss small important details. These views must be balanced and treated equally, otherwise the end result will suffer.</p>
 
 	<p>This introduction will describe the general process and terminology that will be used throughout the book.</p>
 </section>

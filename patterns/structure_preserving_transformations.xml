@@ -1,0 +1,27 @@
+<section>
+	<title>Structure Preserving Transformations</title>
+
+	<premise>Building complicated software over a long time requires significant effort to keep things clean.</premise>
+	<therefore>Avoid big changes, but instead focus on very small modifications and changes that preserve structure and replace existing structures incrementally.</therefore>
+
+	<group title="Description">
+	</group>
+
+	<group title="Evaluation">
+	</group>
+
+	<group title="Building">
+	</group>
+
+	<group title="Subtleties">
+	</group>
+
+	<group title="Extremes">
+	</group>
+
+	<group title="Notes">
+	</group>
+
+	<references>
+	</references>
+</section>

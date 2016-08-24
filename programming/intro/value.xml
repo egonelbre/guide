@@ -68,19 +68,19 @@
 	<section>
 		<title>Outside the box</title>
 
-		<p>We should have a bigger view and understand that we can get same value from multiple solutions. Engineering is about understanding those different solutions and deciding which is the most appropriate.</p>
+		<p>We should have a bigger view and understand that we can get similar value from multiple solutions. Engineering is about understanding those different solutions and deciding which is the most appropriate.</p>
 
 		<p>When we look at the "logging in to a system" case. If the data can be public, then we won't need a login. Are we only using it on our own computer, no login necessary. Are we only using it from within a intranet, no login necessary.</p>
 
 		<p>Look for multiple solutions, you can avoid a lot of work this way.</p>
 	</section>
+
 	<section>
 		<title>Decisions</title>
 
-		<p>Value will be at the core at our decision making, it helps to give us clarity why we are doing something and not doing something else. Always understand what the <ix>value</ix> is for the end-user, because there all the things built must come together.</p>
+		<p>Value will be at the core at our decision making, it helps to give us clarity why we are doing something and not doing something else. Always understand what the <ix>value</ix> is for the end-user, because eventually all the things must come together and form a coherent whole.</p>
 
 		<p>All of this talk about <ix>value</ix> may seem fluffy, but we will soon put all this understanding to the test.</p>
 	</section>
 </section>
-
 

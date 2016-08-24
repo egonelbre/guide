@@ -1,8 +1,8 @@
 <section>
 	<title>Gradual stiffening</title>
 
-	<premise></premise>
-	<therefore></therefore>
+	<premise>Software often needs to relax several sides to accomodate different concerns, such as testing, logging, usability.</premise>
+	<therefore>Therefore gradually grow the structure in multiple places to ensure that code looks good from all sides.</therefore>
 
 	<group title="Description">
 

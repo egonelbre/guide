@@ -2,8 +2,29 @@
 	<title>A Guide to Coding</title>
 	<image class="book-title" src="../assets/hiking.png"></image>
 
-	<section><title>Learning</title></section>
-	<section><title>Problem Solving</title></section>
-	<section><title>Solving Learning</title></section>
-	<section><title>Computational Model</title></section>
+	<toc>
+		<include src="intro.xml"></include>
+
+		<include src="learning.xml"></include>
+		<include src="problem_solving.xml"></include>
+		<include src="solving_learning.xml"></include>
+
+		<include src="communicating_with_the_computer.xml"></include>
+		<include src="meaning_of_things.xml"></include>
+		<include src="making_things_concrete.xml"></include>
+		<include src="programs_do_what_they_do.xml"></include>
+		<include src="reaching_the_goal.xml"></include>
+		<include src="limits.xml"></include>
+		<include src="leading_questions.xml"></include>
+
+		<include src="reading.xml"></include>
+		<include src="writing.xml"></include>
+		<include src="feedback.xml"></include>
+
+		<include src="algorithmics.xml"></include>
+		<include src="concurrency.xml"></include>
+		<include src="metal.xml"></include>
+
+		<include src="world_of_tradeoffs.xml"></include>
+	</toc>
 </section>

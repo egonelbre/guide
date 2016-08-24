@@ -1,8 +1,8 @@
 <section>
 	<title>DAG of Namespaces</title>
 
-	<premise>Structures that contain big loops require knowing about the whole structure to understand it. However many systems require such circular referencing.</premise>
-	<therefore>Ensure that there are no circular imports. If circular structures are required, keep them contained in a single namespace.</therefore>
+	<premise>Structures that contain big loops require knowing about the whole structure to understand it.</premise>
+	<therefore>Therefore avoid circular imports.</therefore>
 
 	<group title="Description">
 
@@ -10,6 +10,12 @@
 
 	<group title="Evaluation">
 		<p>When namespace <c>X</c> depends on <c>Y</c>, then by deleting <c>X</c>, without any further modification, <c>Y</c> should still be usable.</p>
+	</group>
+
+	<group title="Extremes">
+		<p>However many systems require such circular referencing. There are few workarounds for it:</p>
+		<p>Use interfaces to break the cycle.</p>
+		<p>Merge the packages into a single package, if they closely depend on each other then they probably need to change together.</p>
 	</group>
 
 	<group title="Building">

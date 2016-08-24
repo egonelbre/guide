@@ -1,8 +1,8 @@
 <section>
 	<title>Import Namespaces</title>
 
-	<premise></premise>
-	<therefore></therefore>
+	<premise>Depending on single types in a namespace is rare or less useful.</premise>
+	<therefore>Depend and import namespace that works as a whole.</therefore>
 
 	<group title="Description"></group>
 

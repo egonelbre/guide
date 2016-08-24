@@ -30,14 +30,12 @@
 
 		<p>Of course, namespaces are not the only way to contain things - there are also packages, classes, functions, methods, constraints etc. What you use to contain will depend on how large, detailed or important the contained thing is.</p>
 
-		<p>It is better to start with a notch larger container than is needed, it is not difficult to make it smaller. However the reverse, moving from smaller container to larger, is usually more difficult.</p>
-
-		<p><ix>Issue</ix> is a very important concept, hence we start with a package <c>issue</c>. Our starting folder structure will be:
+		<p><ix>Issue</ix> is a very important concept, hence we start with a package <c>issue</c>. Our starting file-tree will be:
 			<code>
 			/main.go #1#
 			/issue/
 			</code></p>
-		<p>It is clear that at somepoint we will need <file at="1">main.go</file>, so we can add it now - although, when we add it doesn't matter.</p>
+		<p>It is clear that at somepoint we will need <file at="1">main.go</file>, so we can add it now - although, when we add it, doesn't matter.</p>
 	</section>
 
 	<section>
@@ -66,11 +64,9 @@
 
 		<p>We must have an <c at="1">issue.ID</c> to uniquely identify an issue. Each issue usually has an <c at="2" at="3">issue.Status</c> associated with it. We need something to bring all the attributes together <c at="4">issue.Info</c>. Keep in mind we are sketching the code and are not committed to this structure. We are not looking perfection, but rather a global view how things will work together.</p>
 
-		<sidenote><p>Notice that I don't use long names such as <c>IssueStatus</c>, <c>IssueInfo</c> because the namespace for them already contains name <c>issue</c>. We should always leverage our namespace for naming. The full name for them are <c>issue.Status</c> and <c>issue.Info</c> which help to clarify.</p></sidenote>
+		<sidenote><p>Notice, that I don't use long names such as <c>IssueStatus</c>, <c>IssueInfo</c> because the namespace for them already contains name <c>issue</c>. We should leverage and know our tools, this knowledge makes our code easier to read.</p></sidenote>
 
-		<p>We also need some way to store and load those issues. The way we store and load
-		them can change, hence we should abstract this knowledge away. We create an
-		interface <c>issue.Manager</c> for it. We put it into <file>issue/manager.go</file>:
+		<p>We also need some way to store and load those issues. The way we store and load them can change, hence we should abstract this knowledge away. We create an interface <c>issue.Manager</c> for it. We put it into <file>issue/manager.go</file>:
 			<code language="go" file="issue/manager.go">
 			package issue
 
@@ -123,7 +119,7 @@
 
 		<p>It doesn't matter in which order you create these pieces, sometimes it is easier to create the usage code first, other times it is easier to create the implementation first. The thing that does matter is that both exist to ensure that we have the implementation details right and that we can integerate it with rest of the code.</p>
 
-		<p>The usage code can also be sketched as a test, this depends on how the sketched code will be used, how it needs to integerate with the rest of the system and other factors.</p>
+		<p>The usage code can also be sketched as a test, this depends on how the sketched code will be used, how it needs to be integerated with the rest of the system and other factors.</p>
 	</section>
 
 	<section>
@@ -142,9 +138,7 @@
 		)
 		</code>
 
-		<p>In <file>main.go</file> the <c>manager</c> doesn't feel solid, it feels like a fuzzy concept
-		without specific meaning. There probably will be more things that need to "manage"
-		things. Is there a better name for it?</p>
+		<p>In <file>main.go</file> the <c>manager</c> doesn't feel solid, it feels like a fuzzy concept without specific meaning. There probably will be more things that need to "manage" things. Is there a better name for it?</p>
 
 		<p>What does the <c>manager</c> do? <thought>"It manages and tracks issues."</thought> Here is a clue for a nicer name <c>Tracker</c>. We shall refine <file>issue/manager.go</file> into <file>issue/tracker.go</file> and change:
 			<code language="go" file="issue/tracker.go">
@@ -159,7 +153,9 @@
 			</code>
 		</p>
 
-		<p>We also do all the necessary adjustments to <file>main.go</file>. At the end of this we should have code that compiles however it's fine if it is not yet completely bug-free. We will do this in the next step, however gradual stiffening together with cleanup should be mixed it will always end with a final cleanup pass.</p>
+		<p>Building a clear and informative language and terms significantly helps readability.</p>
+
+		<p>We also do all the necessary adjustments to <file>main.go</file>. At the end of this we should have code that compiles however it's fine if it is not yet completely bug-free. We will do this in the next step. In practice gradual-stiffening and cleanup go hand-in-hand, for now it's clearer to show them being separate.</p>
 	</section>
 
 	<section>
